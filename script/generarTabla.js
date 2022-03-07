@@ -24,40 +24,46 @@ function generarTabla (tamaño) {
     const $tabla = document.createElement('table');
     switch (tamaño) {
         case 1:
-            ancho = 20;
-            alto = 20;
+            ancho = 21;
+            alto = 21;
             break;
         case 2:
-            ancho = 20;
-            alto = 60;
+            ancho = 21;
+            alto = 61;
             break;
         case 3:
-            ancho = 60;
-            alto = 60;
+            ancho = 61;
+            alto = 61;
             break;
         case 4:
-            ancho = 60;
-            alto = 80;
+            ancho = 61;
+            alto = 81;
             break;
         case 5:
-            ancho = 80;
-            alto = 80;
+            ancho = 81;
+            alto = 81;
             break;
     
         default:
             alert('Ha romper los programas de los demás a tu maldita casa')
             break;
     }
-    $divTabla.appendChild($tabla)
-    for (i = 0; i <= alto; i++) {
+    $divTabla.appendChild($tabla);
+    for (let i = 0; i <= alto; i++) {
         const $fila = document.createElement('tr')
-        for (j = 0; j <= ancho; j++) {
+        for (let j = 0; j <= ancho; j++) {
             const $celda = document.createElement('td');
-            $celda.setAttribute('id',`${ancho}${alto}`)
+            $celda.setAttribute('id',`${j}  ${i}`)
             $fila.appendChild($celda)
         }
         $tabla.appendChild($fila)
     }
     $divTabla.style.display = 'block';
     document.getElementById('Ajustes').style.display = 'none';
+    movimiento(ancho,alto)
 }
+
+
+// ArrowDown generarTabla.js:100:13
+// ArrowLeft generarTabla.js:100:13
+// ArrowRight

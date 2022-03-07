@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="">
+    <title>Sanke</title>
+</head>
+<body>
+    <div id="Ajustes">
+        <abbr title="Valores entre 1 y 5"><label for="tamaño">Tamaño</label></abbr><br>
+        <input type="number" name="tamaño" id="tamaño" step="1" min="1" max="5" value="1"><br>
+        <abbr title="Valores entre 1 y 3"><label for="velocidad">Velocidad</label></abbr><br>
+        <input type="number" name="velocidad" id="velocidad" min="1" max="3" step="1" value="1"><br>
+        <button onclick="comprobacionDatos()">Jugar</button>
+    </div>
+    <div id="juego">
+        <div id="tabla_movimiento"></div>
+        <div id="imagenesMov">
+            <div id="arribaAbajo">
+
+            </div>
+            <div id="izquierdaDerecha">
+
+            </div>
+        </div>
+    </div>
+    <script src="./script/generarTabla.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+table {
+    border: 5px solid rgb(0, 0, 0);
+    height: 50em;
+    width: 50em;
+    border-collapse:collapse;
+}
+td {
+    border: 1px solid black;
+    border-collapse:collapse;
+    height: 5px;
+    width: 5px;
+}
+tr {
+    border-collapse:collapse;
+    height: 5px;
+    width: 5px;
+}
+#ajustes {
+    display: block;
+}
+#tabla_movimiento {
+    display: none;
+}

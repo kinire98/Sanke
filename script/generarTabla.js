@@ -1,7 +1,6 @@
 const comprobacionDatos = () => {
  let tamaño = parseInt(document.getElementById('tamaño').value)
  let velocidad = parseInt(document.getElementById('velocidad').value)
- console.log(tamaño,velocidad)
  if (!tamaño || !velocidad) {
      alert ('Introduce un tamaño y una velocidad o pon un dato numérico')
  } else if ((tamaño%1 != 0) || (velocidad%1 != 0)) {

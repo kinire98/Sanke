@@ -3,11 +3,11 @@ let intervalo = () => {
     let velocidad = parseInt(document.getElementById('velocidad').value)
 
     if (velocidad == 1) {
-        return 250
+        return 125
     } else if (velocidad == 2) {
-        return 175;
+        return 100;
     } else if (velocidad==3) {
-        return 100
+        return 75
     } else if (velocidad==4) {
         return 50
     } else {
@@ -15,8 +15,9 @@ let intervalo = () => {
     }
 }
 function movimiento (ancho,alto) {
-    let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}]
-    let manzana = ponerMazana(ancho,alto,posicion)
+    let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}],
+        manzana = ponerMazana(ancho,alto,posicion),
+        seAcabo = 0;
     var movement = setInterval(() => { 
         let primerElemento = posicion[0]  
         if (posicion.length > 1) {
@@ -38,15 +39,36 @@ function movimiento (ancho,alto) {
         } else {
             posicion[0].ancho++;
         }
-        renderSerpitente(ancho,alto,posicion,manzana)
+        renderSerpitente(ancho,alto,posicion,manzana,seAcabo)
         if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) {
             posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
             manzana = ponerMazana(ancho,alto,posicion);
-            renderSerpitente(ancho,alto,posicion,manzana);
-        } else if((posicion [0].alto < 0 ||  posicion [0].alto > alto ||  posicion [0].ancho < 0 ||  posicion [0].ancho > ancho)) {
-            clearInterval(movement);
+            renderSerpitente(ancho,alto,posicion,manzana,seAcabo);
+        } else if(posicion[0].alto <= 0 ||  posicion[0].alto >= alto ||  posicion[0].ancho <= 0 ||  posicion[0].ancho >= ancho) {
+            setTimeout(() => {
+                if(
+                    (direccion == 'arriba' && posicion[0].alto <= 0)
+                ) {
+                    clearInterval(movement)
+                } 
+                if(
+                    (direccion == 'abajo' && posicion[0].alto >= alto)
+                ) {
+                    clearInterval(movement)
+                } 
+                if(
+                    (direccion == 'izquierda' && posicion[0].ancho <= 0)
+                ) {
+                    clearInterval(movement)
+                } 
+                if(
+                    (direccion == 'derecha' && posicion[0].ancho >= ancho)
+                ) {
+                    clearInterval(movement)
+                } 
+            }, intervalo());
         } else {
-            for (let i = 0; i <= posicion.length; i++) {
+            for (let i = 0; i <= posicion.length - 1; i++) {
                 if (
                     (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
                     ) {
@@ -83,18 +105,27 @@ addEventListener('keydown', () => {
     }
     
 })
-function renderSerpitente (ancho,alto,posicion,manzana) {
+function renderSerpitente (ancho,alto,posicion,manzana,seAcabo) {
     for (let j = 0; j <= ancho; j++) {
         for(let y = 0; y <= alto; y++) {
+            if(seAcabo) {
+                break;
+            }
             if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#65C18C';
             } else {
                 document.getElementById(`${j}  ${y}`).style.background = '#C1F4C5';
             }
         }
+        if(seAcabo) {
+            break;
+        }
     }
     document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#f00';
     for (let i = 0; i <= posicion.length - 1; i++) {
+        if(seAcabo) {
+            break;
+        }
             document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#000'
         }
 }

@@ -9,6 +9,11 @@ function ponerMazana (ancho,alto,posicion) {
     if ((x == posicion[posicion.length -1] [0])&&(y == posicion[posicion.length -1] [1])) {
         return ponerMazana (ancho,alto,posicion);
     } else {
+        for (let i = 0; i < posicion.length - 1; i++) {
+            if ((x == posicion[i].ancho) || (y == posicion[i].alto)) {
+                return ponerMazana (ancho,alto,posicion);
+            }
+        }
         return [x,y]
     }
 }

@@ -20,10 +20,13 @@ function movimiento (ancho,alto) {
     var movement = setInterval(() => { 
         let primerElemento = posicion[0]  
         if (posicion.length > 1) {
-            for (let i = posicion.length - 2; i >= 0; i--) {
-                posicion[i + 1].ancho = posicion[i].ancho;
-                posicion[i + 1].alto = posicion[i].alto;
-            }
+            setTimeout(() => {
+                for (let i = posicion.length - 2; i >= 0; i--) {
+                    posicion[i + 1].ancho = posicion[i].ancho;
+                    posicion[i + 1].alto = posicion[i].alto;
+                }
+            }, 0);
+                
         } 
         
         if (direccion == 'arriba') {
@@ -35,7 +38,7 @@ function movimiento (ancho,alto) {
         } else {
             posicion[0].ancho++;
         }
-        
+        renderSerpitente(ancho,alto,posicion,manzana)
         if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) {
             posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
             manzana = ponerMazana(ancho,alto,posicion);
@@ -44,13 +47,10 @@ function movimiento (ancho,alto) {
             clearInterval(movement);
         } else {
             for (let i = 0; i <= posicion.length; i++) {
-                console.log('se ejecuto')
                 if (
                     (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
                     ) {
                     clearInterval(movement);
-                } else {
-                    renderSerpitente(ancho,alto,posicion,manzana)
                 }
             }
         }

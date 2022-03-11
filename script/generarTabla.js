@@ -27,16 +27,16 @@ function generarTabla (tamaño) {
             alto = 21;
             break;
         case 2:
-            ancho = 21;
-            alto = 61;
+            ancho = 61;
+            alto = 21;
             break;
         case 3:
             ancho = 61;
             alto = 61;
             break;
         case 4:
-            ancho = 61;
-            alto = 81;
+            ancho = 81;
+            alto = 61;
             break;
         case 5:
             ancho = 81;
@@ -57,7 +57,25 @@ function generarTabla (tamaño) {
         }
         $tabla.appendChild($fila)
     }
+    switch (tamaño) {
+        case 1: case 3: case 5:
+            document.querySelector('table').style.width = '50em';
+            document.querySelector('table').style.height = '50em'
+            break;
+        case 2:
+            document.querySelector('table').style.width = '65em'
+            document.querySelector('table').style.height = '25.998em'
+            break;
+        case 4:
+            document.querySelector('table').style.width = '66em'
+            document.querySelector('table').style.height = '45em'
+            break;    
+        default:
+            alert('Ha romper los programas de los demás a tu maldita casa')
+            break;
+    }
     $divTabla.style.display = 'block';
+    document.getElementById('juego').style.display = 'block';
     document.getElementById('Ajustes').style.display = 'none';
     movimiento(ancho,alto)
 }

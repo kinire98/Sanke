@@ -43,28 +43,31 @@ function movimiento (ancho,alto) {
         if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) {
             posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
             manzana = ponerMazana(ancho,alto,posicion);
-            renderSerpitente(ancho,alto,posicion,manzana,seAcabo);
         } else if(posicion[0].alto <= 0 ||  posicion[0].alto >= alto ||  posicion[0].ancho <= 0 ||  posicion[0].ancho >= ancho) {
             setTimeout(() => {
                 if(
                     (direccion == 'arriba' && posicion[0].alto <= 0)
                 ) {
                     clearInterval(movement)
+                    seAcabo = 1;
                 } 
                 if(
                     (direccion == 'abajo' && posicion[0].alto >= alto)
                 ) {
                     clearInterval(movement)
+                    seAcabo = 1;
                 } 
                 if(
                     (direccion == 'izquierda' && posicion[0].ancho <= 0)
                 ) {
                     clearInterval(movement)
+                    seAcabo = 1;
                 } 
                 if(
                     (direccion == 'derecha' && posicion[0].ancho >= ancho)
                 ) {
                     clearInterval(movement)
+                    seAcabo = 1;
                 } 
             }, intervalo());
         } else {
@@ -73,6 +76,7 @@ function movimiento (ancho,alto) {
                     (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
                     ) {
                     clearInterval(movement);
+                    seAcabo = 1;
                 }
             }
         }
@@ -97,7 +101,7 @@ addEventListener('keydown', () => {
                 direccion = 'arriba';
                 break;
             case 'ArrowDown':
-                direccion = 'abajo'
+                direccion = 'abajo';
                 break;
             default:
                 break;
@@ -121,11 +125,32 @@ function renderSerpitente (ancho,alto,posicion,manzana,seAcabo) {
             break;
         }
     }
-    document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#f00';
+    if (!seAcabo) {
+        document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#f00';
+    }
     for (let i = 0; i <= posicion.length - 1; i++) {
         if(seAcabo) {
             break;
-        }
+        } else if (i == 0) {
+            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#0f0'
+        } else {
             document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#000'
         }
+        }
 }
+
+    setInterval(() => {
+        switch (direccion) {
+            case 'izquierda': case 'derecha' :
+                document.getElementById('izquierdaDerecha').style.display = 'none';
+                document.getElementById('arribaAbajo').style.display = 'block';
+                break;
+            case 'arriba': case 'abajo':
+                document.getElementById('izquierdaDerecha').style.display = 'block';
+                document.getElementById('arribaAbajo').style.display = 'none';
+                break;
+        
+            default:
+                break;
+        }
+    }, intervalo());

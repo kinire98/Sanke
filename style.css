@@ -25,6 +25,19 @@ tr {
     align-self: center;
     justify-content: center;
 }
-#tabla_movimiento {
+#juego {
     display: none;
+    position: relative;
+}
+#arribaAbajo,#izquierdaDerecha {
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    position: absolute;
+    top: 15%;
+    right: -50em;
+}
+.imagFlecha {
+    height: 50px;
+    width: 50px;
 }

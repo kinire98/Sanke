@@ -1,5 +1,8 @@
 body {
-    display: flex;
+    text-align: center;
+    position: relative;
+    padding-top: 20em;
+    padding-left: -5em;
 }
 table {
     border: 5px solid rgb(0, 0, 0);
@@ -19,10 +22,9 @@ tr {
     width: 5px;
 }
 #ajustes {
-    display: block;
-    margin-left: 15em;
-    align-items: center;
-    align-self: center;
+    position: absolute;
+    padding: 10em;
+    text-align: center;
     justify-content: center;
 }
 #juego {
@@ -37,7 +39,10 @@ tr {
     top: 15%;
     right: -50em;
 }
-.imagFlecha {
+.imgFlecha {
     height: 50px;
     width: 50px;
+}
+input {
+    text-align: center;
 }

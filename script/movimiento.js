@@ -82,8 +82,8 @@ function movimiento (ancho,alto) {
         }
     } ,intervalo());
 }
-addEventListener('keydown', () => {
-    let tecla = event.key;
+addEventListener('keydown', (e) => {
+    let tecla = e.key;
     if (direccion == 'arriba' || direccion == 'abajo') {
         switch (tecla) {
             case 'ArrowLeft':

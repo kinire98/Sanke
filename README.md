@@ -50,3 +50,4 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENS
 * I hope you enjoy this, as far as you can enjoy a browser rip-off of snake.
 * I you are wondering the name Sanke, came from a Typo, I liked the name and stayed like that
 * Again, I hope you enjoy this as much I enjoyed developing
+* __The english version of the code doesn't change the name of the variables and the IDs, cause it gives me more work than commenting well the code. I am going to do this so english-speaking people can understand well-enough my code.__ If you're asking why the code is in Spanish is because I'm from Spain ¿okay?, and the S isn't silent. To prove that I'm from Spain -> ññññññññññ

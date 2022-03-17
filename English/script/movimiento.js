@@ -106,7 +106,13 @@ function movimiento () {
                 }
             }
         }
-        
+        if (posicion.length == (ancho * alto)) {
+            clearInterval(movement);
+                    seAcabo = 1;
+                    removeEventListener('keydown',manejadorTeclas)
+                    console.clear()
+                    pantallaVictoria();
+        }
     } ,intervalo());
 }
 function manejadorTeclas (e)  {

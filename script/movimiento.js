@@ -1,23 +1,23 @@
-let direccion = 'arriba';
+let direccion = null;
 let intervalo = () => {
-    let velocidad = parseInt(document.getElementById('velocidad').value)
 
     if (velocidad == 1) {
-        return 125
-    } else if (velocidad == 2) {
         return 100;
+    } else if (velocidad == 2) {
+        return 75;
     } else if (velocidad==3) {
-        return 75
+        return 50;
     } else if (velocidad==4) {
-        return 50
+        return 25;
     } else {
-        return 25
+        return 12.5;
     }
 }
-function movimiento (ancho,alto) {
+function movimiento () {
     let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}],
-        manzana = ponerMazana(ancho,alto,posicion),
+        manzana = ponerMazana(posicion),
         seAcabo = 0;
+        document.getElementById('puntuacion').value = `${posicion.length} pts.`
     var movement = setInterval(() => { 
         let primerElemento = posicion[0]  
         if (posicion.length > 1) {
@@ -36,39 +36,62 @@ function movimiento (ancho,alto) {
             posicion[0].alto++;
         } else if (direccion == 'izquierda') {
             posicion[0].ancho--;
-        } else {
+        } else if (direccion == 'derecha'){
             posicion[0].ancho++;
         }
-        renderSerpitente(ancho,alto,posicion,manzana,seAcabo)
+        renderSerpitente(posicion,manzana,seAcabo)
         if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) {
             posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
-            manzana = ponerMazana(ancho,alto,posicion);
+            manzana = ponerMazana(posicion);
+            document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`
         } else if(posicion[0].alto <= 0 ||  posicion[0].alto >= alto ||  posicion[0].ancho <= 0 ||  posicion[0].ancho >= ancho) {
             setTimeout(() => {
-                if(
-                    (direccion == 'arriba' && posicion[0].alto <= 0)
+                if (
+                    (posicion[0].alto != 0 && posicion[0].ancho != 0) && (posicion[0].alto != 0 && posicion[0].ancho != ancho) && (posicion[0].alto != alto && posicion[0].ancho != 0) && (posicion[0].alto != alto && posicion[0].ancho != ancho)
                 ) {
+                    if(
+                        (direccion == 'arriba' && posicion[0].alto <= 0)
+                    ) {
+                        clearInterval(movement)
+                        seAcabo = 1;
+                        removeEventListener('keydown',manejadorTeclas)
+                        console.clear()
+                        pantallaGameOver();
+                    } 
+                    if(
+                        (direccion == 'abajo' && posicion[0].alto >= alto)
+                    ) {
+                        clearInterval(movement)
+                        seAcabo = 1;
+                        removeEventListener('keydown',manejadorTeclas)
+                        console.clear()
+                        pantallaGameOver();
+                    } 
+                    if(
+                        (direccion == 'izquierda' && posicion[0].ancho <= 0)
+                    ) {
+                        clearInterval(movement)
+                        seAcabo = 1;
+                        removeEventListener('keydown',manejadorTeclas)
+                        console.clear()
+                        pantallaGameOver();
+                    } 
+                    if(
+                        (direccion == 'derecha' && posicion[0].ancho >= ancho)
+                    ) {
+                        clearInterval(movement)
+                        seAcabo = 1;
+                        removeEventListener('keydown',manejadorTeclas)
+                        console.clear()
+                        pantallaGameOver();
+                    } 
+                } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){
                     clearInterval(movement)
                     seAcabo = 1;
-                } 
-                if(
-                    (direccion == 'abajo' && posicion[0].alto >= alto)
-                ) {
-                    clearInterval(movement)
-                    seAcabo = 1;
-                } 
-                if(
-                    (direccion == 'izquierda' && posicion[0].ancho <= 0)
-                ) {
-                    clearInterval(movement)
-                    seAcabo = 1;
-                } 
-                if(
-                    (direccion == 'derecha' && posicion[0].ancho >= ancho)
-                ) {
-                    clearInterval(movement)
-                    seAcabo = 1;
-                } 
+                    removeEventListener('keydown',manejadorTeclas)
+                    console.clear()
+                    pantallaGameOver();
+                }
             }, intervalo());
         } else {
             for (let i = 0; i <= posicion.length - 1; i++) {
@@ -77,46 +100,77 @@ function movimiento (ancho,alto) {
                     ) {
                     clearInterval(movement);
                     seAcabo = 1;
+                    removeEventListener('keydown',manejadorTeclas)
+                    console.clear()
+                    pantallaGameOver();
                 }
             }
         }
+        
     } ,intervalo());
 }
-addEventListener('keydown', (e) => {
+function manejadorTeclas (e)  {
     let tecla = e.key;
-    if (direccion == 'arriba' || direccion == 'abajo') {
+    console.log (tecla)
+    if (!direccion) {
         switch (tecla) {
             case 'ArrowLeft':
                 direccion ='izquierda';
+                document.getElementById('info').style.display = 'none'
                 break;
             case'ArrowRight':
                 direccion = 'derecha';
+                document.getElementById('info').style.display = 'none'
+                break;
+            case 'ArrowUp':
+                direccion = 'arriba';
+                document.getElementById('info').style.display = 'none'
+                break;
+            case 'ArrowDown':
+                direccion = 'abajo';
+                document.getElementById('info').style.display = 'none'
                 break;
             default:
                 break;
         }
     } else {
-        switch (tecla) {
-            case 'ArrowUp':
-                direccion = 'arriba';
-                break;
-            case 'ArrowDown':
-                direccion = 'abajo';
-                break;
-            default:
-                break;
+        if (direccion == 'arriba' || direccion == 'abajo') {
+            switch (tecla) {
+                case 'ArrowLeft':
+                    direccion ='izquierda';
+                    document.getElementById('info').style.display = 'none'
+                    break;
+                case'ArrowRight':
+                    direccion = 'derecha';
+                    document.getElementById('info').style.display = 'none'
+                    break;
+                default:
+                    break;
+            }
+        } else if (direccion == 'izquierda' || direccion == 'derecha') {
+            switch (tecla) {
+                case 'ArrowUp':
+                    direccion = 'arriba';
+                    document.getElementById('info').style.display = 'none'
+                    break;
+                case 'ArrowDown':
+                    direccion = 'abajo';
+                    document.getElementById('info').style.display = 'none'
+                    break;
+                default:
+                    break;
+            }
         }
     }
     
-})
-function renderSerpitente (ancho,alto,posicion,manzana,seAcabo) {
+}
+function renderSerpitente (posicion,manzana,seAcabo) {
     for (let j = 0; j <= ancho; j++) {
         for(let y = 0; y <= alto; y++) {
             if(seAcabo) {
                 break;
-            }
-            if ((y + j) %2 == 0){
-                document.getElementById(`${j}  ${y}`).style.background = '#65C18C';
+            } else if ((y + j) %2 == 0){
+                document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';
             } else {
                 document.getElementById(`${j}  ${y}`).style.background = '#C1F4C5';
             }
@@ -126,31 +180,18 @@ function renderSerpitente (ancho,alto,posicion,manzana,seAcabo) {
         }
     }
     if (!seAcabo) {
-        document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#f00';
+        document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#9B0000';
     }
     for (let i = 0; i <= posicion.length - 1; i++) {
+        if (!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){
+            break;
+        }
         if(seAcabo) {
             break;
         } else if (i == 0) {
-            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#0f0'
+            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#1b4332'
         } else {
-            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#000'
+            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#019267'
         }
         }
 }
-
-    setInterval(() => {
-        switch (direccion) {
-            case 'izquierda': case 'derecha' :
-                document.getElementById('izquierdaDerecha').style.display = 'none';
-                document.getElementById('arribaAbajo').style.display = 'block';
-                break;
-            case 'arriba': case 'abajo':
-                document.getElementById('izquierdaDerecha').style.display = 'block';
-                document.getElementById('arribaAbajo').style.display = 'none';
-                break;
-        
-            default:
-                break;
-        }
-    }, intervalo());

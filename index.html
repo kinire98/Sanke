@@ -10,35 +10,31 @@
 </head>
 <body>
     <div id="Ajustes">
-        <abbr title="Valores entre 1 y 5"><label for="tamaño">Tamaño</label></abbr><br>
-        <input type="number" name="tamaño" id="tamaño" step="1" min="1" max="5" value="1"><br>
-        <button>Pequeño</button>
-        <button>Mediano</button>
-        <button>Grande</button>
-        <button>Enorme</button>
-        <button>Gigante</button><br>
-        <abbr title="Valores entre 1 y 5"><label for="velocidad">Velocidad</label></abbr><br>
-        <button>Caracol</button>
-        <button>Tortuga</button>
-        <button>Usain Bolt</button>
-        <button>Guepardo</button>
-        <button>Flash</button><br>
-        <input type="number" name="velocidad" id="velocidad" min="1" max="5" step="1" value="1"><br>
-        <button onclick="comprobacionDatos()">Jugar</button>
+        <label for="tamaño" id="tamano">Tamaño</label><br><br><br>
+        <button id="11" class="boton">Pequeño</button>
+        <button id="12" class="boton">Mediano</button>
+        <button id="13" class="boton">Grande</button>
+        <button id="14" class="boton">Enorme</button>
+        <button id="15" class="boton">Gigante</button><br><br><br><br><br>
+        <label for="velocidad" id="velocidad">Velocidad</label><br><br><br>
+        <button id="21" class="boton">Caracol</button>
+        <button id="22" class="boton">Tortuga</button>
+        <button id="23" class="boton">Usain Bolt</button>
+        <button id="24" class="boton">Guepardo</button>
+        <button id="25" class="boton">Flash</button><br><br>
+        <button id="empezar">Jugar</button>
     </div>
     <div id="juego">
         <div id="tabla_movimiento"></div>
-        <div id="imagenesMov">
-            <div id="arribaAbajo">
-                <img src="./img/arriba_abajo.png" alt="" class="imgFlecha">
-            </div>
-            <div id="izquierdaDerecha">
-                <img src="./img/izquierda_derecha.png" alt="" class="imgFlecha">
-            </div>
+        <div id="info">Presiona cualquier flecha para comenzar</div>
+        <div id="marcadores">
+            <label id="label">Puntuación</label>
+            <input type="text" id="puntuacion" readonly>
         </div>
     </div>
     <script src="./script/generarTabla.js"></script>
     <script src="./script/movimiento.js"></script>
     <script src="./script/generarManzanas.js"></script>
+    <script src="./script/pantallaGameOver.js"></script>
 </body>
 </html>

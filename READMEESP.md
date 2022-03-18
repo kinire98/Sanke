@@ -35,7 +35,7 @@ Usé GIT. Siendo sincero, seguí comentando bloques de código. De todas formas,
 
 
 ## Licencia
-Este proyecto está licenciado bajo la LICENCIA PÚBLICA GENERAL GNU  - mira el archivo [LICENSE](LICENSE) para más detalles
+Este proyecto está licenciado bajo la LICENCIA PÚBLICA GENERAL GNU  - mira el archivo [LICENSE](LICENSE.md) para más detalles
 
 ## A tener en cuenta
 

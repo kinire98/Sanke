@@ -36,7 +36,7 @@ I used GIT. Being honest with you, I still used commenting out blocks of code. E
 
 ## License
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENSE](LICENSE.md) file for details
 
 ## To keep in Mind
 

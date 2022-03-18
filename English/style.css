@@ -56,7 +56,6 @@ input {
     font-size: 2em;
 }
 #puntuacion {
-    display: none;
     position: absolute;
     left: 30em;
     top: 15em;

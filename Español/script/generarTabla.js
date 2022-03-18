@@ -1,5 +1,5 @@
-const $boton = document.getElementById('empezar'),
-    $little = document.getElementById('11'),
+const $boton = document.getElementById('empezar'), //Todas estas constantes hacen referencia a los botones de la ventana de ajustes
+    $little = document.getElementById('11'),//Los IDs acutan como un sistema de coordenadas
     $medium = document.getElementById('12'),
     $big = document.getElementById('13'),
     $enormous = document.getElementById('14'),
@@ -10,19 +10,15 @@ const $boton = document.getElementById('empezar'),
     $cheeto = document.getElementById('24'),
     $flash = document.getElementById('25');
 
-let velocidad = 1,
+let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se utilizan en muchas partes del programa estas son variables globales, para que pasar parámetros no se convierta en un inconveniente y se aumenta aún más la comlejidad del programa
+//Se que no es lo mejor del mundo, pero se usan constantemente en varias funciones así que es mejor idea hacer las variables globales
     tamaño = 1,
     ancho,
     alto;
-function generarTabla () {
-    //Tamaño 1 ->20x20
-    //Tamaño 2 ->20x60
-    //Tamaño 3 ->60x60
-    //Tamaño 4 ->60x80
-    //Tamaño 5 ->80x80
-    const $divTabla = document.getElementById('tabla_movimiento');
+function generarTabla () {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
+    const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
     const $tabla = document.createElement('table');
-    switch (tamaño) {
+    switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
         case 1:
             ancho = 11;
             alto = 11;
@@ -45,163 +41,22 @@ function generarTabla () {
             break;
     
         default:
-            alert('Ha romper los programas de los demás a tu maldita casa')
+            alert('Ha romper los programas de los demás a tu maldita casa')//Un chiste de mierda, solo ignoradlo
             break;
     }
-    $divTabla.appendChild($tabla);
-    for (let i = 0; i <= alto; i++) {
-        const $fila = document.createElement('tr')
+    $divTabla.appendChild($tabla); //pone a la tabla como elemento hijo del div que la va a contener
+    for (let i = 0; i <= alto; i++) {//El primer bucle for representa las filas y el segundo las columnas
+        const $fila = document.createElement('tr')//Crea la fila
         for (let j = 0; j <= ancho; j++) {
-            const $celda = document.createElement('td');
-            $celda.setAttribute('id',`${j}  ${i}`)
-            $fila.appendChild($celda)
+            const $celda = document.createElement('td'); // Crea la celda de la tabla
+            $celda.setAttribute('id',`${j}  ${i}`) //Le da una id que representa sus coordenadas, con dos espacios por el medio para evitar conflictos entre una coordenada y otra
+            //No sé si lo de los espacios es necesario, pero lo hice por si acaso
+            $fila.appendChild($celda)//Pone la celda como elemento hijo de la fila
         }
-        $tabla.appendChild($fila)
+        $tabla.appendChild($fila)//y la fila como elemento hijo de la tabla
     }
-    $divTabla.style.display = 'block';
-    document.getElementById('juego').style.display = 'block';
-    document.getElementById('Ajustes').style.display = 'none';
-    document.getElementById('puntuacion').style.display = 'block'
-    movimiento()
-    addEventListener('keydown', manejadorTeclas)
+    document.getElementById('juego').style.display = 'block';//Muestra el div con los elementos del juegos
+    document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
+    movimiento()//Ejecuta la función del movimiento...
+    addEventListener('keydown', manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
 }
-$little.style.background = '#95d5b2';
-$little.style.color = '#1b4332';
-$snail.style.background = '#95d5b2';
-$snail.style.color = '#1b4332';
-$little.addEventListener('click',() => {
-    tamaño = 1;
-    $little.style.background = '#95d5b2';
-    $medium.style.background = '#1b4332';
-    $big.style.background = '#1b4332';
-    $enormous.style.background = '#1b4332';
-    $giant.style.background = '#1b4332';
-    $little.style.color = '#1b4332';
-    $medium.style.color = '#95d5b2';
-    $big.style.color = '#95d5b2';
-    $enormous.style.color = '#95d5b2';
-    $giant.style.color = '#95d5b2';
-})
-$medium.addEventListener('click',() => {
-    tamaño = 2;
-    $little.style.background = '#1b4332';
-    $medium.style.background = '#95d5b2';
-    $big.style.background = '#1b4332';
-    $enormous.style.background = '#1b4332';
-    $giant.style.background = '#1b4332';
-    $little.style.color = '#95d5b2';
-    $medium.style.color = '#1b4332';
-    $big.style.color = '#95d5b2';
-    $enormous.style.color = '#95d5b2';
-    $giant.style.color = '#95d5b2';
-})
-$big.addEventListener('click',() => {
-    tamaño = 3;
-    $little.style.background = '#1b4332';
-    $medium.style.background = '#1b4332';
-    $big.style.background = '#95d5b2';
-    $enormous.style.background = '#1b4332';
-    $giant.style.background = '#1b4332';
-    $little.style.color = '#95d5b2';
-    $medium.style.color = '#95d5b2';
-    $big.style.color = '#1b4332';
-    $enormous.style.color = '#95d5b2';
-    $giant.style.color = '#95d5b2';
-})
-$enormous.addEventListener('click',() => {
-    tamaño = 4;
-    $little.style.background = '#1b4332';
-    $medium.style.background = '#1b4332';
-    $big.style.background = '#1b4332';
-    $enormous.style.background = '#95d5b2';
-    $giant.style.background = '#1b4332';
-    $little.style.color = '#95d5b2';
-    $medium.style.color = '#95d5b2';
-    $big.style.color = '#95d5b2';
-    $enormous.style.color = '#1b4332';
-    $giant.style.color = '#95d5b2';
-})
-$giant.addEventListener('click',() => {
-    tamaño = 5;
-    $little.style.background = '#1b4332';
-    $medium.style.background = '#1b4332';
-    $big.style.background = '#1b4332';
-    $enormous.style.background = '#1b4332';
-    $giant.style.background = '#95d5b2';
-    $little.style.color = '#95d5b2';
-    $medium.style.color = '#95d5b2';
-    $big.style.color = '#95d5b2';
-    $enormous.style.color = '#95d5b2';
-    $giant.style.color = '#1b4332';
-})
-$snail.addEventListener('click',() => {
-    velocidad = 1;
-    $snail.style.background = '#95d5b2';
-    $turtle.style.background = '#1b4332';
-    $UsainBolt.style.background = '#1b4332';
-    $cheeto.style.background = '#1b4332';
-    $flash.style.background = '#1b4332';
-    $snail.style.color = '#1b4332';
-    $turtle.style.color = '#95d5b2';
-    $UsainBolt.style.color = '#95d5b2';
-    $cheeto.style.color = '#95d5b2';
-    $flash.style.color = '#95d5b2';
-})
-$turtle.addEventListener('click',() => {
-    velocidad = 2;
-    $snail.style.background = '#1b4332';
-    $turtle.style.background = '#95d5b2';
-    $UsainBolt.style.background = '#1b4332';
-    $cheeto.style.background = '#1b4332';
-    $flash.style.background = '#1b4332';
-    $snail.style.color = '#95d5b2';
-    $turtle.style.color = '#1b4332';
-    $UsainBolt.style.color = '#95d5b2';
-    $cheeto.style.color = '#95d5b2';
-    $flash.style.color = '#95d5b2';
-})
-$UsainBolt.addEventListener('click',() => {
-    velocidad = 3;
-    $snail.style.background = '#1b4332';
-    $turtle.style.background = '#1b4332';
-    $UsainBolt.style.background = '#95d5b2';
-    $cheeto.style.background = '#1b4332';
-    $flash.style.background = '#1b4332';
-    $snail.style.color = '#95d5b2';
-    $turtle.style.color = '#95d5b2';
-    $UsainBolt.style.color = '#1b4332';
-    $cheeto.style.color = '#95d5b2';
-    $flash.style.color = '#95d5b2';
-})
-$cheeto.addEventListener('click',() => {
-    velocidad = 4;
-    $snail.style.background = '#1b4332';
-    $turtle.style.background = '#1b4332';
-    $UsainBolt.style.background = '#1b4332';
-    $cheeto.style.background = '#95d5b2';
-    $flash.style.background = '#1b4332';
-    $snail.style.color = '#95d5b2';
-    $turtle.style.color = '#95d5b2';
-    $UsainBolt.style.color = '#95d5b2';
-    $cheeto.style.color = '#1b4332';
-    $flash.style.color = '#95d5b2';
-})
-$flash.addEventListener('click',() => {
-    velocidad = 4;
-    $snail.style.background = '#1b4332';
-    $turtle.style.background = '#1b4332';
-    $UsainBolt.style.background = '#1b4332';
-    $cheeto.style.background = '#1b4332';
-    $flash.style.background = '#95d5b2';
-    $snail.style.color = '#95d5b2';
-    $turtle.style.color = '#95d5b2';
-    $UsainBolt.style.color = '#95d5b2';
-    $cheeto.style.color = '#95d5b2';
-    $flash.style.color = '#1b4332';
-})
-$boton.addEventListener('click',() => {
-    generarTabla()
-})
-// ArrowDown generarTabla.js:100:13
-// ArrowLeft generarTabla.js:100:13
-// ArrowRight

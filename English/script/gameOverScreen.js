@@ -5,7 +5,9 @@ function pantallaGameOver () { //This function executes when the conditions of d
     Press ↲ to play again <br>
     Press esc to change the values
     `;//Changes the content so the message is the one for game Over
-    direccion = null; //Turns the direction to null so when the game starts again the snake doesn't starts moving
+    removeEventListener('keydown',manejadorTeclas)
+    direccion = null; //Turns the direction to null so when the game starts again the snake doesn't starts moving, it's behind the removeEventListener so the direction doesn't change
+    console.clear()
     addEventListener('keydown',volverAJugar)
 }
 
@@ -37,6 +39,8 @@ function pantallaVictoria () { //This function is exactly the same as the gameOv
     Press ↲ to play again <br>
     Press esc to change the values
     `;
+    removeEventListener('keydown',manejadorTeclas)
     direccion = null;
+    console.clear()
     addEventListener('keydown',volverAJugar)
 }

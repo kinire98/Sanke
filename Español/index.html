@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./iconos/iconoSanke.png">
+    <title>Sanke</title>
+</head>
+<body>
+    <div id="Ajustes"> <!--Contenido que muestra los ajustes del juego-->
+        <label for="tamaño" id="tamano">Tamaño</label><br><br><br>
+        <button id="11" class="boton">Pequeño</button>
+        <button id="12" class="boton">Mediano</button>
+        <button id="13" class="boton">Grande</button>
+        <button id="14" class="boton">Enorme</button>
+        <button id="15" class="boton">Gigante</button><br><br><br><br><br>
+        <label for="velocidad" id="velocidad">Velocidad</label><br><br><br>
+        <button id="21" class="boton">Caracol</button>
+        <button id="22" class="boton">Tortuga</button>
+        <button id="23" class="boton">Usain Bolt</button>
+        <button id="24" class="boton">Guepardo</button>
+        <button id="25" class="boton">Flash</button><br><br>
+        <button id="empezar">Jugar</button>
+    </div>
+    <div id="juego"><!--Contenido que muestra el juego en sí-->
+        <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
+        <div id="info">Presiona cualquier flecha para comenzar</div>
+        <div id="marcadores"> <!--Muestra el marcador con los puntos del juego-->
+            <label id="label">Puntuación</label>
+            <input type="text" id="puntuacion" readonly>
+        </div>
+    </div>
+    <script src="./script/generarTabla.js"></script>
+    <script src="./script/movimiento.js"></script>
+    <script src="./script/generarManzanas.js"></script>
+    <script src="./script/pantallaGameOver.js"></script>
+</body>
+</html>

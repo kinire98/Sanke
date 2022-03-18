@@ -67,7 +67,7 @@ input {
 }
 #label {
     position: absolute;
-    left: 33em;
+    left: 33.4em;
     top: 10em;
     font-size: 2em;
 }
@@ -78,8 +78,8 @@ input {
     position: absolute;
     background: #2d6a4f;
     font-size: 2em;
-    top: 10.1em;
-    left: 4.5em;
+    top: 9em;
+    left: 6em;
     padding: 1.75em;
     opacity: 0.75;
 }

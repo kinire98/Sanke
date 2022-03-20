@@ -1,6 +1,6 @@
-let direccion = null;
-let intervalo = () => {
-
+let direccion = null;//The direction of the snake. In null so the snake doesn`t move at the beginning
+let intervalo = () => { //Using the variable "velocidad", changes the speed of the snake
+//returns a value that will be used for the interval
     if (velocidad == 1) {
         return 100;
     } else if (velocidad == 2) {
@@ -14,13 +14,18 @@ let intervalo = () => {
     }
 }
 function movimiento () {
-    let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}],
-        manzana = ponerMazana(posicion),
-        seAcabo = 0;
-        document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`
-        var movement = setInterval(() => { 
-            let primerElemento = posicion[0]  
-            if (posicion.length > 1) {
+    let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}], //creates an array for the position of the snake. It starts at the middle
+        manzana = ponerMazana(posicion); //retunrs the position of the apple
+    var seAcabo = 0;//to end the loops of render and avoid errors in the console
+        document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//puts the  point to the snake length - 1
+        var movement = setInterval(() => {//principal function of the game
+            let primerElemento = posicion[0]; //keeps the position of the head of the snake, to introduce it in the array. 
+            //it avoids introducing a reference in the array and duplicating positions  
+            if (posicion.length == (ancho * alto)) { //Checks if the player won
+                pantallaVictoria()
+                clearInterval(movement)
+            }
+            if (posicion.length > 1) { //if the snake length is more than 1 it pass the rest of the positions of the snake one back, deleting the last
                 setTimeout(() => {
                     for (let i = posicion.length - 2; i >= 0; i--) {
                         posicion[i + 1].ancho = posicion[i].ancho;
@@ -30,8 +35,8 @@ function movimiento () {
                     
             } 
             
-            if (direccion == 'arriba') {
-                posicion[0].alto--;
+            if (direccion == 'arriba') {//Checks the direction in which the snake has to move
+                posicion[0].alto--; //when the snake goes up it substrac because, the table was generated from the top to the bottom
             } else if (direccion == 'abajo') {
                 posicion[0].alto++;
             } else if (direccion == 'izquierda') {
@@ -39,70 +44,33 @@ function movimiento () {
             } else if (direccion == 'derecha'){
                 posicion[0].ancho++;
             }
-            renderSerpitente(posicion,manzana,seAcabo)
-            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) {
-                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
-                manzana = ponerMazana(posicion);
-                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`
-            } else if(posicion[0].alto <= 0 ||  posicion[0].alto >= alto ||  posicion[0].ancho <= 0 ||  posicion[0].ancho >= ancho) {
-                setTimeout(() => {
-                    if (
-                        (posicion[0].alto != 0 && posicion[0].ancho != 0) && (posicion[0].alto != 0 && posicion[0].ancho != ancho) && (posicion[0].alto != alto && posicion[0].ancho != 0) && (posicion[0].alto != alto && posicion[0].ancho != ancho)
-                    ) {
-                        if(
-                            (direccion == 'arriba' && posicion[0].alto <= 0)
-                        ) {
-                            pantallaGameOver();
-                            clearInterval(movement);
-                            seAcabo = 1;
-                        } 
-                        if(
-                            (direccion == 'abajo' && posicion[0].alto >= alto)
-                        ) {
-                            pantallaGameOver();
-                            clearInterval(movement);
-                            seAcabo = 1;
-                        } 
-                        if(
-                            (direccion == 'izquierda' && posicion[0].ancho <= 0)
-                        ) {
-                            pantallaGameOver();
-                            clearInterval(movement);
-                            seAcabo = 1;
-                        } 
-                        if(
-                            (direccion == 'derecha' && posicion[0].ancho >= ancho)
-                        ) {
-                            pantallaGameOver();
-                            clearInterval(movement);
-                            seAcabo = 1;
-                        } 
-                    } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){
-                        pantallaGameOver();
-                        clearInterval(movement);
-                        seAcabo = 1;
-                    }
-                }, intervalo());
-            } else {
-                for (let i = 0; i <= posicion.length - 1; i++) {
-                    if (
-                        (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
-                        ) {
-                            pantallaGameOver();
-                            clearInterval(movement);
-                            seAcabo = 1;
-                    }
-                }
-            }
-            if (posicion.length == (ancho * alto)) {
-                pantallaVictoria()
-                clearInterval(movement)
-            }
+            renderSerpitente(posicion,manzana,seAcabo) //Renders the snake
+            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //checks if the position of the head is the same of the apple
+                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//doubles the position of the head
+                manzana = ponerMazana(posicion);//generates another apple...
+                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...and changes the mark 
+            } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //if it doesn't goes over the apple, it checks if it goes out. If the head goes out
+                pantallaGameOver();
+                clearInterval(movement);
+                seAcabo = 1;
+            } else { //Checks if the head hits the body
+               for (let i = 0; i <= posicion.length - 1; i++) {
+                   if (
+                       (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
+                       ) {
+                           pantallaGameOver();
+                           clearInterval(movement);
+                           seAcabo = 1;
+                   }
+               }
+           }
+               
+            
         } ,intervalo());
 }
-function manejadorTeclas (e)  {
+function manejadorTeclas (e)  { //Changes de direction of the snal
         let tecla = e.key;
-        if (!direccion) {
+        if (!direccion) { //The first one is for the beginning, so the snake can move in any direction
             switch (tecla) {
                 case 'ArrowLeft':
                     direccion ='izquierda';
@@ -123,7 +91,7 @@ function manejadorTeclas (e)  {
                 default:
                     break;
             }
-        } else {
+        } else { //and when it's moving, it can only move in perpendicular
             if (direccion == 'arriba' || direccion == 'abajo') {
                 switch (tecla) {
                     case 'ArrowLeft':
@@ -155,8 +123,8 @@ function manejadorTeclas (e)  {
 }
 function renderSerpitente (posicion,manzana,seAcabo) {
     for (let j = 0; j <= ancho; j++) {
-        for(let y = 0; y <= alto; y++) {
-            if(seAcabo) {
+        for(let y = 0; y <= alto; y++) {//Paints the game area, alternating colors (or colours, if you are Bri'ish)
+            if(seAcabo) { //test if the variable of end hasn't been activated, if so it breaks the loop
                 break;
             } else if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';
@@ -168,11 +136,11 @@ function renderSerpitente (posicion,manzana,seAcabo) {
             break;
         }
     }
-    if (!seAcabo) {
+    if (!seAcabo) { //same with the apple
         document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#9B0000';
     }
     for (let i = 0; i <= posicion.length - 1; i++) {
-        if (!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){
+        if (!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //and same with the snake, but with the head of a different color (or colour, ./icons/st,small,845x845-pad,1000x1000,f8f8f8.jpg)
             break;
         }
         if(seAcabo) {

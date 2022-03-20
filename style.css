@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Open+Sans:wght@300&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
 body {
     text-align: center;
     position: relative;
@@ -66,7 +70,7 @@ input {
 }
 #label {
     position: absolute;
-    left: 33.4em;
+    left: 33em;
     top: 10em;
     font-size: 2em;
 }
@@ -77,9 +81,9 @@ input {
     position: absolute;
     background: #2d6a4f;
     font-size: 2em;
-    top: 9em;
-    left: 6em;
-    padding: 1.75em;
+    top: 10.1em;
+    left:2.5em;
+    padding: 1.5em;
     opacity: 0.75;
 }
 /*I`m not going to explain any styles cause even I don't know what have I done. The only thing I know is that the page looks as I intended*/

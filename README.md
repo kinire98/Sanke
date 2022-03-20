@@ -1,53 +1,51 @@
 # Sanke
 
-This is an absolute of a nightmare JavaScript adaptation of the snake game
+Este proyecto es una absoluto mojón de apatación del juego clásico de Snake en JavaScript
 
-## Getting Started
+## Empezando
 
-If you want, to harm your eyes a little, you just have to download one of the two versions of the game to play. One is in Spanish and the other in English. Descompress it, open the HTML **called index.html**
+ISi quieres jugar para hacerte un poco de daño a los ojos, solo tienes que descargar el archivo comprimido con el proyecto en él. Una de las versiones está en español y la otra está en ingles, descarga la que mejor entiendas. Descomprimes el archivo, y abres el HTML **el que se llama index.html**
 
-### Prerequisites
+### Prerrequisitos
 
-You just need an Web Browser compatible with ES6, cause the code have some Arrow Functions. Some browsers that support the ES6 standard are Google Chrome, Microsoft Edge, Mozilla Firefox, Brave... ***IT DOESN´T WORK ON MOBILE***
+Solo necesitas un navegador compatible con ES& (EcmaScript6), porque el código contiene alguna Arrow Function. Algunos navegadores que soportan ES6 son Google Chrome, Microsoft Edge, Brave... ***NO FUNCIONA EN MÓVILES***
 
-## Deployment
+## Despliegue
 
-If you want to deploy this on a localhost server, you have to copy-paste the project into the htdocs folder in the XAMMP folder. Turn on the Apache server **(be sure to have the 80 and 443 ports open)**. Then write in the browser localhost/Sanke/index.html
+Si quieres desplegarlo en un local host, copia-pega el proyecto en la carpeta htdocs en el fichero XAMMP. Enciende el servidor Apache **(Asegúrate de tener los puerto 80 y 443 abiertos)**. Luego buscas en el navegador localhost/Sanke/index.html
 
-## Built With
+## Hecho con:
 
-* VS Code - IDE used
-* HTML5 - To deploy it on a Web Browser
-* CSS3 - For the page to have styles, and you can actually see the snake
-* JS - For the game itself
+* VS Code - Interfaz de desarrollo utilizada
+* HTML5 - Para mostrarlo en el navegador
+* CSS3 - Para que la página tenga estilos y puedas ver la serpiente
+* JS - Para el juego en sí
 
-## Contributing
+## Contribuciones
 
-I'm NOT open to contributions. It's a personal proyect made when I was 16, and to learn and make myself easier to find a job in the future. If you want to change something, feel free to do so.
+NO estoy abierto a contribuciones. Es un proyecto personal que hice con 16 años para aprender y que se me haga más fácil encontrar trabajo en el futuro. Si quieres cambiar algo por tu cuenta, siéntete libre de hacerlo
 
-## Versioning
+## Control de versiones
 
-I used GIT. Being honest with you, I still used commenting out blocks of code. Either way, I used Git so I can use GitHub, save my project on the cloud and more people could see my project.
+Usé GIT. Siendo sincero, seguí comentando bloques de código. De todas formas, usé Git para poder usar GitHub, y guardar el proyecto en la nube y que más gente pueda verlo.
 
-## Authors
+## Autores
 
-* **kinire** (I don´t want to use my real name, but this is an anagram) - *I did everything. Without using a single line of code from Internet :)* - [kinire98](https://github.com/kinire98)
+* **kinire** (No quiero usar mi nombre real, pero este es un anagrama)- *Hice yo todo. Sin coger ni una sola línea de código de Internet :)* - [kinire98](https://github.com/kinire98)
 
 
-## License
+## Licencia
+Este proyecto está licenciado bajo la LICENCIA PÚBLICA GENERAL GNU  - mira el archivo [LICENSE](LICENSE.md) para más detalles
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENSE](LICENSE.md) file for details
+## A tener en cuenta
 
-## To keep in Mind
-
-* I have no clue on how to do anything. I´m learning
-* I did my best to make the game run as smoothly as possible
-* That being said, maybe (only maybe) the game is unoptimised as hell and you may experience some lag specially, when the area of play is big or the snake is becoming bigger
-* I know, it´s snake, but try running like 3 or 4 loops that have to do more iterations as the sanke grows, like 10 times per second or even more
-* Don`t get me wrong, a big part of the code is asynchronous non-bloqueant (I don´t know if it´s written like that), so the performance doesn´t suffer as much.
-* I swear I did my best :)
-* Please keep in mind that I made this being 16 and still learning. I´m far from being a software enginner or something like that. I did this because I enjoy doing this.
-* I hope you enjoy this, as far as you can enjoy a browser rip-off of snake.
-* I you are wondering the name Sanke, came from a Typo, I liked the name and stayed like that
-* Again, I hope you enjoy this as much I enjoyed developing
-* __The english version of the code doesn't change the name of the variables and the IDs, cause it gives me more work than commenting well the code. I am going to do this so english-speaking people can understand well-enough my code.__ If you're asking why the code is in Spanish is because I'm from Spain ¿okay?, and the S isn't silent. To prove that I'm from Spain -> ññññññññññ
+* No tengo ni idea de nada. Estoy aprendiendo
+* Intenté lo más posivle que el juego fuese lo más fluido posible
+* Dicho esto, el juego está bastante desoptimizado, y puede que tengas algo de lag, especialmente si la serpiente es larga y el escenario es más grande
+* Lo sé, es el snake, pero es que hay como 3 o 4 bucles que tiene que iterar más según la serpiente se va haciendo más grande, así como 10 veces por segunfo
+* No me malinterpretes, hay partes que son código asíncrono no-bloqueante, así rendimiento no sufre tanto
+* Prometo que lo hice lo mejor que pude :)
+*  Por favor, ten en cuenta que he hecho esto teniendo 16 años y todavía estoy aprendiendo. No estoy ni medio cerca de ser un ingeniero de software o algo así. Hice esto porque disfruto haciéndolo
+* Espero que lo disfrutes. Todo lo que se puede disfrutar una copia del Snake
+* Si te preguntas de dónde vino el nombre Sanke, vino de una errata, me gustó y así se quedó
+* Una vez más, espero que los disfrutes tanto como yo disfruté haciéndolo

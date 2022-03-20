@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Open+Sans:wght@300&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
 body {
     text-align: center;
     position: relative;
@@ -78,8 +82,8 @@ input {
     background: #2d6a4f;
     font-size: 2em;
     top: 10.1em;
-    left: 4.5em;
-    padding: 1.75em;
+    left:2.5em;
+    padding: 1.5em;
     opacity: 0.75;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

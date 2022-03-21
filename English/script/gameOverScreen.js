@@ -8,17 +8,19 @@ function pantallaGameOver () { //This function executes when the conditions of d
     removeEventListener('keydown',manejadorTeclas)
     direccion = null; //Turns the direction to null so when the game starts again the snake doesn't starts moving, it's behind the removeEventListener so the direction doesn't change
     console.clear()
-    addEventListener('keydown',volverAJugar)
+    addEventListener('keydown',volverAJugar,{
+        once:true
+    })
 }
 
 function volverAJugar (e) {
     let tecla = e.key;
     if (tecla == 'Escape') { //When esc pressed makes the settings menu visible and changes the message of the medium square 
+        const $tabla = document.querySelector('table')
+        const $padre = $tabla.parentElement;
         document.getElementById('Ajustes').style.display = 'block'
         document.getElementById('juego').style.display = 'none'
         removeEventListener('keydown',volverAJugar)
-        const $tabla = document.querySelector('table')
-        const $padre = $tabla.parentElement;
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
         Press any arrow key to start the game
@@ -42,5 +44,7 @@ function pantallaVictoria () { //This function is exactly the same as the gameOv
     removeEventListener('keydown',manejadorTeclas)
     direccion = null;
     console.clear()
-    addEventListener('keydown',volverAJugar)
+    addEventListener('keydown',volverAJugar,{
+        once:true
+    })
 }

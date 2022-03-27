@@ -145,10 +145,10 @@ function renderSerpitente (posicion,manzana,seAcabo) {
         }
         if(seAcabo) {
             break;
-        } else if (i == 0) {
-            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#1b4332'
+        } else if (i != 0) {
+            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = colorCuerpo
         } else {
-            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = '#019267'
+            document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = colorCabeza
         }
     }
 }

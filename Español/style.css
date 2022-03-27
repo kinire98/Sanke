@@ -5,8 +5,7 @@
 body {
     text-align: center;
     position: relative;
-    padding-top: 20em;
-    padding-left: -5em;
+    padding-top: 5em;
     background: #2d6a4f;
 }
 table {
@@ -53,7 +52,7 @@ input {
     border: 0.09em dotted #081c15;
     font-size: 2em;font-size: 2em;
 }
-#tamano,#velocidad,#label {
+#tamano,#velocidad,#label,#modo,#color {
     padding: 0.5em;
     background: #52b788;
     border: 0.5em double black;
@@ -66,7 +65,6 @@ input {
     font-size: 2em;
     color: #1b4332;
     background: #95d5b2;
-
 }
 #label {
     position: absolute;
@@ -85,5 +83,24 @@ input {
     left:2.5em;
     padding: 1.5em;
     opacity: 0.75;
+}
+#tamañoDiv, #velocidadDiv, #modoDiv, #colorDiv {
+    position: absolute;
+}
+#colorDiv {
+    left: 65em;
+    top: 30em;
+}
+#modoDiv {
+    left: 64em;
+    top: 15em;
+}
+#velocidadDiv {
+    top: 30em;
+    left: 15em;
+}
+#tamañoDiv {
+    top: 15em;
+    left: 15em;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

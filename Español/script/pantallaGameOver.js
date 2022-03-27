@@ -8,9 +8,7 @@ function pantallaGameOver () { //Esta función se ejecuta cuando las condiciones
     removeEventListener('keydown',manejadorTeclas)
     direccion = null; //Pone la dirección a null para que cuando se vuelva a iniciar el juego, la serpiente no se mueva hasta que se presionen las flechas. Está detrás del removeEventListener para que no se pueda cambiar la dirección
     console.clear()
-    addEventListener('keydown',volverAJugar,{
-        once:true
-    })
+    addEventListener('keydown',volverAJugar)
 }
 
 function volverAJugar (e) {
@@ -24,12 +22,16 @@ function volverAJugar (e) {
         document.getElementById('info').innerHTML = `
         Presiona cualquier flecha para comenzar
         `;
+        removeEventListener('keydown',volverAJugar)
+        seAcabo = 0;
     } else if (tecla == 'Enter') { //Cuando se presiona el ↲ se ponen los valores directamente como al principio de la partida pero sin cambiar tamaño y velocidad
         document.getElementById('info').innerHTML = `
         Presiona cualquier flecha para comenzar
         `;
+        removeEventListener('keydown',volverAJugar)
         movimiento()
-        addEventListener('keydown', manejadorTeclas)
+        addEventListener('keydown', manejadorTeclas);
+        seAcabo = 0;
     }
 }
 function pantallaVictoria () { //Esta función hace lo mismo que la de derrota pero cambia el mensaje a uno de victoria
@@ -43,7 +45,5 @@ function pantallaVictoria () { //Esta función hace lo mismo que la de derrota p
     removeEventListener('keydown',manejadorTeclas)
     direccion = null;
     console.clear()
-    addEventListener('keydown',volverAJugar,{
-        once:true
-    })
+    addEventListener('keydown',volverAJugar)
 }

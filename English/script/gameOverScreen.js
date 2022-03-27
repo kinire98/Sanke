@@ -8,9 +8,7 @@ function pantallaGameOver () { //This function executes when the conditions of d
     removeEventListener('keydown',manejadorTeclas)
     direccion = null; //Turns the direction to null so when the game starts again the snake doesn't starts moving, it's behind the removeEventListener so the direction doesn't change
     console.clear()
-    addEventListener('keydown',volverAJugar,{
-        once:true
-    })
+    addEventListener('keydown',volverAJugar)
 }
 
 function volverAJugar (e) {
@@ -25,13 +23,15 @@ function volverAJugar (e) {
         document.getElementById('info').innerHTML = `
         Press any arrow key to start the game
         `;
+        seAcabo = 0;
     } else if (tecla == 'Enter') { // When ↲ pressed tha values changes to the ones at the beginning of the
         document.getElementById('info').innerHTML = `
         Press any arrow key to start the game
         `;
         movimiento()
         removeEventListener('keydown',volverAJugar)
-        addEventListener('keydown', manejadorTeclas)
+        addEventListener('keydown', manejadorTeclas);
+        seAcabo = 0;
     }
 }
 function pantallaVictoria () { //This function is exactly the same as the gameOver, but it changes the message to one of victory. I know, I work a lot :)
@@ -44,7 +44,5 @@ function pantallaVictoria () { //This function is exactly the same as the gameOv
     removeEventListener('keydown',manejadorTeclas)
     direccion = null;
     console.clear()
-    addEventListener('keydown',volverAJugar,{
-        once:true
-    })
+    addEventListener('keydown',volverAJugar)
 }

@@ -8,13 +8,23 @@ const $boton = document.getElementById('empezar'), //Todas estas constantes hace
     $turtle = document.getElementById('22'),
     $UsainBolt = document.getElementById('23'),
     $cheeto = document.getElementById('24'),
-    $flash = document.getElementById('25');
+    $flash = document.getElementById('25'),
+    $normal = document.getElementById('31'),
+    $pacific = document.getElementById('32'),
+    $tp = document.getElementById('33'),
+    $green = document.getElementById('41'),
+    $blue = document.getElementById('42'),
+    $yellow = document.getElementById('43'),
+    $white = document.getElementById('44');
 
 let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se utilizan en muchas partes del programa estas son variables globales, para que pasar parámetros no se convierta en un inconveniente y se aumenta aún más la comlejidad del programa
 //Se que no es lo mejor del mundo, pero se usan constantemente en varias funciones así que es mejor idea hacer las variables globales
     tamaño = 1,
     ancho,
-    alto;
+    alto,
+    modo = 1,
+    colorCabeza = '#1b4332',
+    colorCuerpo = '#019267';
 function generarTabla () {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
     const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
     const $tabla = document.createElement('table');
@@ -57,6 +67,12 @@ function generarTabla () {//Esta función genera el tamaño the la tabla, y la t
     }
     document.getElementById('juego').style.display = 'block';//Muestra el div con los elementos del juegos
     document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
-    movimiento()//Ejecuta la función del movimiento...
+    if (modo == 1){
+        movimiento()//Ejecuta la función del movimiento...
+    } else if (modo == 2) {
+        pacifico()
+    } else if (modo == 3) {
+        tp ()
+    }
     addEventListener('keydown', manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
 }

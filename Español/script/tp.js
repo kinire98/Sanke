@@ -1,7 +1,7 @@
 function tp () {
     let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}], //Crea un arregla para la posición de la serpiente. Empieza en el medio
         manzana = ponerMazana(posicion), //devueve la posición de la manzana
-        manzana2 = ponerMazana(posicion);
+        manzana2 = ponerMazanaTP(posicion,manzana);
     var seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
         document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
         var movement = setInterval(() => {//Función pricipal del juego 
@@ -36,7 +36,7 @@ function tp () {
                 posicion[0].alto = manzana2[1];
                 posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
                 manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
-                manzana2 = ponerMazana(posicion);
+                manzana2 = ponerMazanaTP(posicion,manzana);
                 document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
             } else if ((posicion[0].ancho == manzana2[0]) && (posicion[0].alto == manzana2[1])) {
                 posicion[0].ancho = manzana[0];

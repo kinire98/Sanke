@@ -25,11 +25,16 @@ function volverAJugar (e) {
         removeEventListener('keydown',volverAJugar)
         seAcabo = 0;
     } else if (tecla == 'Enter') { //Cuando se presiona el ↲ se ponen los valores directamente como al principio de la partida pero sin cambiar tamaño y velocidad
+        const $tabla = document.querySelector('table')
+        const $padre = $tabla.parentElement;
+        document.getElementById('Ajustes').style.display = 'block'//También pone los valores como al principio para poder volver a empezar la partida
+        document.getElementById('juego').style.display = 'none'
+        $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
         Presiona cualquier flecha para comenzar
         `;
         removeEventListener('keydown',volverAJugar)
-        movimiento()
+        generarTabla()
         addEventListener('keydown', manejadorTeclas);
         seAcabo = 0;
     }

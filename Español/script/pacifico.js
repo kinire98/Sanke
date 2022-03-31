@@ -33,8 +33,8 @@ function pacifico () {
                 posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
                 manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
                 document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
-            } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Si no pasa por dónde la manzana, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto da nulo
-                if (posicion [0].ancho < 0) {
+            } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Si no pasa por dónde la manzana, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto se ha salido
+                if (posicion [0].ancho < 0) { //Comprueba por dónde ha salido la cabeza de la serpiente y la pasa  al lado que no ha salido
                     posicion[0].ancho = ancho;
                 } else if (posicion[0].ancho > ancho) {
                     posicion[0].ancho = 0;
@@ -73,7 +73,7 @@ function renderSerpitentePacifico (posicion,manzana,seAcabo) {
             document.getElementById(`${posicion[i].ancho}  ${posicion[i].alto}`).style.background = colorCabeza
         }
     }
-    if (document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //y lo mismo con la serpiente. Pone la cabeza de un color distinto
+    if (document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Se vuelve a ejecutar el color de la cabeza para que aparezca por encima del cuerpo de la serpiente
         document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`).style.background = colorCabeza
     }
 }

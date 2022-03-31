@@ -4,7 +4,7 @@ function tp () {
         manzana2 = ponerMazanaTP(posicion,manzana);
     var seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
         document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
-        var movement = setInterval(() => {//Función pricipal del juego 
+        var movement = setInterval(() => {//Función pricipal del  modo de juego
             let primerElemento = posicion[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzana. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
             if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
@@ -31,20 +31,20 @@ function tp () {
                 posicion[0].ancho++;
             }
             
-            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //Comprueba que la posición de la cabbeza es igual a la de la manzana
-                posicion[0].ancho = manzana2[0];
+            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //Comprueba que la posición de la cabbeza es igual a la de una de las manzanas
+                posicion[0].ancho = manzana2[0]; //Cambia la posición de la cabeza por la de la manzana que no se ha comido
                 posicion[0].alto = manzana2[1];
                 posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
-                manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
+                manzana = ponerMazana(posicion);//Vuelve a generar otras dos manzanas...
                 manzana2 = ponerMazanaTP(posicion,manzana);
                 document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
-            } else if ((posicion[0].ancho == manzana2[0]) && (posicion[0].alto == manzana2[1])) {
+            } else if ((posicion[0].ancho == manzana2[0]) && (posicion[0].alto == manzana2[1])) { //lo mismo pero con la otra manzana
                 posicion[0].ancho = manzana[0];
                 posicion[0].alto = manzana[1];
-                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
-                manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
+                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})
+                manzana = ponerMazana(posicion);
                 manzana2 = ponerMazana(posicion);
-                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
+                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` ;
             } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Si no pasa por dónde la manzana, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto da nulo
                 pantallaGameOver();
                 clearInterval(movement);
@@ -79,7 +79,7 @@ function tp () {
                 break;
             }
         }
-        if (!seAcabo) { //lo mismo con la manzana
+        if (!seAcabo) { //renderiza las dos manzanas
             document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#9B0000';
             document.getElementById(`${manzana2[0]}  ${manzana2[1]}`).style.background = '#9B0000';
         }

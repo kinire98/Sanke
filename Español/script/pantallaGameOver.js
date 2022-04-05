@@ -16,7 +16,7 @@ function volverAJugar (e) {
     if (tecla == 'Escape') { //Al presionar escape para cambiar valaros hace que vuelva a aparecer el menú ajustes y cambia el mensaje del cuadro del medio
         const $tabla = document.querySelector('table')
         const $padre = $tabla.parentElement;
-        document.getElementById('Ajustes').style.display = 'block'//También pone los valores como al principio para poder volver a empezar la partida
+        document.getElementById('Ajustes').style.display = 'flex'//También pone los valores como al principio para poder volver a empezar la partida
         document.getElementById('juego').style.display = 'none'
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
@@ -27,8 +27,6 @@ function volverAJugar (e) {
     } else if (tecla == 'Enter') { //Cuando se presiona el ↲ se ponen los valores directamente como al principio de la partida pero sin cambiar tamaño y velocidad
         const $tabla = document.querySelector('table')
         const $padre = $tabla.parentElement;
-        document.getElementById('Ajustes').style.display = 'block'//También pone los valores como al principio para poder volver a empezar la partida
-        document.getElementById('juego').style.display = 'none'
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
         Presiona cualquier flecha para comenzar

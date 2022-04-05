@@ -23,7 +23,7 @@ If you want to deploy this on a localhost server, you have to copy-paste the pro
 
 ## Contributing
 
-I'm NOT open to contributions. It's a personal proyect made when I was 16, and to learn and make myself easier to find a job in the future. If you want to change something, feel free to do so.
+When I started, I didn't have in mind to keep making the project bigger, but I had a lot of fun doing it. So, any suggestions, such as new modes or improvements of the graphics, etc. well I'm open to them. I know probably nobody is going to read this, but if there is someone out there who is still reading this and not skipped directly into the game, make suggestions. I would appreciatte that you include documentation in them, so I have some clue, but either way, thank you
 
 ## Versioning
 
@@ -31,7 +31,7 @@ I used GIT. Being honest with you, I still used commenting out blocks of code. E
 
 ## Authors
 
-* **kinire** (I don´t want to use my real name, but this is an anagram) - *I did everything. Without using a single line of code from Internet :)* - [kinire98](https://github.com/kinire98)
+**kinire** (I don´t want to use my real name, but this is an anagram) - *I did everything. Without using a single line of code from Internet :)* - [kinire98](https://github.com/kinire98)
 
 
 ## License

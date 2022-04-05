@@ -23,7 +23,7 @@ Si quieres desplegarlo en un local host, copia-pega el proyecto en la carpeta ht
 
 ## Contribuciones
 
-NO estoy abierto a contribuciones. Es un proyecto personal que hice con 16 años para aprender y que se me haga más fácil encontrar trabajo en el futuro. Si quieres cambiar algo por tu cuenta, siéntete libre de hacerlo
+En un principio no tenía pensado ampliar el proyecto, pero, he disfrutado tanto haciéndolo que estoy abierto a sugerencias como nuevos modos o mejoras en la estética o los gráficos. Sé que probablemente nadie leerá esto, pero si alguien lo hace y tiene una idea de cómo mejorar mi proyecto, de verdad, estoy abierto. Agradecería documentación en cómo hacer lo que se propone, pero con sugerencias sirve. Si todavía sigues leyendo esto después de la chapa que acabo de soltar, gracias :)
 
 ## Control de versiones
 

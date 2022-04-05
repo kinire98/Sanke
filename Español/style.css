@@ -3,39 +3,44 @@
     font-family: 'Roboto', sans-serif;
 }
 body {
-    text-align: center;
-    position: relative;
-    padding-top: 5em;
+    margin: 0;
+    padding: 0;
     background: #2d6a4f;
+    padding-top: 5rem;
 }
 table {
     height: 50em;
     width: 50em;
-    border-collapse:collapse;
 }
 td {
-    border-collapse:collapse;
     height: 5px;
     width: 5px;
     background: #fff;
+    padding: 0;
+    margin: 0;
 }
 tr {
     border-collapse:collapse;
     height: 5px;
     width: 5px;
 }
-#ajustes {
-    position: absolute;
-    text-align: center;
+#Ajustes {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
     justify-content: center;
-    border-radius: 10em;
-    border: 5px double black;
-    padding: 10em;
+    border-radius: 5rem;
+    border: 5px dotted black;
+    padding: 0rem;
     background: #52b788;
+    margin: 0;
+    text-align: center;
 }
 #juego {
     display: none;
-    position: absolute;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
     top: 3em;
     left: 25em;
 }
@@ -58,49 +63,57 @@ input {
     border: 0.5em double black;
     font-size: 2em;
 }
-#puntuacion {
-    position: absolute;
-    left: 30em;
-    top: 15em;
+#marcadores {
+    display: inline-flexbox;
+    position: relative;
+    border-radius: 5rem;
+    border: 5px solid black;
+    padding: 7.5rem;
+    text-align: center;
+    left: 42.5rem;
+    bottom: 40rem;
+}
+/* #puntuacion {
+    position: relative;
+    left: 45rem;
+    top: -25rem;
     font-size: 2em;
     color: #1b4332;
     background: #95d5b2;
 }
 #label {
-    position: absolute;
+    position: relative;
     left: 33em;
     top: 10em;
     font-size: 2em;
-}
+} */
 #empezar {
+    position: relative;
     font-size: 2em;
+    bottom: 5rem;
 }
 #info {
-    position: absolute;
+    position: relative;
+    top: -35rem;
+    left: 15rem;
     background: #2d6a4f;
-    font-size: 2em;
-    top: 10.1em;
-    left:2.5em;
+    justify-content: center;
     padding: 1.5em;
     opacity: 0.75;
 }
 #tamañoDiv, #velocidadDiv, #modoDiv, #colorDiv {
-    position: absolute;
+    display: inline-block;
+    margin-inline: 30%;
+    align-items: center;
 }
-#colorDiv {
-    left: 65em;
-    top: 30em;
+#tamañoDiv, #velocidadDiv {
+    position: relative;
+    left: -20%;
+    top: 12.3rem;
 }
-#modoDiv {
-    left: 64em;
-    top: 15em;
-}
-#velocidadDiv {
-    top: 30em;
-    left: 15em;
-}
-#tamañoDiv {
-    top: 15em;
-    left: 15em;
+#modoDiv, #colorDiv {
+    position: relative;
+    right: -20%;
+    bottom: 11rem;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

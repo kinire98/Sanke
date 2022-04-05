@@ -65,7 +65,7 @@ function generarTabla () {//Esta función genera el tamaño the la tabla, y la t
         }
         $tabla.appendChild($fila)//y la fila como elemento hijo de la tabla
     }
-    document.getElementById('juego').style.display = 'block';//Muestra el div con los elementos del juegos
+    document.getElementById('juego').style.display = 'flex';//Muestra el div con los elementos del juegos
     document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
     if (modo == 1){
         movimiento()//Ejecuta la función del movimiento...

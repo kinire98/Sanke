@@ -73,18 +73,22 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
         if (!direccion) { //Para el principio, que se pueda ir en cualquier dirección
             switch (tecla) {
                 case 'ArrowLeft':
+                    e.preventDefault();
                     direccion ='izquierda';
                     document.getElementById('info').style.display = 'none'
                     break;
                 case'ArrowRight':
+                e.preventDefault();
                     direccion = 'derecha';
                     document.getElementById('info').style.display = 'none'
                     break;
                 case 'ArrowUp':
+                    e.preventDefault();
                     direccion = 'arriba';
                     document.getElementById('info').style.display = 'none'
                     break;
                 case 'ArrowDown':
+                    e.preventDefault();
                     direccion = 'abajo';
                     document.getElementById('info').style.display = 'none'
                     break;
@@ -95,10 +99,12 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
             if (direccion == 'arriba' || direccion == 'abajo') {
                 switch (tecla) {
                     case 'ArrowLeft':
+                        e.preventDefault();
                         direccion ='izquierda';
                         document.getElementById('info').style.display = 'none'
                         break;
                     case'ArrowRight':
+                        e.preventDefault();
                         direccion = 'derecha';
                         document.getElementById('info').style.display = 'none'
                         break;
@@ -108,10 +114,12 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
             } else if (direccion == 'izquierda' || direccion == 'derecha') {
                 switch (tecla) {
                     case 'ArrowUp':
+                        e.preventDefault();
                         direccion = 'arriba';
                         document.getElementById('info').style.display = 'none'
                         break;
                     case 'ArrowDown':
+                        e.preventDefault();
                         direccion = 'abajo';
                         document.getElementById('info').style.display = 'none'
                         break;

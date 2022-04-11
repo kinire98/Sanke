@@ -1,42 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Open+Sans:wght@300&display=swap');
+@import url('../Roboto-Medium.ttf');
 *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body {
-    text-align: center;
-    position: relative;
-    padding-top: 20em;
-    padding-left: -5em;
+    margin: 0;
+    padding: 0;
     background: #2d6a4f;
+    padding-top: 5rem;
 }
 table {
     height: 50em;
     width: 50em;
-    border-collapse:collapse;
 }
 td {
-    border-collapse:collapse;
     height: 5px;
     width: 5px;
     background: #fff;
+    padding: 0;
+    margin: 0;
 }
 tr {
     border-collapse:collapse;
     height: 5px;
     width: 5px;
 }
-#ajustes {
-    position: absolute;
-    text-align: center;
+#Ajustes {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
     justify-content: center;
-    border-radius: 10em;
-    border: 5px double black;
-    padding: 10em;
+    border-radius: 5rem;
+    border: 5px dotted black;
+    padding: 0rem;
     background: #52b788;
+    margin: 0;
+    text-align: center;
 }
 #juego {
     display: none;
-    position: absolute;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
     top: 3em;
     left: 25em;
 }
@@ -53,37 +57,55 @@ input {
     border: 0.09em dotted #081c15;
     font-size: 2em;font-size: 2em;
 }
-#tamano,#velocidad,#label {
+#tamano,#velocidad,#label,#modo,#color {
     padding: 0.5em;
     background: #52b788;
     border: 0.5em double black;
     font-size: 2em;
 }
-#puntuacion {
-    position: absolute;
-    left: 30em;
-    top: 15em;
-    font-size: 2em;
-    color: #1b4332;
-    background: #95d5b2;
-
-}
-#label {
-    position: absolute;
-    left: 33em;
-    top: 10em;
-    font-size: 2em;
+#marcadores {
+    display: inline-flexbox;
+    position: relative;
+    border-radius: 5rem;
+    padding: 7.5rem;
+    text-align: center;
+    left: 42.5rem;
+    bottom: 40rem;
 }
 #empezar {
+    position: relative;
     font-size: 2em;
+    bottom: 5rem;
 }
 #info {
-    position: absolute;
+    position: relative;
+    top: -29.1rem;
     background: #2d6a4f;
-    font-size: 2em;
-    top: 10.1em;
-    left:2.5em;
+    justify-content: center;
     padding: 1.5em;
     opacity: 0.75;
+    font-size: 2rem;
+}
+#tamañoDiv, #velocidadDiv, #modoDiv, #colorDiv {
+    display: inline-block;
+    margin-inline: 30%;
+    align-items: center;
+}
+#tamañoDiv, #velocidadDiv {
+    position: relative;
+    left: -20%;
+    top: 12.3rem;
+}
+#modoDiv, #colorDiv {
+    position: relative;
+    right: -20%;
+    bottom: 11rem;
+}
+#puntuacion {
+    border-radius: 5rem;
+    background: #52b788;
+    border: 0.5em double black;
+    padding: .5rem;
+    font-size:1.5rem;
 }
 /*I`m not going to explain any styles cause even I don't know what have I done. The only thing I know is that the page looks as I intended*/

@@ -74,5 +74,5 @@ function generarTabla () {//Esta función genera el tamaño the la tabla, y la t
     } else if (modo == 3) {
         tp ()
     }
-    addEventListener('keydown', manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
+    addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
 }

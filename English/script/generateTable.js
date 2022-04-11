@@ -8,12 +8,21 @@ const $boton = document.getElementById('empezar'), //This constants make referen
     $turtle = document.getElementById('22'),
     $UsainBolt = document.getElementById('23'),
     $cheeto = document.getElementById('24'),
-    $flash = document.getElementById('25');
-
+    $flash = document.getElementById('25'),
+    $normal = document.getElementById('31'),
+    $pacific = document.getElementById('32'),
+    $tp = document.getElementById('33'),
+    $green = document.getElementById('41'),
+    $blue = document.getElementById('42'),
+    $yellow = document.getElementById('43'),
+    $white = document.getElementById('44');
 let velocidad = 1, //As the speed sizq height and width are used in many places of the program these are global variables, so passing parametres doesn't turn into a drawback
     tamaño = 1,
     ancho,
-    alto;
+    alto,
+    modo = 1,
+    colorCabeza = '#1b4332',
+    colorCuerpo = '#019267';
 function generarTabla () { //This function has to generate the size of the table, and the table itself, in which the snake is going to be moving in
     const $divTabla = document.getElementById('tabla_movimiento');//Reference to the div that contains the table
     const $tabla = document.createElement('table');
@@ -54,8 +63,14 @@ function generarTabla () { //This function has to generate the size of the table
         }
         $tabla.appendChild($fila) //It appends the row to the table
     }
-    document.getElementById('juego').style.display = 'block'; //Shows the div with all the elements of the game
+    document.getElementById('juego').style.display = 'flex'; //Shows the div with all the elements of the game
     document.getElementById('Ajustes').style.display = 'none'; //and hides the one with the setings of the game
-    movimiento()//It starts to execute the movement function...
+    if (modo == 1){
+        movimiento()
+    } else if (modo == 2) {
+        pacifico()
+    } else if (modo == 3) {
+        tp ()
+    }//It starts to execute the movement function...
     addEventListener('keydown', manejadorTeclas)//And adds the event for controlling the direction of the snake
 }

@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 let direccion = null;//The direction of the snake. In null so the snake doesn`t move at the beginning
 let intervalo = () => { //Using the variable "velocidad", changes the speed of the snake
 //returns a value that will be used for the interval

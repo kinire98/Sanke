@@ -4,7 +4,7 @@ This is an absolute of a nightmare JavaScript adaptation of the snake game
 
 ## Getting Started
 
-If you want, to harm your eyes a little, you just have to download one of the two versions of the game to play. One is in Spanish and the other in English. Descompress it, open the HTML **called index.html**
+If you want, to harm your eyes a little, you just have to download one of the two versions of the game to play. One is in Spanish and the other in English. Descompress it and open the HTML **called index.html**
 
 ### Prerequisites
 

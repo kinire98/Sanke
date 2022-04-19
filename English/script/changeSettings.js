@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 $little.style.background = '#95d5b2'; //It gives styes by defect to the smallest values both the speed and the direction, so the show as marked
 $little.style.color = '#1b4332';
 $snail.style.background = '#95d5b2';

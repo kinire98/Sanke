@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 function tp () {
     let posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}], //Crea un arregla para la posición de la serpiente. Empieza en el medio
         manzana = ponerMazana(posicion), //devueve la posición de la manzana

@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 function generarNumeroAleatorio (min,max) { //Devuelve un número aleatoria, así la posición de la manzana no sigue ningún patrón
     return Math.round(Math.random()*(max-min)+min)
 }

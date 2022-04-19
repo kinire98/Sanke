@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 const $boton = document.getElementById('empezar'), //Todas estas constantes hacen referencia a los botones de la ventana de ajustes
     $little = document.getElementById('11'),//Los IDs acutan como un sistema de coordenadas
     $medium = document.getElementById('12'),

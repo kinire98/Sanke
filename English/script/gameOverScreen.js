@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 function pantallaGameOver () { //This function executes when the conditions of de setInterval met for stopping the interval when the player loses
     document.getElementById('info').style.display = 'block'//Shows the 'screen' with the info.
     document.getElementById('info').innerHTML = `

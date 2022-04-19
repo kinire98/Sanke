@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 function generarNumeroAleatorio (min,max) { //returns a random number, so the position of the new apple doesn't follow any pattern
     return Math.round(Math.random()*(max-min)+min)
 }

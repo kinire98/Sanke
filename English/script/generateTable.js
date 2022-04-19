@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 const $boton = document.getElementById('empezar'), //This constants make reference to the buttons of the size and the speed, the IDs is like a coodinates system
     $little = document.getElementById('11'),
     $medium = document.getElementById('12'),

@@ -1,3 +1,6 @@
+/** 
+ * @author kinire98
+ */
 $little.style.background = '#95d5b2';//Les da estilos por defecto a los valores más bajos tanto de tamaño como de velocidad para que aparezcan como marcados
 $little.style.color = '#1b4332';
 $snail.style.background = '#95d5b2';

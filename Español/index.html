@@ -9,44 +9,105 @@
     <title>Sanke</title>
 </head>
 <body>
-    <div id="Ajustes"> <!--Contenido que muestra los ajustes del juego-->
-        <div id="erdiv">
-            <div id="tamañoDiv">
-                <label for="tamaño" id="tamano" class="label">Tamaño:</label><br><br><br>
-                <button id="11" class="boton">Pequeño</button>
-                <button id="12" class="boton">Mediano</button>
-                <button id="13" class="boton">Grande</button>
-                <button id="14" class="boton">Enorme</button>
-                <button id="15" class="boton">Gigante</button><br><br><br><br><br>
-            </div>
-            <div id="velocidadDiv">
-                <label for="velocidad" id="velocidad" class="label">Velocidad:</label><br><br><br>
-                <button id="21" class="boton">Caracol</button>
-                <button id="22" class="boton">Tortuga</button>
-                <button id="23" class="boton">Usain Bolt</button>
-                <button id="24" class="boton">Guepardo</button>
-                <button id="25" class="boton">Flash</button><br><br><br><br><br>
-            </div>
-        </div>
-        <div id="dodiv">
-            <div id="modoDiv">
-                <label for="modo" id="modo" class="label">Modo:</label><br><br><br>
-                <button id="31" class="boton">Normal</button>
-                <button id="32" class="boton">Pacífico</button>
-                <button id="33" class="boton">Teletransporte</button><br><br><br><br><br>
-            </div>
-            <div id="colorDiv">
-                <label for="color" id="color" class="label">Color:</label><br><br><br>
-                <button id="41" class="boton">Verde</button>
-                <button id="42" class="boton">Azul</button>
-                <button id="43" class="boton">Amarillo</button>
-                <button id="44" class="boton">Blanco</button><br><br><br><br><br>
-            </div>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <button id="empezar">Jugar</button>
+    <div id="Ajustes">
+         <table class="table">
+             <tr class="tr">
+                 <td class="td"></td>
+                 <td class="td" colspan="3"><label for="tamaño" id="tamano" class="label">Tamaño:</label></td>
+                 <td class="td"></td>
+                 <td class="td"></td>
+                 <td class="td" colspan="4"><label for="modo" id="modo" class="label">Modo:</label></td>
+                 <td class="td"></td>
+                </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"><button id="11" class="boton">Pequeño</button></td>
+                <td class="td"><button id="12" class="boton">Mediano</button></td>
+                <td class="td"><button id="13" class="boton">Grande</button></td>
+                <td class="td"><button id="14" class="boton">Enorme</button></td>
+                <td class="td"><button id="15" class="boton">Gigante</button></td>
+                <td class="td"></td>
+                <td class="td"><button id="31" class="boton dcha">Normal</button></td>
+                <td class="td"><button id="32" class="boton dcha">Pacífico</button></td>
+                <td class="td"><button id="33" class="boton dcha" colspan="2">Teletransporte</button></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td" colspan="3"><label for="velocidad" id="velocidad" class="label">Velocidad:</label></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td" colspan="4"><label for="color" id="color" class="label">Color:</label></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"><button id="21" class="boton">Caracol</button></td>
+                <td class="td"><button id="22" class="boton">Tortuga</button></td>
+                <td class="td"><button id="23" class="boton">Guepardo</button></td>
+                <td class="td"><button id="24" class="boton">Ferrari</button></td>
+                <td class="td"><button id="25" class="boton">Flash</button></td>
+                <td class="td"></td>
+                <td class="td"><button id="41" class="boton">Verde</button></td>
+                <td class="td"><button id="42" class="boton">Azul</button></td>
+                <td class="td"><button id="43" class="boton">Amarillo</button></td>
+                <td class="td"><button id="44" class="boton">Blanco</button></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"><button id="empezar">Jugar</button></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+        </table>
     </div>
     <div id="juego"><!--Contenido que muestra el juego en sí-->
         <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->

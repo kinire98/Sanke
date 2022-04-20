@@ -7,7 +7,7 @@
 }
 body {
     margin: 0;
-    padding: 5rem;
+    padding: 3%;
     background: #2d6a4f;
     overflow: hidden;
 }
@@ -22,7 +22,7 @@ td {
     background: #fff;
     padding: 0;
     margin: 0;
-    transition:.1s;
+    transition: all .05s;
     border-collapse: collapse;
 }
 tr {
@@ -32,15 +32,6 @@ tr {
 }
 #tabla_movimiento {
     margin-right:5%;
-}
-#Ajustes {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    text-align: center;
-    z-index: 10;
 }
 #juego {
     display: none;
@@ -58,16 +49,17 @@ input {
     border: 0.09em dotted #081c15;
     font-size: 2em;
     transition: all 0.3s;
+    width: 100%;
 }
 .boton:hover, #empezar:hover {
     border: 0.09em dotted #95d5b2;
     box-shadow: 0 0 5px #081c15,
-                0 0 25px #081c15, 
-                0 0 50px #081c15, 
+    0 0 25px #081c15, 
+    0 0 50px #081c15, 
                 0 0 200px #081c15,
                 0 0 250px #081c15;
-}
-.label {
+            }
+            .label {
     padding: 0.5em;
     background: #52b788;
     border: 0.5em double black;
@@ -78,16 +70,14 @@ input {
     background: #95d5b2;
     color: #1b4332;
     box-shadow: 0 0 5px #081c15,
-                0 0 25px #081c15, 
-                0 0 50px #081c15;
+    0 0 25px #081c15, 
+    0 0 50px #081c15;
 }
 #marcadores {
     text-align: center;
 }
 #empezar {
-    position: absolute;
     font-size: 2em;
-    bottom: 15%;
 }
 #info {
     position: absolute;
@@ -105,21 +95,38 @@ input {
     text-align: center;
     font-weight: bolder;
 }
-#erdiv {
-    position: fixed;
-    margin-right: 50%;
-    margin-top:35%;
-}
-#dodiv { 
-    position:fixed;
-    margin-left: 50%;
-    margin-top:35%;
-}  
 #puntuacion {
     border-radius: 5rem;
     background: #52b788;
     border: 0.5em double black;
     padding: .5rem;
     font-size:1.5rem;
+}
+.table {
+    height: auto;
+    width: 100%;
+    transition: all 1.5s;
+}
+.tr {
+    height: 5vh;
+    width: 100%;
+    transition: all 1.5s;
+}
+.td {
+    height: 10vh;
+    width: 15vw;
+    background: none;
+    transition: all 1.5s;
+}
+#Ajustes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+}
+.dcha {
+    position: relative;
+    left: 5vw;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

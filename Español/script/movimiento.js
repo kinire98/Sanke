@@ -30,6 +30,7 @@ function movimiento () {
 function bucleMovimiento () {
     var movement = setInterval(() => {//Función pricipal del juego 
         if (pausa == 0) {
+            seAcabo = 0;
              let primerElemento = posicion[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzana. 
              //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
              if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
@@ -55,7 +56,8 @@ function bucleMovimiento () {
              } else if (direccion == 'derecha'){
                  posicion[0].ancho++;
              }
-             renderSerpitente(posicion,manzana,seAcabo) //Renderiza la serpiente
+             renderSerpitente() //Renderiza la serpiente
+             
              if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //Comprueba que la posición de la cabbeza es igual a la de la manzana
                  posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
                  manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
@@ -78,14 +80,11 @@ function bucleMovimiento () {
         } else {
             clearInterval(movement);
         }
-           
-        
     } ,intervalo());
 }
 function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variable de dirección según se presionan las teclas
         let tecla = e.key;
-        console.log(tecla)
-        if (tecla == 'Backspace') {
+        if (tecla == 'Escape') {
             pausa = 1;
             pausar()
         }
@@ -144,10 +143,11 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
             }
         }
 }
-function renderSerpitente (posicion,manzana,seAcabo) {
+function renderSerpitente () {
     for (let j = 0; j <= ancho; j++) {
         for(let y = 0; y <= alto; y++) {//Recorre todo el cuadro de juego y lo pinta con colores alternos
             if(seAcabo) { //comprueba que la variable para terminar no se haya activado, en cuyo caso se rompe el bucle
+                console.log('renderseAcabo')
                 break;
             } else if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';

@@ -28,9 +28,10 @@ let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se uti
     modo = 1,
     colorCabeza = '#1b4332',
     colorCuerpo = '#019267';
-function generarTabla () {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
+function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
     const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
     const $tabla = document.createElement('table');
+    $tabla.setAttribute('class', 'tabla_juego'); //Establece una pseudaclase para la tabla del juego
     switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
         case 1:
             ancho = 11;
@@ -70,12 +71,22 @@ function generarTabla () {//Esta función genera el tamaño the la tabla, y la t
     }
     document.getElementById('juego').style.display = 'flex';//Muestra el div con los elementos del juegos
     document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
-    if (modo == 1){
-        movimiento()//Ejecuta la función del movimiento...
-    } else if (modo == 2) {
-        pacifico()
-    } else if (modo == 3) {
-        tp ()
+    if (pausa) {
+        if (modo == 1){
+            bucleMovimiento()//Ejecuta la función del movimiento...
+        } else if (modo == 2) {
+            buclePacifico()
+        } else if (modo == 3) {
+            bucleTP()
+        }
+    } else {
+        if (modo == 1){
+            movimiento()//Ejecuta la función del movimiento...
+        } else if (modo == 2) {
+            pacifico()
+        } else if (modo == 3) {
+            tp ()
+        }
     }
     addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
 }

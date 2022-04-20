@@ -4,61 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./icons/iconoSanke.png">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="shortcut icon" href="./iconos/iconoSanke.png">
     <title>Sanke</title>
 </head>
 <body>
-    <div id="Ajustes"><!--It shows the game settings-->
-        <div id="tamañoDiv">
-            <label for="tamaño" id="tamano">Size</label><br><br><br>
-            <button id="11" class="boton">Little</button>
-            <button id="12" class="boton">Medium</button>
-            <button id="13" class="boton">Big</button>
-            <button id="14" class="boton">Enormous</button>
-            <button id="15" class="boton">Giant</button><br><br><br><br><br>
-        </div>
-        <div id="velocidadDiv">
-            <label for="velocidad" id="velocidad">Speed</label><br><br><br>
-            <button id="21" class="boton">Snail</button>
-            <button id="22" class="boton">Turtle</button>
-            <button id="23" class="boton">Usain Bolt</button>
-            <button id="24" class="boton">Cheetah</button>
-            <button id="25" class="boton">Flash</button><br><br><br><br><br>
-        </div>
-        <div id="modoDiv">
-            <label for="modo" id="modo">Mode:</label><br><br><br>
-            <button id="31" class="boton">Normal</button>
-            <button id="32" class="boton">Pacific</button>
-            <button id="33" class="boton">Teletransport</button><br><br><br><br><br>
-        </div>
-        <div id="colorDiv">
-            <label for="color" id="color">Color:</label><br><br><br>
-            <button id="41" class="boton">Green</button>
-            <button id="42" class="boton">Blue</button>
-            <button id="43" class="boton">Yellow</button>
-            <button id="44" class="boton">White</button><br><br><br>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <button id="empezar">Jugar</button>
-
+    <div id="Ajustes">
+         <table class="table">
+             <tr class="tr">
+                 <td class="td"></td>
+                 <td class="td" colspan="3"><label for="tamaño" id="tamano" class="label">Tamaño:</label></td>
+                 <td class="td"></td>
+                 <td class="td"></td>
+                 <td class="td" colspan="4"><label for="modo" id="modo" class="label">Modo:</label></td>
+                 <td class="td"></td>
+                </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"><button id="11" class="boton">Pequeño</button></td>
+                <td class="td"><button id="12" class="boton">Mediano</button></td>
+                <td class="td"><button id="13" class="boton">Grande</button></td>
+                <td class="td"><button id="14" class="boton">Enorme</button></td>
+                <td class="td"><button id="15" class="boton">Gigante</button></td>
+                <td class="td"></td>
+                <td class="td"><button id="31" class="boton dcha">Normal</button></td>
+                <td class="td"><button id="32" class="boton dcha">Pacífico</button></td>
+                <td class="td"><button id="33" class="boton dcha" colspan="2">Teletransporte</button></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td" colspan="3"><label for="velocidad" id="velocidad" class="label">Velocidad:</label></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td" colspan="4"><label for="color" id="color" class="label">Color:</label></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"><button id="21" class="boton">Caracol</button></td>
+                <td class="td"><button id="22" class="boton">Tortuga</button></td>
+                <td class="td"><button id="23" class="boton">Guepardo</button></td>
+                <td class="td"><button id="24" class="boton">Ferrari</button></td>
+                <td class="td"><button id="25" class="boton">Flash</button></td>
+                <td class="td"></td>
+                <td class="td"><button id="41" class="boton">Verde</button></td>
+                <td class="td"><button id="42" class="boton">Azul</button></td>
+                <td class="td"><button id="43" class="boton">Amarillo</button></td>
+                <td class="td"><button id="44" class="boton">Blanco</button></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+            <tr class="tr">
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"><button id="empezar">Jugar</button></td>
+                <td class="td"></td>
+                <td class="td"></td>
+                <td class="td"></td>
+            </tr>
+        </table>
     </div>
-    <div id="juego"><!--The game itseld-->
-        <div id="tabla_movimiento"></div> <!--Shows the play area in which the snake can  move-->
-        <div id="info">Press any arrow key to start the game</div>
-        <div id="marcadores"><!--Shows the point counter-->
-            <label id="label">Points</label><br><br><br>
+    <div id="juego"><!--Contenido que muestra el juego en sí-->
+        <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
+        <div id="info">Presiona cualquier flecha para comenzar</div>
+        <div id="marcadores"> <!--Muestra el marcador con los puntos del juego-->
+            <label id="label" class="label">Puntuación</label><br><br><br>
             <input type="text" id="puntuacion" readonly>
         </div>
     </div>
-    <script src="./script/generateTable.js"></script>
-    <script src="./script/changeSettings.js"></script>
-    <script src="./script/movement.js"></script>
-    <script src="./script/pacific.js"></script>
+    <script src="./script/generarTabla.js"></script>
+    <script src="./script/cambiarAjustes.js"></script>
+    <script src="./script/movimiento.js"></script>
+    <script src="./script/pacifico.js"></script>
     <script src="./script/tp.js"></script>
-    <script src="./script/generateApples.js"></script>
-    <script src="./script/gameOverScreen.js"></script>
+    <script src="./script/generarManzanas.js"></script>
+    <script src="./script/pantallaGameOver.js"></script>
+    <script src="./script/pausa.js"></script>
 </body>
 </html>

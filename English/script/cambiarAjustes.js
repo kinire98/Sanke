@@ -1,7 +1,7 @@
 /** 
  * @author kinire98
  */
-$little.style.background = '#95d5b2'; //It gives styes by defect to the smallest values both the speed and the direction, so the show as marked
+$little.style.background = '#95d5b2';//Les da estilos por defecto a los valores más bajos tanto de tamaño como de velocidad para que aparezcan como marcados
 $little.style.color = '#1b4332';
 $snail.style.background = '#95d5b2';
 $snail.style.color = '#1b4332';
@@ -9,7 +9,7 @@ $normal.style.background = '#95d5b2';
 $normal.style.color = '#1b4332';
 $green.style.background = '#95d5b2';
 $green.style.color = '#1b4332';
-$little.addEventListener('click',() => { //And all of these event listeners call to the same function with a different value in the parameter
+$little.addEventListener('click',() => { //Todas estas escuchas de eventos llaman a la misma función con un distinto valor en sus parámetros
     funcionManjeadoraBotones(1)
 })
 $medium.addEventListener('click',() => {
@@ -63,8 +63,8 @@ $white.addEventListener('click', () => {
 $boton.addEventListener('click',() => {
     generarTabla()
 })
-function funcionManjeadoraBotones (valor) { //in this function depending of the button pressed it executes with a different value in te parameter
-    //Depending on the value it marks one button  and unmarks the rest from its row, and also changes the value to the correspondent one
+function funcionManjeadoraBotones (valor) {//En esta función dependiendo del botón presionado se ejecuta con un valor de parámetro distinto
+    //Dependiendo del valor marca un botón y desmarca el resto de su fila, y también cambia el valor correspondiente 
     switch (valor) {
         case 1:
             tamaño = 1;
@@ -196,80 +196,80 @@ function funcionManjeadoraBotones (valor) { //in this function depending of the 
             $cheeto.style.color = '#95d5b2';
             $flash.style.color = '#1b4332';
             break;
-            case 11:
-                modo = 1
-                $normal.style.background = '#95d5b2';
-                $pacific.style.background = '#1b4332';
-                $tp.style.background = '#1b4332';
-                $normal.style.color = '#1b4332';
-                $pacific.style.color = '#95d5b2';
-                $tp.style.color = '#95d5b2';
-                break;
-            case 12:
-                modo = 2;
-                $normal.style.background = '#1b4332';
-                $pacific.style.background = '#95d5b2';
-                $tp.style.background = '#1b4332';
-                $normal.style.color = '#95d5b2';
-                $pacific.style.color = '#1b4332';
-                $tp.style.color = '#95d5b2';
-                break;
-            case 13:
-                modo = 3;
-                $normal.style.background = '#1b4332';
-                $pacific.style.background = '#1b4332';
-                $tp.style.background = '#95d5b2';
-                $normal.style.color = '#95d5b2';
-                $pacific.style.color = '#95d5b2';
-                $tp.style.color = '#1b4332';
-                break;
-            case 14:
-                colorCabeza = '#1b4332';
-                colorCuerpo = '#019267';
-                $green.style.background = '#95d5b2';
-                $blue.style.background = '#1b4332';
-                $yellow.style.background = '#1b4332';
-                $white.style.background = '#1b4332';
-                $green.style.color = '#1b4332';
-                $blue.style.color = '#95d5b2';
-                $yellow.style.color = '#95d5b2';
-                $white.style.color = '#95d5b2';
-                break;
-            case 15:
-                colorCabeza = '#1A132F';
-                colorCuerpo = '#8479E1';
-                $green.style.background = '#1b4332';
-                $blue.style.background = '#95d5b2';
-                $yellow.style.background = '#1b4332';
-                $white.style.background = '#1b4332';
-                $green.style.color = '#95d5b2';
-                $blue.style.color = '#1b4332';
-                $yellow.style.color = '#95d5b2';
-                $white.style.color = '#95d5b2';
-                break;
-            case 16:
-                colorCabeza = '#F0A500';
-                colorCuerpo = '#FFD93D';
-                $green.style.background = '#1b4332';
-                $blue.style.background = '#1b4332';
-                $yellow.style.background = '#95d5b2';
-                $white.style.background = '#1b4332';
-                $green.style.color = '#95d5b2';
-                $blue.style.color = '#95d5b2';
-                $yellow.style.color = '#1b4332';
-                $white.style.color = '#95d5b2';
-                break;
-            case 17:
-                colorCabeza = '#F5EEDC'
-                colorCuerpo = '#fff'
-                $green.style.background = '#1b4332';
-                $blue.style.background = '#1b4332';
-                $yellow.style.background = '#1b4332';
-                $white.style.background = '#95d5b2';
-                $green.style.color = '#95d5b2';
-                $blue.style.color = '#95d5b2';
-                $yellow.style.color = '#95d5b2';
-                $white.style.color = '#1b4332';
-                break;
+        case 11:
+            modo = 1
+            $normal.style.background = '#95d5b2';
+            $pacific.style.background = '#1b4332';
+            $tp.style.background = '#1b4332';
+            $normal.style.color = '#1b4332';
+            $pacific.style.color = '#95d5b2';
+            $tp.style.color = '#95d5b2';
+            break;
+        case 12:
+            modo = 2;
+            $normal.style.background = '#1b4332';
+            $pacific.style.background = '#95d5b2';
+            $tp.style.background = '#1b4332';
+            $normal.style.color = '#95d5b2';
+            $pacific.style.color = '#1b4332';
+            $tp.style.color = '#95d5b2';
+            break;
+        case 13:
+            modo = 3;
+            $normal.style.background = '#1b4332';
+            $pacific.style.background = '#1b4332';
+            $tp.style.background = '#95d5b2';
+            $normal.style.color = '#95d5b2';
+            $pacific.style.color = '#95d5b2';
+            $tp.style.color = '#1b4332';
+            break;
+        case 14:
+            colorCabeza = '#1b4332';
+            colorCuerpo = '#019267';
+            $green.style.background = '#95d5b2';
+            $blue.style.background = '#1b4332';
+            $yellow.style.background = '#1b4332';
+            $white.style.background = '#1b4332';
+            $green.style.color = '#1b4332';
+            $blue.style.color = '#95d5b2';
+            $yellow.style.color = '#95d5b2';
+            $white.style.color = '#95d5b2';
+            break;
+        case 15:
+            colorCabeza = '#1A132F';
+            colorCuerpo = '#8479E1';
+            $green.style.background = '#1b4332';
+            $blue.style.background = '#95d5b2';
+            $yellow.style.background = '#1b4332';
+            $white.style.background = '#1b4332';
+            $green.style.color = '#95d5b2';
+            $blue.style.color = '#1b4332';
+            $yellow.style.color = '#95d5b2';
+            $white.style.color = '#95d5b2';
+            break;
+        case 16:
+            colorCabeza = '#F0A500';
+            colorCuerpo = '#FFD93D';
+            $green.style.background = '#1b4332';
+            $blue.style.background = '#1b4332';
+            $yellow.style.background = '#95d5b2';
+            $white.style.background = '#1b4332';
+            $green.style.color = '#95d5b2';
+            $blue.style.color = '#95d5b2';
+            $yellow.style.color = '#1b4332';
+            $white.style.color = '#95d5b2';
+            break;
+        case 17:
+            colorCabeza = '#F5EEDC'
+            colorCuerpo = '#fff'
+            $green.style.background = '#1b4332';
+            $blue.style.background = '#1b4332';
+            $yellow.style.background = '#1b4332';
+            $white.style.background = '#95d5b2';
+            $green.style.color = '#95d5b2';
+            $blue.style.color = '#95d5b2';
+            $yellow.style.color = '#95d5b2';
+            $white.style.color = '#1b4332';
+            break;
     }
 }

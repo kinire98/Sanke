@@ -1,20 +1,27 @@
 /** 
  * @author kinire98
  */
- @import url('../Roboto-Medium.ttf');
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 *{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'roboto', sans-serif;
 }
 body {
     margin: 0;
-    padding: 3%;
     background: #2d6a4f;
     overflow: hidden;
+    padding:3%;
 }
 table {
     height: 50em;
     width: 50em;
     border-collapse: collapse;
+    box-shadow: 0 0 5px #081c15,
+                0 0 25px #081c15;
+
+    border-radius: 1em;
 }
 td {
     height: 5px;
@@ -24,11 +31,14 @@ td {
     margin: 0;
     transition: all .05s;
     border-collapse: collapse;
+    border-radius: 1em;
 }
 tr {
     border-collapse:collapse;
     height: 5px;
     width: 5px;
+    border-radius: 1em;
+    background: #C5D8A4;
 }
 #tabla_movimiento {
     margin-right:5%;
@@ -39,32 +49,39 @@ tr {
     justify-content: center;
     position: relative;
     margin-left: 5%;
+    padding: auto;
+    transition-property: all;
+    transition-duration:.3s;
 }
 input {
     text-align: center;
 }
-.boton, #empezar {
+.boton{
     color: #95d5b2;
     background: #1b4332;
     border: 0.09em dotted #081c15;
     font-size: 2em;
-    transition: all 0.3s;
+    transition-property: box-shadow, border;
+    transition-duration:.3s;
     width: 100%;
+    border-radius:.5rem;
+    cursor: pointer;
 }
-.boton:hover, #empezar:hover {
+.boton:hover {
     border: 0.09em dotted #95d5b2;
     box-shadow: 0 0 5px #081c15,
-    0 0 25px #081c15, 
-    0 0 50px #081c15, 
+                0 0 25px #081c15, 
+                0 0 50px #081c15, 
                 0 0 200px #081c15,
                 0 0 250px #081c15;
-            }
-            .label {
+}
+.label {
     padding: 0.5em;
     background: #52b788;
     border: 0.5em double black;
     font-size: 2em;
     transition:all 0.3s;
+    border-radius:1rem;
 }
 .label:hover {
     background: #95d5b2;
@@ -80,11 +97,12 @@ input {
     font-size: 2em;
 }
 #info {
+    display: flex;
     position: absolute;
-    right: 0;
-    left:0;
-    bottom:0;
-    top:0;
+    right: 44%;
+    left:19.5%;
+    bottom:30%;
+    top:25%;
     background: #2d6a4f;
     color: rgba(0, 0, 0, 1);
     padding: 1.5em;
@@ -93,7 +111,15 @@ input {
     transition:.5s;
     z-index:999;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     font-weight: bolder;
+    box-shadow: 0 0 5px #081c15,
+                0 0 25px #081c15, 
+                0 0 50px #081c15, 
+                0 0 200px #081c15,
+                0 0 250px #081c15;
+    border-radius: 1em;
 }
 #puntuacion {
     border-radius: 5rem;
@@ -106,11 +132,15 @@ input {
     height: auto;
     width: 100%;
     transition: all 1.5s;
+    background: #52b788;
+    border-radius: 1em;
+    box-shadow: 0 0 0;
 }
 .tr {
     height: 5vh;
     width: 100%;
     transition: all 1.5s;
+    background: #52b788;
 }
 .td {
     height: 10vh;
@@ -119,14 +149,268 @@ input {
     transition: all 1.5s;
 }
 #Ajustes {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     margin: 0;
     text-align: center;
+    background: #52b788;
+    padding: 5%;
+    border-radius:5rem;
 }
 .dcha {
     position: relative;
-    left: 5vw;
+    left: 4vw;
+}
+#pantallaInicio {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, .65);
+}
+[alt="Icono del juego"] {
+    animation: icono .75s;
+    position: relative;
+}
+@keyframes icono {
+    0% {
+        right: 0;
+        bottom: 0;
+    }
+    100% {
+        right: 25vw;
+        bottom:10vh
+    }
+}
+#p1 {
+    position: absolute;
+    display: block;
+    animation: p1 .75s;
+    animation-delay: .15s;
+    max-width: fit-content;  
+    cursor: pointer;
+}
+@keyframes p1 {
+    0% {
+        bottom: 0%;
+        left: 55%;
+        font-size: 0;
+    }
+    50% {
+        bottom: 55%;
+    }
+    100% {
+        bottom: 50%;
+        left: 45%;
+        font-size: 8rem;
+    }
+}
+#p2 {
+    position: absolute;
+    display: block;
+    animation: p2 .75s;
+    animation-delay: .2s;
+    max-width: fit-content;
+    cursor: pointer;
+}
+@keyframes p2 {
+    0% {
+        bottom: 0%;
+        left: 55%;
+        font-size: 0;
+    }
+    50% {
+        bottom: 55%;
+    }
+    100% {
+        bottom: 50%;
+        left: 49.3%;
+        font-size: 8rem;
+    }
+}
+#p3 {
+    position: absolute;
+    display: block;
+    animation: p3 .75s;
+    animation-delay: .25s;
+    max-width: fit-content;
+    cursor: pointer;
+}
+@keyframes p3 {
+    0% {
+        bottom: 0%;
+        left: 55%;
+        font-size: 0;
+    }
+    50% {
+        bottom: 55%;
+    }
+    100% {
+        bottom: 50%;
+        left: 53%;
+        font-size: 8rem;
+    }
+}
+#p4 {
+    position: absolute;
+    display: block;
+    animation: p4 .75s;
+    animation-delay: .3s;
+    max-width: fit-content; 
+    cursor: pointer;  
+}
+@keyframes p4 {
+    0% {
+        bottom: 0%;
+        left: 55%;
+        font-size: 0;
+    }
+    50% {
+        bottom: 55%;
+    }
+    100% {
+        bottom: 50%;
+        left: 57%;
+        font-size: 8rem;
+    }
+}
+#p5 {
+    position: absolute;
+    display: block;
+    animation: p5 .75s;
+    animation-delay: .35s;
+    max-width: fit-content;  
+    cursor: pointer; 
+}
+@keyframes p5 {
+    0% {
+        bottom: 0%;
+        left: 55%;
+        font-size: 0;
+    }
+    50% {
+        bottom: 55%;
+    }
+    100% {
+        bottom: 50%;
+        left: 60.5%;
+        font-size: 8rem;
+    }
+}
+span {
+    font-family: 'Montserrat', sans-serif;
+    bottom: 0%;
+    left: 55%;
+    font-size: 0;
+    color:#1a1a1a;
+    transition: box-shadow,color 0.2s; 
+}
+span:hover {
+    box-shadow: 0 0 50px #081c15
+                0 0 100px #081c15
+                0 0 150px #081c15
+                0 0 200px #081c15
+                0 0 250px #081c15;
+    color: #9b0000;
+    cursor: pointer;
+}
+#empezar{
+    color: #95d5b2;
+    background: #1b4332;
+    border: 0.09em dotted #081c15;
+    font-size: 2em;
+    max-width: fit-content;
+    border-radius:.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom:0;
+    font-size: 0;
+    right: 0;
+    animation:empezar .6s;
+    animation-delay: .5s;
+    transition-property: border,box-shadow;
+    transition-duration: .2s;
+}
+#empezar:hover {
+    border: 0.09em dotted #95d5b2;
+    box-shadow: 0 0 5px #081c15,
+                0 0 25px #081c15, 
+                0 0 50px #081c15, 
+                0 0 200px #081c15,
+                0 0 250px #081c15;
+}
+@keyframes empezar {
+    0% {
+        bottom:0;
+        font-size: 0;
+        right: 0;
+    }
+    100% {
+        font-size: 3rem;
+        bottom: 25%;
+        right: 45%;
+    }
+}
+#opciones{
+    color: #95d5b2;
+    background: #1b4332;
+    border: 0.09em dotted #081c15;
+    font-size: 2em;
+    max-width: fit-content;
+    border-radius:.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom:0;
+    font-size: 0;
+    left: 0;
+    animation:opciones .6s;
+    animation-delay: .55s;
+    transition-property: box-shadow, border;
+    transition-duration:.3s;
+}
+#opciones:hover {
+    border: 0.09em dotted #95d5b2;
+    box-shadow: 0 0 5px #081c15,
+                0 0 25px #081c15, 
+                0 0 50px #081c15, 
+                0 0 200px #081c15,
+                0 0 250px #081c15;
+    
+}
+@keyframes opciones {
+    0% {
+        bottom:0;
+        font-size: 0;
+        left: 0;
+    }
+    100% {
+        font-size: 2rem;
+        bottom: 15%;
+        left: 47.5%;
+    }
+}
+.atras {
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1rem;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    min-height: 1rem;
+    background: #95d5b2;
+    color: #1b4332;
+}
+.atras:hover {
+    color: #95d5b2;
+    background-color: #1b4332;
+    border: .09em dotted #95d5b2;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

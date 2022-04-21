@@ -29,6 +29,7 @@ let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se uti
     colorCabeza = '#1b4332',
     colorCuerpo = '#019267';
 function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
+    document.getElementById('pantallaInicio').style.display = 'none';
     const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
     const $tabla = document.createElement('table');
     $tabla.setAttribute('class', 'tabla_juego'); //Establece una pseudaclase para la tabla del juego

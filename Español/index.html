@@ -9,6 +9,14 @@
     <title>Sanke</title>
 </head>
 <body>
+    <div id="pantallaInicio">
+        <div>
+            <img src="./iconos/iconoSanke.png" alt="Icono del juego">
+            <p><span id="p1">S</span><span id="p2">a</span><span id="p3">n</span><span id="p4">k</span><span id="p5">e</span></p> <br>
+            <button id="empezar">Jugar</button>
+            <button id="opciones">Opciones</button>
+        </div>
+    </div>
     <div id="Ajustes">
          <table class="table">
              <tr class="tr">
@@ -19,17 +27,6 @@
                  <td class="td" colspan="4"><label for="modo" id="modo" class="label">Modo:</label></td>
                  <td class="td"></td>
                 </tr>
-            <tr class="tr">
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-            </tr>
             <tr class="tr">
                 <td class="td"><button id="11" class="boton">Pequeño</button></td>
                 <td class="td"><button id="12" class="boton">Mediano</button></td>
@@ -60,18 +57,7 @@
                 <td class="td"></td>
                 <td class="td" colspan="4"><label for="color" id="color" class="label">Color:</label></td>
             </tr>
-            <tr class="tr">
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-            </tr>
+            </tr> 
             <tr class="tr">
                 <td class="td"><button id="21" class="boton">Caracol</button></td>
                 <td class="td"><button id="22" class="boton">Tortuga</button></td>
@@ -96,18 +82,8 @@
                 <td class="td"></td>
                 <td class="td"></td>
             </tr>
-            <tr class="tr">
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"><button id="empezar">Jugar</button></td>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-            </tr>
         </table>
+        <button class="boton atras">⬅</button>
     </div>
     <div id="juego"><!--Contenido que muestra el juego en sí-->
         <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
@@ -118,7 +94,9 @@
         </div>
     </div>
     <script src="./script/generarTabla.js"></script>
+    <script src="./script/gestorAnimaciones.js"></script>
     <script src="./script/cambiarAjustes.js"></script>
+    <script src="./script/movimientoIU.js"></script>
     <script src="./script/movimiento.js"></script>
     <script src="./script/pacifico.js"></script>
     <script src="./script/tp.js"></script>

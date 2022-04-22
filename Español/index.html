@@ -9,6 +9,9 @@
     <title>Sanke</title>
 </head>
 <body>
+    <div id="contenido_movil">
+        Esta página no es compatible con dispositivos móviles. Abralo en un navegador de escritorio
+    </div>
     <div id="pantallaInicio">
         <div>
             <img src="./iconos/iconoSanke.png" alt="Icono del juego">
@@ -86,6 +89,9 @@
         <button class="boton atras">⬅</button>
     </div>
     <div id="juego"><!--Contenido que muestra el juego en sí-->
+        <button class="btn-control" id="btn-control1">⌂</button>
+        <button class="btn-control" id="btn-control2">↺</button>
+        <button class="btn-control" id="btn-control3">⏸</button>
         <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
         <div id="info">Presiona cualquier flecha para comenzar</div>
         <div id="marcadores"> <!--Muestra el marcador con los puntos del juego-->
@@ -93,6 +99,7 @@
             <input type="text" id="puntuacion" readonly>
         </div>
     </div>
+    <script src="./script/movilEscritorio.js"></script>
     <script src="./script/generarTabla.js"></script>
     <script src="./script/gestorAnimaciones.js"></script>
     <script src="./script/cambiarAjustes.js"></script>

@@ -4,10 +4,10 @@
 function pausar () {
     document.getElementById('info').style.opacity = '0.85'
     document.getElementById('info').innerHTML = `
-    Pausa <br>
-    Presiona cualquier flecha para reanudar <br>
-    Presiona ↲ para volver a empezar <br>
-    Presiona esc para cambiar los valores`;
+    <div id="infor">Pausa</div></br>
+    <button id="reanudar" class="boton pan_info">Reanudar</button><br>
+    <button id="volver_empezar" class="boton pan_info">Volver a empezar</button>
+    <button id="config" class="boton pan_info">⚙</button>`;
     seAcabo = 1;
     removeEventListener('keydown',manejadorTeclas)
     // console.clear()
@@ -20,7 +20,8 @@ function manejadorPausa (e) {
         pausa = 0;
         const $tabla = document.querySelector('.tabla_juego')
         const $padre = $tabla.parentElement;
-        document.getElementById('Ajustes').style.display = 'flex'//También pone los valores como al principio para poder volver a empezar la partida
+        document.getElementById('Ajustes').style.display = 'flex';//También pone los valores como al principio para poder volver a empezar la partida
+        document.querySelector('table').style.display = 'block';
         document.getElementById('juego').style.display = 'none'
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `

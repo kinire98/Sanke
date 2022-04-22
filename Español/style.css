@@ -15,8 +15,9 @@ body {
     padding:3%;
 }
 table {
-    height: 50em;
-    width: 50em;
+    margin-left: 5%;
+    height: 55rem;
+    width: 55rem;
     border-collapse: collapse;
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15;
@@ -46,8 +47,11 @@ tr {
     display: none;
     align-items: center;
     justify-content: center;
-    position: relative;
-    margin-left: 5%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: auto;
     transition-property: all;
     transition-duration:.3s;
@@ -61,19 +65,19 @@ input {
     background: #1b4332;
     border: 0.09em dotted #081c15;
     font-size: 2em;
-    transition-property: box-shadow, border;
+    transition-property: box-shadow, border, padding;
     transition-duration:.3s;
     width: 100%;
     border-radius:.5rem;
     cursor: pointer;
 }
 .boton:hover {
-    border: 0.09em dotted #95d5b2;
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15, 
                 0 0 50px #081c15, 
                 0 0 200px #081c15,
                 0 0 250px #081c15;
+    padding: .3rem;
 }
 .label {
     padding: 0.5em;
@@ -98,10 +102,10 @@ input {
     font-size: 2em;
 }
 #info {
-    display: flex;
+    display: block;
     position: absolute;
     right: 44%;
-    left:19.5%;
+    left:26.5%;
     bottom:30%;
     top:25%;
     background: #2d6a4f;
@@ -443,5 +447,71 @@ span:hover {
     background-color: #1b4332;
     border: .09em dotted #95d5b2;
     border-radius: 1rem;
+}
+.pan_info {
+    padding: 0;
+    font-size:2rem;
+    display: inline;
+    max-width: max-content;
+    margin-top: 10%;
+    transition: all .3s;
+    background: rgba(255, 255, 255, .55);
+    color: #1b4332;
+}
+.pan_info:hover {
+    color: rgba(255, 255, 255, .55);
+    background: #1b4332;
+    padding: 1%;
+}
+#config {
+    font-size: 1.75rem;
+}
+#reanudar {
+    max-width: 80%;
+}
+#infor {
+    margin-top: 10%;
+}
+.btn-control {
+    position: absolute;
+    font-size: 3rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    text-align: center;
+    transition: all .3s;
+    background: rgba(255, 255, 255, .65);
+    color: #1b4332;
+    border: 5px double #1b4332;
+    cursor: pointer;
+}
+.btn-control:hover {
+    color: rgba(255, 255, 255, .65);
+    background: #1b4332;
+    border: 5px double rgba(255, 255, 255, .65);
+    border-radius: 1.5rem;
+    padding: .5rem;
+    font-size: 2.5rem;
+    height: 5.5rem;
+    width: 5.5rem;
+}
+#btn-control1 {
+    top: 0;
+    left: 1vw;
+}
+#btn-control2 {
+    top: 0;
+    left:calc(2vw + 5rem);
+}
+#btn-control3 {
+    top: 0;
+    left: calc(3vw + 10rem);
+}
+#contenido_movil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 3rem;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

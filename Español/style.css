@@ -21,7 +21,6 @@ table {
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15;
 
-    border-radius: 1em;
 }
 td {
     height: 5px;
@@ -29,15 +28,15 @@ td {
     background: #fff;
     padding: 0;
     margin: 0;
-    transition: all .05s;
+    transition: all .2s;
     border-collapse: collapse;
-    border-radius: 1em;
+    border-radius: 1rem;
 }
 tr {
     border-collapse:collapse;
     height: 5px;
     width: 5px;
-    border-radius: 1em;
+    border-radius: 5em;
     background: #C5D8A4;
 }
 #tabla_movimiento {
@@ -55,6 +54,7 @@ tr {
 }
 input {
     text-align: center;
+    cursor: pointer;
 }
 .boton{
     color: #95d5b2;
@@ -82,6 +82,7 @@ input {
     font-size: 2em;
     transition:all 0.3s;
     border-radius:1rem;
+    cursor: pointer;
 }
 .label:hover {
     background: #95d5b2;
@@ -129,10 +130,12 @@ input {
     font-size:1.5rem;
 }
 .table {
+    display: none;
     height: auto;
+    margin-left: 5%;
     width: 100%;
     transition: all 1.5s;
-    background: #52b788;
+    background: none;
     border-radius: 1em;
     box-shadow: 0 0 0;
 }
@@ -140,7 +143,7 @@ input {
     height: 5vh;
     width: 100%;
     transition: all 1.5s;
-    background: #52b788;
+    background: none;
 }
 .td {
     height: 10vh;
@@ -150,13 +153,16 @@ input {
 }
 #Ajustes {
     display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
     margin: 0;
     text-align: center;
-    background: #52b788;
-    padding: 5%;
-    border-radius:5rem;
+    background: rgba(255, 255, 255, .65);
 }
 .dcha {
     position: relative;
@@ -181,10 +187,17 @@ input {
     0% {
         right: 0;
         bottom: 0;
+        width: 0;
+        height: 0;
+    }
+    25% {
+        bottom: 1vh;
     }
     100% {
         right: 25vw;
-        bottom:10vh
+        bottom:10vh;
+        width: 512px;
+        height: 512px;
     }
 }
 #p1 {
@@ -320,9 +333,9 @@ span:hover {
     cursor: pointer;
 }
 #empezar{
-    color: #95d5b2;
-    background: #1b4332;
-    border: 0.09em dotted #081c15;
+    background: rgba(255, 255, 255, .65);
+    color: #1b4332;
+    border: 0.1em dotted #1b4332;
     font-size: 2em;
     max-width: fit-content;
     border-radius:.5rem;
@@ -333,11 +346,15 @@ span:hover {
     right: 0;
     animation:empezar .6s;
     animation-delay: .5s;
-    transition-property: border,box-shadow;
+    transition-property: border,box-shadow,color,background,padding,border-radius;
     transition-duration: .2s;
 }
 #empezar:hover {
-    border: 0.09em dotted #95d5b2;
+    color: rgba(255, 255, 255, .65);
+    background: #1b4332;
+    padding: .1%;
+    border-radius: 1rem;
+    border: 0.1em dotted rgba(255, 255, 255, .65);
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15, 
                 0 0 50px #081c15, 
@@ -350,6 +367,10 @@ span:hover {
         font-size: 0;
         right: 0;
     }
+    50% {
+        bottom:27.5%;
+        right: 50%;
+    }
     100% {
         font-size: 3rem;
         bottom: 25%;
@@ -357,9 +378,9 @@ span:hover {
     }
 }
 #opciones{
-    color: #95d5b2;
+    color: rgba(255, 255, 255, .65);
     background: #1b4332;
-    border: 0.09em dotted #081c15;
+    border: 0.1em dotted rgba(255, 255, 255, .65);;
     font-size: 2em;
     max-width: fit-content;
     border-radius:.5rem;
@@ -367,14 +388,18 @@ span:hover {
     position: absolute;
     bottom:0;
     font-size: 0;
-    left: 0;
+    right: 0;
     animation:opciones .6s;
     animation-delay: .55s;
-    transition-property: box-shadow, border;
+    transition-property: box-shadow, border, color, background,padding,border-radius;
     transition-duration:.3s;
 }
 #opciones:hover {
-    border: 0.09em dotted #95d5b2;
+    background: rgba(255, 255, 255, .65);
+    color: #1b4332;
+    padding: .1%;
+    border-radius: 1rem;
+    border: 0.1em dotted #1b4332;
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15, 
                 0 0 50px #081c15, 
@@ -386,12 +411,16 @@ span:hover {
     0% {
         bottom:0;
         font-size: 0;
-        left: 0;
+        right: 0;
+    }
+    50% {
+        bottom:12.5%;
+        right: 50%;
     }
     100% {
         font-size: 2rem;
         bottom: 15%;
-        left: 47.5%;
+        right: 44.8%;
     }
 }
 .atras {
@@ -400,17 +429,19 @@ span:hover {
     left: 1vw;
     height: 4rem;
     width: 4rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     padding: 0;
     text-align: center;
     justify-content: center;
     min-height: 1rem;
     background: #95d5b2;
     color: #1b4332;
+    transition: all .5s;
 }
 .atras:hover {
     color: #95d5b2;
     background-color: #1b4332;
     border: .09em dotted #95d5b2;
+    border-radius: 1rem;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

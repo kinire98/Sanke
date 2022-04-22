@@ -65,6 +65,27 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         for (let j = 0; j <= ancho; j++) {
             const $celda = document.createElement('td'); // Crea la celda de la tabla
             $celda.setAttribute('id',`${j}  ${i}`) //Le da una id que representa sus coordenadas, con dos espacios por el medio para evitar conflictos entre una coordenada y otra
+            switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
+                case 1:
+                    $celda.style.borderRadius = '1rem'
+                    break;
+                case 2:
+                    $celda.style.borderRadius = '.75rem'
+                    break;
+                case 3:
+                    $celda.style.borderRadius = '.5rem'
+                    break;
+                case 4:
+                    $celda.style.borderRadius = '.25rem'
+                    break;
+                case 5:
+                    $celda.style.borderRadius = '.15rem'
+                    break;
+            
+                default:
+                    alert('Ha romper los programas de los demás a tu maldita casa')//Un chiste de mierda, solo ignoradlo
+                    break;
+            }
             //No sé si lo de los espacios es necesario, pero lo hice por si acaso
             $fila.appendChild($celda)//Pone la celda como elemento hijo de la fila
         }

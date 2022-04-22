@@ -1,13 +1,17 @@
-const $atras = document.querySelector('.atras');
+const $atras = document.querySelector('.atras'),
+    $table = document.querySelector('table'),
+    $tr = document.querySelectorAll('tr'),
+    $td = document.querySelectorAll('td');
 $opciones.addEventListener('click', () => {
     document.getElementById('pantallaInicio').style.display = 'none';
     document.getElementById('Ajustes').style.display = 'flex';
+    $table.style.display = 'block';
 })
 $atras.addEventListener('click', () => {
     document.getElementById('pantallaInicio').style.display = 'flex';
     document.getElementById('Ajustes').style.display = 'none';
     $opciones.style.fontSize = '0';
-    $opciones.style.left = '0';
+    $opciones.style.right = '0';
     $opciones.style.bottom = '0';
     $boton.style.fontSize = '0';
     $boton.style.right = '0';
@@ -27,4 +31,5 @@ $atras.addEventListener('click', () => {
     p5.style.bottom = '0%';
     p5.style.left = '55%';
     p5.style.fontSize = '0';
+    $table.style.display = 'block';
 })

@@ -41,6 +41,6 @@ $boton.addEventListener('animationend', () => {
 })
 $opciones.addEventListener('animationend', () => {
     $opciones.style.bottom = '15%';
-    $opciones.style.left = '47.5%';
+    $opciones.style.right = '44.8%';
     $opciones.style.fontSize = '2rem';
 })

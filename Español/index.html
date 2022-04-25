@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css" type="text/css">
-    <link rel="shortcut icon" href="./iconos/iconoSanke.png">
+    <link rel="shortcut icon" href="./iconos/logoPestanaNavegador.png">
     <title>Sanke</title>
 </head>
 <body>
-    <div id="contenido_movil" style="font-size: 5rem;">
+    <div id="contenido_movil" style="font-size: 5rem;"> <!--Contenido que se verá si se abre en movil-->
         Esta página no es compatible con dispositivos móviles. Abra la página en un navegador de escritorio
     </div>
-    <div id="pantallaInicio">
+    <div id="pantallaInicio"> <!--Pantalla de incicio-->
         <div>
-            <img src="./iconos/iconoSanke.png" alt="Icono del juego">
-            <p><span id="p1">S</span><span id="p2">a</span><span id="p3">n</span><span id="p4">k</span><span id="p5">e</span></p> <br>
+            <img src="./iconos/logoPantallaIncio.png" alt="Icono del juego">
+            <p><span id="p1">S</span><span id="p2">a</span><span id="p3">n</span><span id="p4">k</span><span id="p5">e</span></p> <br><!--Cada letra esta en un span distinto para su animación por separado-->
             <button id="empezar">Jugar</button>
             <button id="opciones">Opciones</button>
         </div>
     </div>
-    <div id="Ajustes">
+    <div id="Ajustes"> <!--La tabla de ajuste para cambiar lso modificadores del juego-->
          <table class="table">
              <tr class="tr">
                  <td class="td"></td>
@@ -103,6 +103,7 @@
             <input type="text" id="puntuacion_alta" readonly>
         </div>
     </div>
+    <!--Scripts. Sí, lo sé son unos cuantos-->
     <script src="./script/movilEscritorio.js"></script>
     <script src="./script/generarTabla.js"></script>
     <script src="./script/gestorAnimaciones.js"></script>

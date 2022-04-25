@@ -26,9 +26,9 @@ function movimiento () {
     seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
     document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
     bucleMovimiento()
-    if (!localStorage.getItem('record')) {
-        document.getElementById('puntuacion_alta').value = `${0} pts`
-    } else {
+    if (!localStorage.getItem('record')) { //Comprueba si existe la variable de record
+        document.getElementById('puntuacion_alta').value = `${0} pts`; // Si no escribe 0
+    } else { //Si sí existe escribe el record
         document.getElementById('puntuacion_alta').value = `${localStorage.getItem('record')} pts`
     }
 }
@@ -41,7 +41,7 @@ function bucleMovimiento () {
             if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
                 pantallaVictoria();
                 clearInterval(movement);
-                recordNormal(posicion.length - 1);
+                recordNormal(posicion.length - 1); //funcion para comprobar si se ha batido el record anterior
             }
             if (posicion.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
@@ -79,7 +79,7 @@ function bucleMovimiento () {
                            pantallaGameOver();
                            clearInterval(movement);
                            seAcabo = 1;
-                           recordNormal(posicion.length - 1);
+                           recordNormal(posicion.length - 1);//Si se pierde también se comprueba si se ha batido el récord
                    }
                }
             }
@@ -93,9 +93,9 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
         if (tecla == 'Escape') {
             pausa = 1;
             pausar();
-            document.getElementById('btn-control3').style.display = 'none';
+            document.getElementById('btn-control3').style.display = 'none'; //Oculta el boton de pausa
         } else if (!direccion && (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft')) { //Para el principio, que se pueda ir en cualquier dirección
-            document.getElementById('btn-control3').style.display = 'block';
+            document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
             switch (tecla) {
                 case 'ArrowLeft':
                     e.preventDefault();
@@ -121,7 +121,7 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
                     break;
                 }
         } else if (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft'){ //Y cuando se mueva que solo pueda ir en perpendicular
-            document.getElementById('btn-control3').style.display = 'block';
+            document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
             if (direccion == 'arriba' || direccion == 'abajo') {
                 switch (tecla) {
                     case 'ArrowLeft':
@@ -136,7 +136,7 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
                         break;
                 }
             } else if (direccion == 'izquierda' || direccion == 'derecha') {
-                document.getElementById('btn-control3').style.display = 'block';
+                document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
                 switch (tecla) {
                     case 'ArrowUp':
                         e.preventDefault();

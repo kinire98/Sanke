@@ -10,7 +10,7 @@ function tp () {
     manzana2 = ponerMazanaTP(posicionTP,manzanaTP);
     seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
     document.getElementById('puntuacion').value = `${posicionTP.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
-    if (!localStorage.getItem('recordTP')) {
+    if (!localStorage.getItem('recordTP')) { //Comprueba el record en LocalStorage
         document.getElementById('puntuacion_alta').value = `${0} pts`
     } else {
         document.getElementById('puntuacion_alta').value = `${localStorage.getItem('recordTP')}  pts`
@@ -19,14 +19,13 @@ function tp () {
 function bucleTP () {
     var movement = setInterval(() => {//Función pricipal del  modo de juego
         if (pausa === 0) {
-            
             seAcabo = 0;
             let primerElemento = posicionTP[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzanaTP. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
-            if (posicionTP.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
-                pantallaVictoria()
+            if (posicionTP.length == (ancho * alto) - 1) { //Comprueba si el jugador ha ganado, como son impares, para evitar un bucle infinito al final se quita la condición de victoria es un punto media
+                pantallaVictoria() 
                 clearInterval(movement)
-                recordTp(posicionTP.length - 1);
+                recordTp(posicionTP.length - 1); //Cuando se gana se comprueba si el resultado es mayor al record guardado
             }
             if (posicionTP.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
@@ -35,7 +34,6 @@ function bucleTP () {
                         posicionTP[i + 1].alto = posicionTP[i].alto;
                     }
                 }, 0);
-                    
             } 
             
             if (direccion == 'arriba') {//Comprueba en que dirección tiene que avanzar la serpitente y cambia la coordenada correspondiente solo para la cabeza
@@ -66,7 +64,7 @@ function bucleTP () {
                 pantallaGameOver();
                 clearInterval(movement);
                 seAcabo = 1;
-                recordTp(posicionTP.length - 1);
+                recordTp(posicionTP.length - 1); //Cuando se pierde se comprueba si se ha superado el record
             } else { //Comprueba si la baeza de la serpiente se ha chocado con su cuerpo
                for (let i = 0; i <= posicionTP.length - 1; i++) {
                    if (
@@ -75,13 +73,13 @@ function bucleTP () {
                            pantallaGameOver();
                            clearInterval(movement);
                            seAcabo = 1;
-                           recordTp(posicionTP.length - 1);
+                           recordTp(posicionTP.length - 1);//Cuando se pierde se comprueba si se ha superado el record
                    }
                }
            }
            renderSerpitenteTP() //Renderiza la serpiente   
             
-        } else {
+        } else { //Si se ha pausado el juego se para el intervalo
             clearInterval(movement)
         }
     } ,intervalo());

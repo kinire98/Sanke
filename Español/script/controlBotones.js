@@ -1,18 +1,21 @@
-function controlBotones () {
+/** 
+ * @author kinire98
+ */
+function controlBotones () { //Encuentra los elementos y los guarda en una variable y les pone un listener
     const $btnHome = document.getElementById('btn-control1'),
-        $btnPause = document.getElementById('btn-control3');
+        $btnPause = document.getElementById('btn-control3'); //Pasa de btn-control 1 a btn-control3 porque existia un btn-control2 que daba muchos problemas y se tuvo que eliminar
         
     $btnHome.addEventListener('click', btnHome)
     $btnPause.addEventListener('click',btnPause)
 }
-function controlBotonesPanel () {
+function controlBotonesPanel () { //Lo mismo con los botones del menú de victoria o derrota
     const $btnSqAgain = document.getElementById('volver_empezar'),
     $btnSqConfig = document.getElementById('config');
 
     $btnSqAgain.addEventListener('click', btnPanelAgain)
     $btnSqConfig.addEventListener('click', btnPanelConfig)
 }
-function controlBotonesPausa () {
+function controlBotonesPausa () { //Victoria o derrota más el del menú de pausa
     const $btnSqContinue = document.getElementById('reanudar');
 
     $btnSqContinue.addEventListener('click',manejadorBtnPausa)
@@ -21,31 +24,8 @@ function controlBotonesPausa () {
 
 
 
-function btnHome () {
-    document.getElementById('pantallaInicio').style.display = 'flex';
-    document.getElementById('juego').style.display = 'none';
-    $opciones.style.fontSize = '0';
-    $opciones.style.right = '0';
-    $opciones.style.bottom = '0';
-    $boton.style.fontSize = '0';
-    $boton.style.right = '0';
-    $boton.style.fontSize = '0';
-    p1.style.bottom = '0%';
-    p1.style.left = '55%';
-    p1.style.fontSize = '0';
-    p2.style.bottom = '0%';
-    p2.style.left = '55%';
-    p2.style.fontSize = '0';
-    p3.style.bottom = '0%';
-    p3.style.left = '55%';
-    p3.style.fontSize = '0';
-    p4.style.bottom = '0%';
-    p4.style.left = '55%';
-    p4.style.fontSize = '0';
-    p5.style.bottom = '0%';
-    p5.style.left = '55%';    
-    p5.style.fontSize = '0';
-    $table.style.display = 'block';
+function btnHome () { //Resetea los estilos de las animaciones de la pantalla de inicia
+    reseteo();//Puesto en una animación para mayor claridad del código
     const $tabla = document.querySelector('.tabla_juego')
     const $padre = $tabla.parentElement;
     $padre.removeChild($tabla);
@@ -54,7 +34,7 @@ function btnPause () {
     pausa = 1;
     pausar()
 }
-function btnPanelConfig () {
+function btnPanelConfig () { //Igual que pulsar el intro en la pantalla de pausa, victoria o derrota
     direccion = null;
     pausa = 0;
     const $tabla = document.querySelector('.tabla_juego')
@@ -70,7 +50,7 @@ function btnPanelConfig () {
     seAcabo = 0;
     quitar();
 }
-function btnPanelAgain () {
+function btnPanelAgain () {//Igual que pulsar el intro en la pantalla de pausa, victoria o derrota
     pausa = 1;
     document.getElementById('btn-control3').style.display = 'none';
     direccion = null;
@@ -87,7 +67,7 @@ function btnPanelAgain () {
     quitar();
     pausa = 0;
 }
-function manejadorBtnPausa ()  {
+function manejadorBtnPausa ()  {//Igual que pulsar cualquier flecha en la pantalla de pausa, solo que no permite cambiar las direcciones
     const $tabla = document.querySelector('.tabla_juego')
     const $padre = $tabla.parentElement;
     $padre.removeChild($tabla);
@@ -98,7 +78,7 @@ function manejadorBtnPausa ()  {
     generarTabla(1);
     quitar();
 }
-function quitar () {
+function quitar () { //Quita los listeners para evitar consumo excesivo de memoria
     removeEventListener('click', btnPanelAgain)
     removeEventListener('click', btnPanelConfig)
     removeEventListener('click', manejadorBtnPausa)

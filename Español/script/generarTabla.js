@@ -94,7 +94,7 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
     document.getElementById('juego').style.display = 'flex';//Muestra el div con los elementos del juegos
     document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
     if (pausa) {
-        if (modo == 1){
+        if (modo == 1){ //Si esta funcion se llama desde el menú de pausa se ejecuta directamente el bucle del movmiento, sin reinicio
             bucleMovimiento()//Ejecuta la función del movimiento...
         } else if (modo == 2) {
             buclePacifico()
@@ -111,5 +111,5 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         }
     }
     addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
-    controlBotones();
+    controlBotones(); //Se ejecuta el control de los botones de la esquina superior izquierda
 }

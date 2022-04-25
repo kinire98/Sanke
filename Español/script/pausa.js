@@ -1,16 +1,16 @@
 /** 
  * @author kinire98
  */
-function pausar () {
-    document.getElementById('info').style.opacity = '0.85'
-    document.getElementById('info').innerHTML = `
+function pausar () { //Función de pantalla de pausa
+    document.getElementById('info').style.opacity = '0.85'; //Muestra la pantalla de pausa
+    document.getElementById('info').innerHTML = /*Cambia el contenido de la pantalla de pausa a los tres botones* de control*/` 
     <div id="infor">Pausa</div></br>
     <button id="reanudar" class="boton pan_info">▶</button>
     <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>`;
-    controlBotonesPausa();
-    document.getElementById('btn-control3').style.display = 'none';
-    seAcabo = 1;
+    controlBotonesPausa();//Listener de los botones
+    document.getElementById('btn-control3').style.display = 'none'; //Se oculta el botón de pausa
+    seAcabo = 1; 
     removeEventListener('keydown',manejadorTeclas)
     console.clear()
     addEventListener('keydown',manejadorPausa)
@@ -44,7 +44,7 @@ function manejadorPausa (e) {
         generarTabla()
         seAcabo = 0;
     } else if (tecla == 'ArrowLeft' || tecla == 'ArrowRight' || tecla == 'ArrowUp' || tecla == 'ArrowDown') {
-        switch (tecla) {
+        switch (tecla) { //Permite acabar la pausa presionando las flechas, además cambia la dirección
             case 'ArrowLeft':
                 direccion = 'izquierda';
                 break;
@@ -58,6 +58,7 @@ function manejadorPausa (e) {
                 direccion = 'abajo';
                 break;
         }
+        //Reinicia la tabla
         const $tabla = document.querySelector('.tabla_juego')
         const $padre = $tabla.parentElement;
         $padre.removeChild($tabla);
@@ -65,6 +66,6 @@ function manejadorPausa (e) {
         addEventListener('keydown', manejadorTeclas);
         removeEventListener('keydown',manejadorPausa);
         pausa = 0;
-        generarTabla(1);
+        generarTabla(1); //Genera la tabla yendo directamente al bucle de juego para que no se reinicie
     }
 }

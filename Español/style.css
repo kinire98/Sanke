@@ -14,6 +14,7 @@ body {
     overflow: hidden;
     padding:3%;
 }
+/*Tabla juego*/
 table {
     margin-left: 5%;
     height: 55rem;
@@ -43,6 +44,8 @@ tbody {
 #tabla_movimiento {
     margin-right:5%;
 }
+/*Fin tabla juego*/
+/*Div juego*/
 #juego {
     display: none;
     align-items: center;
@@ -56,6 +59,8 @@ tbody {
     transition-property: all;
     transition-duration:.3s;
 }
+/*Fin div juego*/
+/*Botones, labels y demás inputs*/
 input {
     text-align: center;
     cursor: pointer;
@@ -101,6 +106,8 @@ input {
 #empezar {
     font-size: 2em;
 }
+/*Fin botones, labels y demás inputs*/
+/*cuadros de info y divs de los morcadores*/
 #info {
     display: block;
     position: absolute;
@@ -147,7 +154,8 @@ input {
     z-index: 0;
     transition: all .5s;
     display: none;
-}
+}/*Fin cuadros de info y divs de los morcadores*/
+/*Tabla opciones*/
 .table {
     display: none;
     height: auto;
@@ -186,6 +194,8 @@ input {
     position: relative;
     left: 4vw;
 }
+/*Fin estilos tabla opciones*/
+/*Estilos y animaciones tabla inicio*/
 #pantallaInicio {
     position: absolute;
     display: flex;
@@ -441,6 +451,8 @@ span:hover {
         right: 44.8%;
     }
 }
+/*Fin estilos y animaciones pantalla inicio*/
+/*Boton atrás de la pantalla de opciones*/
 .atras {
     position: absolute;
     top: 1vh;
@@ -462,6 +474,8 @@ span:hover {
     border: .09em dotted #95d5b2;
     border-radius: 2rem;
 }
+/*Fin boton atras de la pantalla de opciones*/
+/*Estilos de los botones de pausa*/
 .pan_info {
     padding: 0;
     font-size:4rem;
@@ -482,6 +496,8 @@ span:hover {
     font-size: 3rem;
     margin-top: 10%;
 }
+/*fin estilos de los botones de pausa*/
+/*Estilos de las botones de arriba a la izquierda*/
 .btn-control {
     position: absolute;
     font-size: 3rem;
@@ -520,4 +536,4 @@ span:hover {
     justify-content: center;
     min-height: 100vh;
 }
-/*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/
+/*Fin estilos de los botones de arriba a la izquierda*/

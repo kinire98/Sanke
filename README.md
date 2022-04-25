@@ -1,6 +1,6 @@
 # Sanke
 
-This is an absolute of a nightmare JavaScript adaptation of the snake game
+This is an absolute of a nightmare JavaScript adaptation of the snake game. Now it have a fancy intro, and it stores your highest score
 
 ## Getting Started
 
@@ -18,20 +18,21 @@ If you want to deploy this on a localhost server, you have to copy-paste the pro
 
 * VS Code - IDE used
 * HTML5 - To deploy it on a Web Browser
-* CSS3 - For the page to have styles, and you can actually see the snake
+* CSS3 - For the page to have styles, the animations, and so you can actually see the snake
 * JS - For the game itself
 
 ## Contributing
 
-When I started, I didn't have in mind to keep making the project bigger, but I had a lot of fun doing it. So, any suggestions, such as new modes or improvements of the graphics, etc. well I'm open to them. I know probably nobody is going to read this, but if there is someone out there who is still reading this and not skipped directly into the game, make suggestions. I would appreciatte that you include documentation in them, so I have some clue, but either way, thank you
+I mean if you have a really really good idea open an issue, but doing after doing the intro and more. If you give some documentation to implement the idea, I probably will do it
 
 ## Versioning
 
-I used GIT. Being honest with you, I still used commenting out blocks of code. Either way, I used Git so I can use GitHub, save my project on the cloud and more people could see my project.
+I used GIT. It was a big relief being able to use a remote repository so, I don't lose my code.
 
 ## Authors
 
-**kinire** (I don´t want to use my real name, but this is an anagram) - *I did everything. Without using a single line of code from Internet :)* - [kinire98](https://github.com/kinire98)
+**kinire* - *LOL, the thing of not using a single line from the internet is no longer true xD, but I did most of the proyect* - [kinire98](https://github.com/kinire98)
+**My brother** - *He helped me with the syles and the animations. Lots of thanks to him  :)* - [llagui](https://github.com/llagui)
 
 
 ## License
@@ -40,14 +41,7 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENS
 
 ## To keep in Mind
 
-* I have no clue on how to do anything. I´m learning
-* I did my best to make the game run as smoothly as possible
-* That being said, maybe (only maybe) the game is unoptimised as hell and you may experience some lag specially, when the area of play is big or the snake is becoming bigger
-* I know, it´s snake, but try running like 3 or 4 loops that have to do more iterations as the sanke grows, like 10 times per second or even more
-* Don`t get me wrong, a big part of the code is asynchronous non-bloqueant (I don´t know if it´s written like that), so the performance doesn´t suffer as much.
-* I swear I did my best :)
-* Please keep in mind that I made this being 16 and still learning. I´m far from being a software enginner or something like that. I did this because I enjoy doing this.
-* I hope you enjoy this, as far as you can enjoy a browser rip-off of snake.
-* I you are wondering the name Sanke, came from a Typo, I liked the name and stayed like that
-* Again, I hope you enjoy this as much I enjoyed developing
-* __The english version of the code doesn't change the name of the variables and the IDs, cause it gives me more work than commenting well the code. I am going to do this so english-speaking people can understand well-enough my code.__ If you're asking why the code is in Spanish is because I'm from Spain ¿okay?, and the S isn't silent. To prove that I'm from Spain -> ññññññññññ
+* I`m learning
+* Don't expect a revolutionary gameplay cause you won't find it
+* If you want to play a better version of snake you can always search Snake in Google and you will find a million times better [version](https://www.google.com/search?q=snake). I still prefer my version to be honest
+* __The english version of the code doesn't change the name of the variables and the IDs, cause it gives me more work than commenting well the code. I am going to do this so english-speaking people can understand well-enough my code.__ If you're asking why the code is in Spanish is because I'm from Spain ¿okay?, and the S isn't silent. To prove that I'm from Spain -> ññññññññññ (I mean you can still do [Alt Gr+4]+n and it stills pop up, but you going to have to believe me)

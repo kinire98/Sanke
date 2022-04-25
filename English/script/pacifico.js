@@ -2,24 +2,29 @@
  * @author kinire98
  */
 let posicionPaz,
-    manzanaPaz,
-    seAcaboPaz;
+    manzanaPaz;
 function pacifico () {
     posicionPaz = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}] //Crea un arregla para la posición de la serpiente. Empieza en el medio
     manzanaPaz = ponerMazana(posicionPaz) //devueve la posición de la manzanaPaz
-    seAcaboPaz = 0//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
+    seAcabo = 0//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
     document.getElementById('puntuacion').value = `${posicionPaz.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
     buclePacifico();
+    if (!localStorage.getItem('recordPaz')) { //Comprueba si la varible de localStorage existe, sino escribe en el marcador de record un 0
+        document.getElementById('puntuacion_alta').value = `${0} pts`
+    } else { // Si existe se escribe su valor en el marcador
+        document.getElementById('puntuacion_alta').value = `${localStorage.getItem('recordPaz')} pts`
+    }
 }
 function buclePacifico () {
     var movement = setInterval(() => {//Función pricipal del juego 
         if (pausa === 0) {
-            seAcaboPaz = 0;
+            seAcabo = 0;
             let primerElemento = posicionPaz[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzanaPaz. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
             if (posicionPaz.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
                 pantallaVictoria()
                 clearInterval(movement)
+                recordPac(posicionPaz.length - 1); // Cuando se gana (que es la única manera de acabar en modo pacífico) se ejecuta la función de comprobación de record
             }
             if (posicionPaz.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
@@ -70,11 +75,11 @@ function renderSerpitentePacifico () {
                 document.getElementById(`${j}  ${y}`).style.background = '#C1F4C5';
             }
         }
-        if(seAcaboPaz) {
+        if(seAcabo) {
             break;
         }
     }
-    if (!seAcaboPaz) { //lo mismo con la manzanaPaz
+    if (!seAcabo) { //lo mismo con la manzanaPaz
         document.getElementById(`${manzanaPaz[0]}  ${manzanaPaz[1]}`).style.background = '#9B0000';
     }
     for (let i = 0; i <= posicionPaz.length - 1; i++) {

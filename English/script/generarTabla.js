@@ -29,6 +29,7 @@ let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se uti
     colorCabeza = '#1b4332',
     colorCuerpo = '#019267';
 function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
+    document.getElementById('pantallaInicio').style.display = 'none';
     const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
     const $tabla = document.createElement('table');
     $tabla.setAttribute('class', 'tabla_juego'); //Establece una pseudaclase para la tabla del juego
@@ -64,6 +65,27 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         for (let j = 0; j <= ancho; j++) {
             const $celda = document.createElement('td'); // Crea la celda de la tabla
             $celda.setAttribute('id',`${j}  ${i}`) //Le da una id que representa sus coordenadas, con dos espacios por el medio para evitar conflictos entre una coordenada y otra
+            switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
+                case 1:
+                    $celda.style.borderRadius = '1rem'
+                    break;
+                case 2:
+                    $celda.style.borderRadius = '.75rem'
+                    break;
+                case 3:
+                    $celda.style.borderRadius = '.5rem'
+                    break;
+                case 4:
+                    $celda.style.borderRadius = '.25rem'
+                    break;
+                case 5:
+                    $celda.style.borderRadius = '.15rem'
+                    break;
+            
+                default:
+                    alert('Ha romper los programas de los demás a tu maldita casa')//Un chiste de mierda, solo ignoradlo
+                    break;
+            }
             //No sé si lo de los espacios es necesario, pero lo hice por si acaso
             $fila.appendChild($celda)//Pone la celda como elemento hijo de la fila
         }
@@ -72,7 +94,7 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
     document.getElementById('juego').style.display = 'flex';//Muestra el div con los elementos del juegos
     document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
     if (pausa) {
-        if (modo == 1){
+        if (modo == 1){ //Si esta funcion se llama desde el menú de pausa se ejecuta directamente el bucle del movmiento, sin reinicio
             bucleMovimiento()//Ejecuta la función del movimiento...
         } else if (modo == 2) {
             buclePacifico()
@@ -89,4 +111,5 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         }
     }
     addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
+    controlBotones(); //Se ejecuta el control de los botones de la esquina superior izquierda
 }

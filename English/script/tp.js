@@ -3,25 +3,29 @@
  */
 let posicionTP,
     manzanaTP,
-    manzana2,
-    seAcaboTP;
+    manzana2;
 function tp () {
     posicionTP = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}]; //Crea un arregla para la posición de la serpiente. Empieza en el medio
     manzanaTP = ponerMazana(posicionTP); //devueve la posición de la manzanaTP
     manzana2 = ponerMazanaTP(posicionTP,manzanaTP);
-    seAcaboTP = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
+    seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
     document.getElementById('puntuacion').value = `${posicionTP.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
-        
+    if (!localStorage.getItem('recordTP')) { //Comprueba el record en LocalStorage
+        document.getElementById('puntuacion_alta').value = `${0} pts`
+    } else {
+        document.getElementById('puntuacion_alta').value = `${localStorage.getItem('recordTP')}  pts`
+    } 
 }
 function bucleTP () {
     var movement = setInterval(() => {//Función pricipal del  modo de juego
         if (pausa === 0) {
-            seAcaboTP = 0;
+            seAcabo = 0;
             let primerElemento = posicionTP[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzanaTP. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
-            if (posicionTP.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
-                pantallaVictoria()
+            if (posicionTP.length == (ancho * alto) - 1) { //Comprueba si el jugador ha ganado, como son impares, para evitar un bucle infinito al final se quita la condición de victoria es un punto media
+                pantallaVictoria() 
                 clearInterval(movement)
+                recordTp(posicionTP.length - 1); //Cuando se gana se comprueba si el resultado es mayor al record guardado
             }
             if (posicionTP.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
@@ -30,7 +34,6 @@ function bucleTP () {
                         posicionTP[i + 1].alto = posicionTP[i].alto;
                     }
                 }, 0);
-                    
             } 
             
             if (direccion == 'arriba') {//Comprueba en que dirección tiene que avanzar la serpitente y cambia la coordenada correspondiente solo para la cabeza
@@ -60,7 +63,8 @@ function bucleTP () {
             } else if(!document.getElementById(`${posicionTP[0].ancho}  ${posicionTP[0].alto}`)){ //Si no pasa por dónde la manzanaTP, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto da nulo
                 pantallaGameOver();
                 clearInterval(movement);
-                seAcaboTP = 1;
+                seAcabo = 1;
+                recordTp(posicionTP.length - 1); //Cuando se pierde se comprueba si se ha superado el record
             } else { //Comprueba si la baeza de la serpiente se ha chocado con su cuerpo
                for (let i = 0; i <= posicionTP.length - 1; i++) {
                    if (
@@ -68,13 +72,14 @@ function bucleTP () {
                        ) {
                            pantallaGameOver();
                            clearInterval(movement);
-                           seAcaboTP = 1;
+                           seAcabo = 1;
+                           recordTp(posicionTP.length - 1);//Cuando se pierde se comprueba si se ha superado el record
                    }
                }
            }
            renderSerpitenteTP() //Renderiza la serpiente   
             
-        } else {
+        } else { //Si se ha pausado el juego se para el intervalo
             clearInterval(movement)
         }
     } ,intervalo());
@@ -82,7 +87,7 @@ function bucleTP () {
 function renderSerpitenteTP () {
     for (let j = 0; j <= ancho; j++) {
         for(let y = 0; y <= alto; y++) {//Recorre todo el cuadro de juego y lo pinta con colores alternos
-            if(seAcaboTP) { //comprueba que la variable para terminar no se haya activado, en cuyo caso se rompe el bucle
+            if(seAcabo) { //comprueba que la variable para terminar no se haya activado, en cuyo caso se rompe el bucle
                 break;
             } else if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';
@@ -90,11 +95,11 @@ function renderSerpitenteTP () {
                 document.getElementById(`${j}  ${y}`).style.background = '#C1F4C5';
             }
         }
-        if(seAcaboTP) {
+        if(seAcabo) {
             break;
         }
     }
-    if (!seAcaboTP) { //renderiza las dos manzanas
+    if (!seAcabo) { //renderiza las dos manzanas
         document.getElementById(`${manzanaTP[0]}  ${manzanaTP[1]}`).style.background = '#9B0000';
         document.getElementById(`${manzana2[0]}  ${manzana2[1]}`).style.background = '#9B0000';
     }
@@ -102,7 +107,7 @@ function renderSerpitenteTP () {
         if (!document.getElementById(`${posicionTP[0].ancho}  ${posicionTP[0].alto}`)){ //y lo mismo con la serpiente. Pone la cabeza de un color distinto
             break;
         }
-        if(seAcaboTP) {
+        if(seAcabo) {
             break;
         } else if (i != 0) {
             document.getElementById(`${posicionTP[i].ancho}  ${posicionTP[i].alto}`).style.background = colorCuerpo

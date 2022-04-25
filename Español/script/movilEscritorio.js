@@ -13,7 +13,4 @@ let isMobileDevice = regexp.test(details);
 if (isMobileDevice) {
     document.getElementById('contenido_movil').style.display = 'flex';
     document.getElementById('pantallaIncio').style.display = 'none';
-} else {
-    document.getElementById('contenido_movil').style.display = 'none';
-    document.getElementById('pantallaIncio').style.display = 'block';
 }

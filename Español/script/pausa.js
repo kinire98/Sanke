@@ -5,12 +5,14 @@ function pausar () {
     document.getElementById('info').style.opacity = '0.85'
     document.getElementById('info').innerHTML = `
     <div id="infor">Pausa</div></br>
-    <button id="reanudar" class="boton pan_info">Reanudar</button><br>
-    <button id="volver_empezar" class="boton pan_info">Volver a empezar</button>
+    <button id="reanudar" class="boton pan_info">▶</button>
+    <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>`;
+    controlBotonesPausa();
+    document.getElementById('btn-control3').style.display = 'none';
     seAcabo = 1;
     removeEventListener('keydown',manejadorTeclas)
-    // console.clear()
+    console.clear()
     addEventListener('keydown',manejadorPausa)
 }
 function manejadorPausa (e) {

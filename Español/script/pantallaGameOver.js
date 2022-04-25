@@ -5,25 +5,29 @@ function pantallaGameOver () { //Esta función se ejecuta cuando las condiciones
     document.getElementById('info').style.opacity = '0.85' //Muestra la pantalla de la información
     document.getElementById('info').innerHTML = `
     <div id="infor">¡Has perdido!</div></br>
-    <button id="volver_empezar" class="boton pan_info">Volver a empezar</button>
+    <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>
     `; //Cambia el contenido y muestra el mensaje de game Over
-    removeEventListener('keydown',manejadorTeclas)
+    removeEventListener('keydown',manejadorTeclas);
+    controlBotonesPanel();
+    document.getElementById('btn-control3').style.display = 'none';
     direccion = null; //Pone la dirección a null para que cuando se vuelva a iniciar el juego, la serpiente no se mueva hasta que se presionen las flechas. Está detrás del removeEventListener para que no se pueda cambiar la dirección
-    // console.clear()
+    console.clear()
     addEventListener('keydown',volverAJugar)
 }
 function pantallaVictoria () { //Esta función hace lo mismo que la de derrota pero cambia el mensaje a uno de victoria
     document.getElementById('info').style.opacity = '0.85'
     document.getElementById('info').innerHTML = `
     <div id="infor">¡Ganaste!</div></br>
-    <button id="volver_empezar" class="boton pan_info">Volver a empezar</button>
+    <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>
     `;
     seAcabo = 1;
     removeEventListener('keydown',manejadorTeclas)
     direccion = null;
-    // console.clear()
+    document.getElementById('btn-control2').style.display = 'none';
+    document.getElementById('btn-control3').style.display = 'none';
+    console.clear()
     addEventListener('keydown',volverAJugar)
 }
 function volverAJugar (e) {

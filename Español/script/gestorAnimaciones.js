@@ -4,7 +4,8 @@ const $img = document.querySelector('[alt="Icono del juego"]'),
    p3 = document.getElementById('p3'),
    p4 = document.getElementById('p4'),
    p5 = document.getElementById('p5'),
-   $opciones = document.getElementById('opciones');
+   $opciones = document.getElementById('opciones'),
+   $record = document.getElementById('labelRecord');
 $img.addEventListener('animationend', () => {
     $img.style.right = '25vw'
     $img.style.bottom = '10vh'
@@ -43,4 +44,16 @@ $opciones.addEventListener('animationend', () => {
     $opciones.style.bottom = '15%';
     $opciones.style.right = '44.8%';
     $opciones.style.fontSize = '2rem';
+})
+$record.addEventListener('mouseenter', () => {
+    const $info = document.getElementById('txtInfo');
+    $info.style.display = 'block';
+    $info.style.fontSize = '1.5rem';
+    $info.style.bottom = '65%';
+})
+$record.addEventListener('mouseleave', () => {
+    const $info = document.getElementById('txtInfo');
+    $info.style.display = 'none';
+    $info.style.fontSize = '0';
+    $info.style.bottom = '50%';
 })

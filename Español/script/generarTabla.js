@@ -111,4 +111,5 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         }
     }
     addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
+    controlBotones();
 }

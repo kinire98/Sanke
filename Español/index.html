@@ -9,8 +9,8 @@
     <title>Sanke</title>
 </head>
 <body>
-    <div id="contenido_movil">
-        Esta página no es compatible con dispositivos móviles. Abralo en un navegador de escritorio
+    <div id="contenido_movil" style="font-size: 5rem;">
+        Esta página no es compatible con dispositivos móviles. Abra la página en un navegador de escritorio
     </div>
     <div id="pantallaInicio">
         <div>
@@ -90,13 +90,17 @@
     </div>
     <div id="juego"><!--Contenido que muestra el juego en sí-->
         <button class="btn-control" id="btn-control1">⌂</button>
-        <button class="btn-control" id="btn-control2">↺</button>
         <button class="btn-control" id="btn-control3">⏸</button>
-        <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
-        <div id="info">Presiona cualquier flecha para comenzar</div>
         <div id="marcadores"> <!--Muestra el marcador con los puntos del juego-->
             <label id="label" class="label">Puntuación</label><br><br><br>
             <input type="text" id="puntuacion" readonly>
+        </div>
+        <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
+        <div id="info">Presiona cualquier flecha para comenzar</div>
+        <div id="marcadoresRecord"> <!--Muestra el marcador con el record de puntos del juego-->
+            <label id="labelRecord" class="label">Récord</label>
+            <div id="txtInfo">La puntuación no se guardará si sales de la partida</div><br><br><br>
+            <input type="text" id="puntuacion_alta" readonly>
         </div>
     </div>
     <script src="./script/movilEscritorio.js"></script>
@@ -110,5 +114,7 @@
     <script src="./script/generarManzanas.js"></script>
     <script src="./script/pantallaGameOver.js"></script>
     <script src="./script/pausa.js"></script>
+    <script src="./script/controlBotones.js"></script>
+    <script src="./script/puntuacionRecord.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ table {
     border-collapse: collapse;
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15;
-
+    border-radius: 1em;
 }
 td {
     height: 5px;
@@ -29,16 +29,16 @@ td {
     background: #fff;
     padding: 0;
     margin: 0;
-    transition: all .2s;
+    transition: all .05s;
     border-collapse: collapse;
     border-radius: 1rem;
 }
 tr {
-    border-collapse:collapse;
-    height: 5px;
-    width: 5px;
-    border-radius: 5em;
+    border-radius: 500em;
     background: #C5D8A4;
+}
+tbody {
+    border-radius: 5em;
 }
 #tabla_movimiento {
     margin-right:5%;
@@ -65,7 +65,7 @@ input {
     background: #1b4332;
     border: 0.09em dotted #081c15;
     font-size: 2em;
-    transition-property: box-shadow, border, padding;
+    transition-property: box-shadow, border, padding,border-radius;
     transition-duration:.3s;
     width: 100%;
     border-radius:.5rem;
@@ -75,9 +75,9 @@ input {
     box-shadow: 0 0 5px #081c15,
                 0 0 25px #081c15, 
                 0 0 50px #081c15, 
-                0 0 200px #081c15,
-                0 0 250px #081c15;
+                0 0 200px #081c15;
     padding: .3rem;
+    border-radius:1rem;
 }
 .label {
     padding: 0.5em;
@@ -95,7 +95,7 @@ input {
     0 0 25px #081c15, 
     0 0 50px #081c15;
 }
-#marcadores {
+#marcadores, #marcadoresRecord {
     text-align: center;
 }
 #empezar {
@@ -104,8 +104,8 @@ input {
 #info {
     display: block;
     position: absolute;
-    right: 44%;
-    left:26.5%;
+    right: 36.5%;
+    left:35%;
     bottom:30%;
     top:25%;
     background: #2d6a4f;
@@ -126,17 +126,31 @@ input {
                 0 0 250px #081c15;
     border-radius: 1em;
 }
-#puntuacion {
+#puntuacion, #puntuacion_alta {
     border-radius: 5rem;
     background: #52b788;
     border: 0.5em double black;
     padding: .5rem;
     font-size:1.5rem;
 }
+#txtInfo {
+    position: absolute;
+    max-height: fit-content;
+    width: 10rem;
+    font-size: 0;
+    text-align: left;
+    padding: 2%;
+    border-radius: 3rem;
+    background: rgba(255,255,255,.65);
+    right: 9.5%;
+    bottom: 50%;
+    z-index: 0;
+    transition: all .5s;
+    display: none;
+}
 .table {
     display: none;
     height: auto;
-    margin-left: 5%;
     width: 100%;
     transition: all 1.5s;
     background: none;
@@ -433,7 +447,7 @@ span:hover {
     left: 1vw;
     height: 4rem;
     width: 4rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 0;
     text-align: center;
     justify-content: center;
@@ -446,30 +460,26 @@ span:hover {
     color: #95d5b2;
     background-color: #1b4332;
     border: .09em dotted #95d5b2;
-    border-radius: 1rem;
+    border-radius: 2rem;
 }
 .pan_info {
     padding: 0;
-    font-size:2rem;
+    font-size:4rem;
     display: inline;
     max-width: max-content;
-    margin-top: 10%;
+    margin-top: 5%;
     transition: all .3s;
     background: rgba(255, 255, 255, .55);
     color: #1b4332;
+    margin-inline: 5%;
 }
 .pan_info:hover {
     color: rgba(255, 255, 255, .55);
     background: #1b4332;
     padding: 1%;
 }
-#config {
-    font-size: 1.75rem;
-}
-#reanudar {
-    max-width: 80%;
-}
 #infor {
+    font-size: 3rem;
     margin-top: 10%;
 }
 .btn-control {
@@ -499,19 +509,15 @@ span:hover {
     top: 0;
     left: 1vw;
 }
-#btn-control2 {
-    top: 0;
-    left:calc(2vw + 5rem);
-}
 #btn-control3 {
+    display: none;
     top: 0;
-    left: calc(3vw + 10rem);
+    left: calc(2vw + 5rem);
 }
 #contenido_movil {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    font-size: 3rem;
 }
 /*No pienso explicar estilos porque ni yo se lo que he hecho. Solo sé que queda como quería que quedase xD*/

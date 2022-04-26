@@ -1,8 +1,8 @@
 /** 
  * @author kinire98
  */
-//Cambia los estilos de los botones para cambiar los parámetros
-$little.style.background = '#95d5b2';//Les da estilos por defecto a los valores más bajos tanto de tamaño como de velocidad para que aparezcan como marcados
+//Changes the styles to the buttons that changes the parameters of game
+$little.style.background = '#95d5b2';//Gives style to the default options
 $little.style.color = '#1b4332';
 $snail.style.background = '#95d5b2';
 $snail.style.color = '#1b4332';
@@ -10,7 +10,7 @@ $normal.style.background = '#95d5b2';
 $normal.style.color = '#1b4332';
 $green.style.background = '#95d5b2';
 $green.style.color = '#1b4332';
-$little.addEventListener('click',() => { //Todas estas escuchas de eventos llaman a la misma función con un distinto valor en sus parámetros
+$little.addEventListener('click',() => { //All of these listener changes the style of the buttons
     funcionManjeadoraBotones(1)
 })
 $medium.addEventListener('click',() => {
@@ -64,8 +64,7 @@ $white.addEventListener('click', () => {
 $boton.addEventListener('click',() => {
     generarTabla()
 })
-function funcionManjeadoraBotones (valor) {//En esta función dependiendo del botón presionado se ejecuta con un valor de parámetro distinto
-    //Dependiendo del valor marca un botón y desmarca el resto de su fila, y también cambia el valor correspondiente 
+function funcionManjeadoraBotones (valor) {//Depending on the value it changes the style of the selected button and the rest marks it as not marked (sorry for the english) 
     switch (valor) {
         case 1:
             tamaño = 1;

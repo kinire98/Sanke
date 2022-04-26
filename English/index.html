@@ -9,18 +9,18 @@
     <title>Sanke</title>
 </head>
 <body>
-    <div id="contenido_movil" style="font-size: 5rem;"> <!--Contenido que se verá si se abre en movil-->
+    <div id="contenido_movil" style="font-size: 5rem;"> <!--If it's in mobile it will show this-->
         This page isn't compatible with mobile device. Please open the page in a desktop version
     </div>
-    <div id="pantallaInicio"> <!--Pantalla de incicio-->
+    <div id="pantallaInicio"> <!--Home screen-->
         <div>
             <img src="./icons/iconoSanke.png" alt="Icono del juego">
-            <p><span id="p1">S</span><span id="p2">a</span><span id="p3">n</span><span id="p4">k</span><span id="p5">e</span></p> <br><!--Cada letra esta en un span distinto para su animación por separado-->
+            <p><span id="p1">S</span><span id="p2">a</span><span id="p3">n</span><span id="p4">k</span><span id="p5">e</span></p> <br><!--Each letter is in a different span, so they can be animated separately-->
             <button id="empezar"> Play </button>
             <button id="opciones">Settings</button>
         </div>
     </div>
-    <div id="Ajustes"> <!--La tabla de ajuste para cambiar lso modificadores del juego-->
+    <div id="Ajustes"> <!--Settings table-->
          <table class="table">
              <tr class="tr">
                  <td class="td"></td>
@@ -88,34 +88,34 @@
         </table>
         <button class="boton atras">⬅</button>
     </div>
-    <div id="juego"><!--Contenido que muestra el juego en sí-->
+    <div id="juego"><!--The game itself-->
         <button class="btn-control" id="btn-control1">⌂</button>
         <button class="btn-control" id="btn-control3">⏸</button>
-        <div id="marcadores"> <!--Muestra el marcador con los puntos del juego-->
+        <div id="marcadores"> <!--Score counter-->
             <label id="label" class="label">Score</label><br><br><br>
             <input type="text" id="puntuacion" readonly>
         </div>
-        <div id="tabla_movimiento"></div> <!--Muestra la zona del juego en la que se puede mover la serpiente-->
+        <div id="tabla_movimiento"></div> <!--Where the table is going to be-->
         <div id="info">Press any arrow key to begin</div>
-        <div id="marcadoresRecord"> <!--Muestra el marcador con el record de puntos del juego-->
+        <div id="marcadoresRecord"> <!--record score display-->
             <label id="labelRecord" class="label">Max. Score</label>
             <div id="txtInfo">The score will be lost if you exit the game</div><br><br><br>
             <input type="text" id="puntuacion_alta" readonly>
         </div>
     </div>
-    <!--Scripts. Sí, lo sé son unos cuantos-->
-    <script src="./script/movilEscritorio.js"></script>
-    <script src="./script/generarTabla.js"></script>
-    <script src="./script/gestorAnimaciones.js"></script>
-    <script src="./script/cambiarAjustes.js"></script>
-    <script src="./script/movimientoIU.js"></script>
-    <script src="./script/movimiento.js"></script>
-    <script src="./script/pacifico.js"></script>
+    <!--Scripts. I know, there are a lot-->
+    <script src="./script/mobileDesktop.js"></script>
+    <script src="./script/generateTable.js"></script>
+    <script src="./script/animationManager.js"></script>
+    <script src="./script/changeSettings.js"></script>
+    <script src="./script/UIMovement.js"></script>
+    <script src="./script/movement.js"></script>
+    <script src="./script/pacific.js"></script>
     <script src="./script/tp.js"></script>
-    <script src="./script/generarManzanas.js"></script>
-    <script src="./script/pantallaGameOver.js"></script>
-    <script src="./script/pausa.js"></script>
-    <script src="./script/controlBotones.js"></script>
-    <script src="./script/puntuacionRecord.js"></script>
+    <script src="./script/generateApples.js"></script>
+    <script src="./script/gameOverScreen.js"></script>
+    <script src="./script/pause.js"></script>
+    <script src="./script/controlButtons.js"></script>
+    <script src="./script/recordScore.js"></script>
 </body>
 </html>

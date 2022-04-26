@@ -1,5 +1,5 @@
-const ls = localStorage;// Se encarga de guardar las puntuaciones más altas
-function recordNormal (puntuacion) { //Crea una variable de localstorage, a la que le da el valor de 0, cuando la puntuacion del final de la partida sea mayor que la variable de localstorage guardada se cambia
+const ls = localStorage;//Checks if the record was beaten
+function recordNormal (puntuacion) { // if the variable exists in localStorage it changes if the score is bigger than the value socred. If it doesn't exist it simply stores de value there
     if (puntuacion === null) ls.setItem('record',0)
     if (puntuacion > ls.getItem('record')) ls.setItem('record',puntuacion)
 }

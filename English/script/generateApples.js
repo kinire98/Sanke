@@ -1,30 +1,26 @@
 /** 
  * @author kinire98
  */
-function generarNumeroAleatorio (min,max) { //Devuelve un número aleatoria, así la posición de la manzana no sigue ningún patrón
+function generarNumeroAleatorio (min,max) { //returns a random number
     return Math.round(Math.random()*(max-min)+min)
 }
 
 
-function ponerMazana (posicion) { //Esta función genera una nueva posición para la manzana. Se ejecuta cuando la cabeza de la serpiente pasa por encima de la manzana.
-    //También se ejecuta solo al principio del juego
-    let x = generarNumeroAleatorio(0,ancho) // proporciona valores aleatorios para las coordenadas de la manzana, entre 0 y el ancho o el alto del área de juego
+function ponerMazana (posicion) { //generates a new position for the apple
+    let x = generarNumeroAleatorio(0,ancho) 
     let y = generarNumeroAleatorio(0,alto)
-    for (let i = 0; i < posicion.length - 1; i++) { // Este bucle comprueba que la manzana no aparezca en dónde está en ese momento la serpiente
-        //si la posicion de la manzana es  igual a una de la serpiente, se devuelve la ejecución de la misma función de nuevo para que se pueda volver a hallar la posición de la manzana
+    for (let i = 0; i < posicion.length - 1; i++) { //If the position of the apple is the same as one of the snake position, it generates another apple
         if ((x == posicion[i].ancho) && (y == posicion[i].alto)) {
                return ponerMazana (posicion);
         }
     }
-    return [x,y] //Si no es igual se devuelven las coordenadas de las manzana
+    return [x,y] //if not it returns the coordinates for the apple
 
 }
-function ponerMazanaTP (posicion,manzana) { //Esta función genera una nueva posición para la manzana. Se ejecuta cuando la cabeza de la serpiente pasa por encima de la manzana.
-    //También se ejecuta solo al principio del juego
-    let x = generarNumeroAleatorio(0,ancho) // proporciona valores aleatorios para las coordenadas de la manzana, entre 0 y el ancho o el alto del área de juego
+function ponerMazanaTP (posicion,manzana) { //the same as the previous function but for the TP mode. Checks if the apple isn´t in the same position as the other apple
+    let x = generarNumeroAleatorio(0,ancho)
     let y = generarNumeroAleatorio(0,alto)
-    for (let i = 0; i < posicion.length - 1; i++) { // Este bucle comprueba que la manzana no aparezca en dónde está en ese momento la serpiente
-        //si la posicion de la manzana es  igual a una de la serpiente, se devuelve la ejecución de la misma función de nuevo para que se pueda volver a hallar la posición de la manzana
+    for (let i = 0; i < posicion.length - 1; i++) {
         if ((x == posicion[i].ancho) && (y == posicion[i].alto)) {
                return ponerMazanaTP (posicion,manzana);
         }
@@ -32,6 +28,6 @@ function ponerMazanaTP (posicion,manzana) { //Esta función genera una nueva pos
     if ((x == manzana[0])&& (y == manzana [1])) {
         return ponerMazanaTP (posicion,manzana)
     }
-    return [x,y] //Si no es igual se devuelven las coordenadas de las manzana
+    return [x,y] 
 
 }

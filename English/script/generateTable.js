@@ -1,8 +1,8 @@
 /** 
  * @author kinire98
  */
-const $boton = document.getElementById('empezar'), //Todas estas constantes hacen referencia a los botones de la ventana de ajustes
-    $little = document.getElementById('11'),//Los IDs acutan como un sistema de coordenadas
+const $boton = document.getElementById('empezar'), //Al of these constants are the ids for the settings buttons
+    $little = document.getElementById('11'),//The IDs are really a "coordinate" system
     $medium = document.getElementById('12'),
     $big = document.getElementById('13'),
     $enormous = document.getElementById('14'),
@@ -20,20 +20,19 @@ const $boton = document.getElementById('empezar'), //Todas estas constantes hace
     $yellow = document.getElementById('43'),
     $white = document.getElementById('44');
 
-let velocidad = 1, //Como los valores de alto, ancho, velocidad y tamaño se utilizan en muchas partes del programa estas son variables globales, para que pasar parámetros no se convierta en un inconveniente y se aumenta aún más la comlejidad del programa
-//Se que no es lo mejor del mundo, pero se usan constantemente en varias funciones así que es mejor idea hacer las variables globales
+let velocidad = 1,
     tamaño = 1,
     ancho,
     alto,
     modo = 1,
     colorCabeza = '#1b4332',
     colorCuerpo = '#019267';
-function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabla, y la tabla en sí, en la que se va a estar moviendo la serpiente
+function generarTabla (pausa = 0) {//This function creates the table in which the snake is going to be moving, with a different size depending on which value has the variable "tamamño"
     document.getElementById('pantallaInicio').style.display = 'none';
-    const $divTabla = document.getElementById('tabla_movimiento');//Hace referencia al div que contiene la tabla
+    const $divTabla = document.getElementById('tabla_movimiento');//Introduces the div in which the table is going to be in into a variable
     const $tabla = document.createElement('table');
-    $tabla.setAttribute('class', 'tabla_juego'); //Establece una pseudaclase para la tabla del juego
-    switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
+    $tabla.setAttribute('class', 'tabla_juego'); //Give a pseudoclass to the table of the game
+    switch (tamaño) {//changes the value of the height and width variables, according to the "tamaño" variable
         case 1:
             ancho = 11;
             alto = 11;
@@ -56,16 +55,16 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
             break;
     
         default:
-            alert('Ha romper los programas de los demás a tu maldita casa')//Un chiste de mierda, solo ignoradlo
+            alert('Ha romper los programas de los demás a tu maldita casa')//A crappy joke
             break;
     }
-    $divTabla.appendChild($tabla); //pone a la tabla como elemento hijo del div que la va a contener
-    for (let i = 0; i <= alto; i++) {//El primer bucle for representa las filas y el segundo las columnas
-        const $fila = document.createElement('tr')//Crea la fila
+    $divTabla.appendChild($tabla); //appends the table to its div
+    for (let i = 0; i <= alto; i++) {//First for represents file and the second the columns
+        const $fila = document.createElement('tr')//Creates the file
         for (let j = 0; j <= ancho; j++) {
-            const $celda = document.createElement('td'); // Crea la celda de la tabla
-            $celda.setAttribute('id',`${j}  ${i}`) //Le da una id que representa sus coordenadas, con dos espacios por el medio para evitar conflictos entre una coordenada y otra
-            switch (tamaño) {//Cambia las variables de ancho y alto siguiendo el valor de la variable tamaño
+            const $celda = document.createElement('td'); //Creates the cell of the table
+            $celda.setAttribute('id',`${j}  ${i}`) //Gives an ID with its coordinates
+            switch (tamaño) {//Changes the border radius of the cell, so when there are more it doesn't turn into a circle
                 case 1:
                     $celda.style.borderRadius = '1rem'
                     break;
@@ -83,19 +82,18 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
                     break;
             
                 default:
-                    alert('Ha romper los programas de los demás a tu maldita casa')//Un chiste de mierda, solo ignoradlo
+                    alert('Ha romper los programas de los demás a tu maldita casa')//The same crappy joke as before
                     break;
             }
-            //No sé si lo de los espacios es necesario, pero lo hice por si acaso
-            $fila.appendChild($celda)//Pone la celda como elemento hijo de la fila
+            $fila.appendChild($celda)//appends the cell as a son of the file
         }
-        $tabla.appendChild($fila)//y la fila como elemento hijo de la tabla
+        $tabla.appendChild($fila)//and the file as the son of the table
     }
-    document.getElementById('juego').style.display = 'flex';//Muestra el div con los elementos del juegos
-    document.getElementById('Ajustes').style.display = 'none';//Y esconde los que están dónde los ajustes
+    document.getElementById('juego').style.display = 'flex';//Shows the div with the game elements
+    document.getElementById('Ajustes').style.display = 'none';//and hides the one 
     if (pausa) {
-        if (modo == 1){ //Si esta funcion se llama desde el menú de pausa se ejecuta directamente el bucle del movmiento, sin reinicio
-            bucleMovimiento()//Ejecuta la función del movimiento...
+        if (modo == 1){ //If this function is called from the pause menu it doesn`t restart the game
+            bucleMovimiento()
         } else if (modo == 2) {
             buclePacifico()
         } else if (modo == 3) {
@@ -103,13 +101,13 @@ function generarTabla (pausa = 0) {//Esta función genera el tamaño the la tabl
         }
     } else {
         if (modo == 1){
-            movimiento()//Ejecuta la función del movimiento...
+            movimiento()
         } else if (modo == 2) {
             pacifico()
         } else if (modo == 3) {
             tp ()
         }
     }
-    addEventListener('keydown',manejadorTeclas)//y añade la escucha de eventos para controlar la dirección de la serpiente
-    controlBotones(); //Se ejecuta el control de los botones de la esquina superior izquierda
+    addEventListener('keydown',manejadorTeclas)//adds the listener for the control with the keys
+    controlBotones(); //and controls the buttons of the top left corner
 }

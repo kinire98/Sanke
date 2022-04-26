@@ -1,4 +1,3 @@
-//Este archivo le da los estilos finales a cada uno de los elementos con una animación CSS. Como tienen un delay entonces tienen que empezar ocultas y se fijan usando el evento "animationend"
 //This file give the final styles to every element with a CSS animation. The mayority has a delay so they have to star hidden y they are fixed with the event "animationend"
 const $img = document.querySelector('[alt="Icono del juego"]'),
    p1 = document.getElementById('p1'),

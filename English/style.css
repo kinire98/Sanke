@@ -21,7 +21,7 @@ body {
     overflow: hidden;
     padding:3%;
 }
-/*Tabla juego*/
+/*game table*/
 table {
     margin-left: 5%;
     height: 55rem;
@@ -51,8 +51,8 @@ tbody {
 #tabla_movimiento {
     margin-right:5%;
 }
-/*Fin tabla juego*/
-/*Div juego*/
+/*end game table*/
+/*geme div*/
 #juego {
     display: none;
     align-items: center;
@@ -66,8 +66,8 @@ tbody {
     transition-property: all;
     transition-duration:.3s;
 }
-/*Fin div juego*/
-/*Botones, labels y demás inputs*/
+/*end game div*/
+/*buttons, labels and other inputs*/
 input {
     text-align: center;
     cursor: pointer;
@@ -113,8 +113,8 @@ input {
 #empezar {
     font-size: 2em;
 }
-/*Fin botones, labels y demás inputs*/
-/*cuadros de info y divs de los morcadores*/
+/*end buttons, labels and other inputs*/
+/*info squares and scores display*/
 #info {
     display: block;
     position: absolute;
@@ -161,8 +161,8 @@ input {
     z-index: 0;
     transition: all .5s;
     display: none;
-}/*Fin cuadros de info y divs de los morcadores*/
-/*Tabla opciones*/
+}/*end info squares and scores displays*/
+/*settings table*/
 .table {
     display: none;
     height: auto;
@@ -201,8 +201,8 @@ input {
     position: relative;
     left: 4vw;
 }
-/*Fin estilos tabla opciones*/
-/*Estilos y animaciones tabla inicio*/
+/*end settings table*/
+/*styles and animations of the home screen*/
 #pantallaInicio {
     position: absolute;
     display: flex;
@@ -458,8 +458,8 @@ span:hover {
         right: 44.8%;
     }
 }
-/*Fin estilos y animaciones pantalla inicio*/
-/*Boton atrás de la pantalla de opciones*/
+/*end of styles and animations of the home screen*/
+/*backwards button of the settings table*/
 .atras {
     position: absolute;
     top: 1vh;
@@ -481,8 +481,8 @@ span:hover {
     border: .09em dotted #95d5b2;
     border-radius: 2rem;
 }
-/*Fin boton atras de la pantalla de opciones*/
-/*Estilos de los botones de pausa*/
+/*end backwards button settings table*/
+/*pause buttons*/
 .pan_info {
     padding: 0;
     font-size:4rem;
@@ -503,8 +503,8 @@ span:hover {
     font-size: 3rem;
     margin-top: 10%;
 }
-/*fin estilos de los botones de pausa*/
-/*Estilos de las botones de arriba a la izquierda*/
+/*end pause buttons*/
+/*buttons form the top left corner*/
 .btn-control {
     position: absolute;
     font-size: 3rem;
@@ -543,4 +543,4 @@ span:hover {
     justify-content: center;
     min-height: 100vh;
 }
-/*Fin estilos de los botones de arriba a la izquierda*/
+/*end buttons from the top left corner*/

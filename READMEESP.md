@@ -31,7 +31,8 @@ Usé GIT. Así podía subir el código a un repositorio remoto, lo que es un gra
 
 ## Autores
 
-* **kinire** (No quiero usar mi nombre real, pero este es un anagrama)- *Hice yo todo. Sin coger ni una sola línea de código de Internet :)* - [kinire98](https://github.com/kinire98)
+* **kinire** *Hice la mayoría del proyecto, pero la parte de no usar ningún código del internet ya no es cierta* - [kinire98](https://github.com/kinire98)
+* **Mi hermano** - *Me ayudó mucho con los estilos y las animaciones. Muchas gracias :)* - [llagui](https://github.com/llagui)
 
 
 ## Licencia

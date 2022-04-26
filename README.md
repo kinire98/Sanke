@@ -31,7 +31,7 @@ I used GIT. It was a big relief being able to use a remote repository so, I don'
 
 ## Authors
 
-**kinire* - *LOL, the thing of not using a single line from the internet is no longer true xD, but I did most of the proyect* - [kinire98](https://github.com/kinire98)
+**kinire** - *LOL, the thing of not using a single line from the internet is no longer true xD, but I did most of the proyect* - [kinire98](https://github.com/kinire98)
 **My brother** - *He helped me with the syles and the animations. Lots of thanks to him  :)* - [llagui](https://github.com/llagui)
 
 

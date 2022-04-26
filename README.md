@@ -23,7 +23,7 @@ If you want to deploy this on a localhost server, you have to copy-paste the pro
 
 ## Contributing
 
-I mean if you have a really really good idea open an issue, but doing after doing the intro and more. If you give some documentation to implement the idea, I probably will do it
+I mean if you have a really really good idea open an issue. If you give some documentation to implement the idea, it´s more likely that I will do it
 
 ## Versioning
 
@@ -42,6 +42,7 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE  - see the [LICENS
 ## To keep in Mind
 
 * I`m learning
-* Don't expect a revolutionary gameplay cause you won't find it
-* If you want to play a better version of snake you can always search Snake in Google and you will find a million times better [version](https://www.google.com/search?q=snake). I still prefer my version to be honest
+* Don't expect a rEvOlUtIoNaRy GaMePlAy cause you won't find it
+* If you want to play a better version of snake you can always search [Snake](https://www.google.com/search?q=snake) in Google and you will find a million times better version. I still prefer my version to be honest, it goes a little bit faster
 * __The english version of the code doesn't change the name of the variables and the IDs, cause it gives me more work than commenting well the code. I am going to do this so english-speaking people can understand well-enough my code.__ If you're asking why the code is in Spanish is because I'm from Spain ¿okay?, and the S isn't silent. To prove that I'm from Spain -> ññññññññññ (I mean you can still do [Alt Gr+4]+n and it stills pop up, but you going to have to believe me)
+* Enjoy

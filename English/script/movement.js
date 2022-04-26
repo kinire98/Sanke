@@ -1,13 +1,12 @@
 /** 
  * @author kinire98
  */
-let direccion = null,//La dirección en la que tiene que ir la serpiente, Está puesta en nulo para que la serpiente no se mueva hasta que el jugador presione una de las flechas de direccioón
+let direccion = null,//Direction of the snake. It is in null so the player can choose where direction he starts moving towards
     pausa = 0,
     posicion,
     manzana,
     seAcabo;
-let intervalo = () => { //Esta función cogiendo como valor la variable "velocidad"  cambia la velocidad
-//Devuelve un valor que se usará como tiempo para el intervalo
+let intervalo = () => { //Returns a value that is going to be used ass time for the interval
     if (velocidad == 1) {
         return 100;
     } else if (velocidad == 2) {
@@ -21,28 +20,23 @@ let intervalo = () => { //Esta función cogiendo como valor la variable "velocid
     }
 }
 function movimiento () {
-    posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}]; //Crea un arregla para la posición de la serpiente. Empieza en el medio
-    manzana = ponerMazana(posicion); //devueve la posición de la manzana
-    seAcabo = 0;//Para acabar los bucles de render de la serpiente y que no se acumulen los mensajes de error en la consola
-    document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//Establece el marccador en la longitud de la serpiente -1, es decir 0
+    posicion = [{ancho:Math.trunc(ancho/2),alto:Math.trunc(alto/2)}]; //Creates an array for the position of the snake. It starts in the middle
+    manzana = ponerMazana(posicion); //Gets the position of the apple
+    seAcabo = 0;//It finishes the snake render
+    document.getElementById('puntuacion').value = `${posicion.length - 1} pts.`//The score = snake.length - 1 = 0
     bucleMovimiento()
-    if (!localStorage.getItem('record')) { //Comprueba si existe la variable de record
-        document.getElementById('puntuacion_alta').value = `${0} pts`; // Si no escribe 0
-    } else { //Si sí existe escribe el record
+    if (!localStorage.getItem('record')) { //Checks if the variable of the record exists
+        document.getElementById('puntuacion_alta').value = `${0} pts`; // If not writes 0
+    } else { //If yes it writes the value inside
         document.getElementById('puntuacion_alta').value = `${localStorage.getItem('record')} pts`
     }
 }
 function bucleMovimiento () {
-    var movement = setInterval(() => {//Función pricipal del juego 
+    var movement = setInterval(() => {//Main function 
         if (pausa == 0) {
             seAcabo = 0;
-            let primerElemento = posicion[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzana. 
-            //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
-            if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
-                pantallaVictoria();
-                clearInterval(movement);
-                recordNormal(posicion.length - 1); //funcion para comprobar si se ha batido el record anterior
-            }
+            let primerElemento = posicion[0];//It helps add another tile to the snake. Avoids adding a reference to the array instead of the actual value
+            
             if (posicion.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
                     for (let i = posicion.length - 2; i >= 0; i--) {
@@ -51,8 +45,8 @@ function bucleMovimiento () {
                     }
                 }, 0);
             } 
-            if (direccion == 'arriba') {//Comprueba en que dirección tiene que avanzar la serpitente y cambia la coordenada correspondiente solo para la cabeza
-                posicion[0].alto--; //Cuando va hacia arriba resta de la posición alto porque como la tabla se genera de arriba a abajo, hacia arriba están los valores más pequeños
+            if (direccion == 'arriba') {//CChecks the direction of the snake
+                posicion[0].alto--; //When you go up it subtracts, cause the table is generated from the top to the bottom
             } else if (direccion == 'abajo') {
                 posicion[0].alto++;
             } else if (direccion == 'izquierda') {
@@ -60,18 +54,23 @@ function bucleMovimiento () {
             } else if (direccion == 'derecha'){
                 posicion[0].ancho++;
             }
-            renderSerpitente() //Renderiza la serpiente
+            renderSerpitente() //Renders the snake
             
-            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //Comprueba que la posición de la cabbeza es igual a la de la manzana
-                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
-                manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
-                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
-            } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Si no pasa por dónde la manzana, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto da nulo
+            if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //If the snake`s head position is equal to the apple`s position...
+                posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Doubles the head position
+                if (posicion.length == (ancho * alto)) { //Checks if the player has won
+                    pantallaVictoria();
+                    clearInterval(movement);
+                    recordNormal(posicion.length - 1); //Checks if the highest score was beaten
+                }
+                manzana = ponerMazana(posicion);//It generates another apple
+                document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...and changes the score display
+            } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //If the head id is null, the it went out of the play area so you lost
                 pantallaGameOver();
                 clearInterval(movement);
                 seAcabo = 1;
                 recordNormal(posicion.length - 1);
-            } else { //Comprueba si la baeza de la serpiente se ha chocado con su cuerpo
+            } else { //If the snake bumped into its own  body
                for (let i = 0; i <= posicion.length - 1; i++) {
                    if (
                        (posicion[i].ancho == posicion[0].ancho) && (posicion[i].alto == posicion[0].alto) && (posicion.length > 1) && (i != 0)
@@ -79,7 +78,7 @@ function bucleMovimiento () {
                            pantallaGameOver();
                            clearInterval(movement);
                            seAcabo = 1;
-                           recordNormal(posicion.length - 1);//Si se pierde también se comprueba si se ha batido el récord
+                           recordNormal(posicion.length - 1);//If you lose it also checks if you beated the record
                    }
                }
             }
@@ -88,14 +87,14 @@ function bucleMovimiento () {
         }
     } ,intervalo());
 }
-function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variable de dirección según se presionan las teclas
+function manejadorTeclas (e)  { //Changes the direction of the snake, or if the pause button was pressed
         let tecla = e.key;
         if (tecla == 'Escape') {
             pausa = 1;
             pausar();
-            document.getElementById('btn-control3').style.display = 'none'; //Oculta el boton de pausa
-        } else if (!direccion && (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft')) { //Para el principio, que se pueda ir en cualquier dirección
-            document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
+            document.getElementById('btn-control3').style.display = 'none'; //Hides the pause button
+        } else if (!direccion && (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft')) { //So in the beginning you can go in every direction
+            document.getElementById('btn-control3').style.display = 'block';//shows the pause button
             switch (tecla) {
                 case 'ArrowLeft':
                     e.preventDefault();
@@ -120,8 +119,8 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
                 default:
                     break;
                 }
-        } else if (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft'){ //Y cuando se mueva que solo pueda ir en perpendicular
-            document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
+        } else if (tecla == 'ArrowDown' || tecla == 'ArrowUp' || tecla == 'ArrowRight' || tecla == 'ArrowLeft'){ //And when the snake moves it can only go in perpendicular
+            document.getElementById('btn-control3').style.display = 'block';//Shows  pause button
             if (direccion == 'arriba' || direccion == 'abajo') {
                 switch (tecla) {
                     case 'ArrowLeft':
@@ -136,7 +135,7 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
                         break;
                 }
             } else if (direccion == 'izquierda' || direccion == 'derecha') {
-                document.getElementById('btn-control3').style.display = 'block';//Muestra el boton de pausa
+                document.getElementById('btn-control3').style.display = 'block';//Shows pause button
                 switch (tecla) {
                     case 'ArrowUp':
                         e.preventDefault();
@@ -154,9 +153,8 @@ function manejadorTeclas (e)  { //Comprueba y cambia la dirección de la variabl
 }
 function renderSerpitente () {
     for (let j = 0; j <= ancho; j++) {
-        for(let y = 0; y <= alto; y++) {//Recorre todo el cuadro de juego y lo pinta con colores alternos
-            if(seAcabo) { //comprueba que la variable para terminar no se haya activado, en cuyo caso se rompe el bucle
-                console.log('renderseAcabo')
+        for(let y = 0; y <= alto; y++) {//goes over al the table of the game, painting it with alternated colors (or colours if you are Bri'ish)
+            if(seAcabo) { //checks if the variable of end is active so the message errors doesn't start to log in the console
                 break;
             } else if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';
@@ -168,11 +166,11 @@ function renderSerpitente () {
             break;
         }
     }
-    if (!seAcabo) { //lo mismo con la manzana
+    if (!seAcabo) { //it also renders the apple
         document.getElementById(`${manzana[0]}  ${manzana[1]}`).style.background = '#9B0000';
     }
     for (let i = 0; i <= posicion.length - 1; i++) {
-        if (!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //y lo mismo con la serpiente. Pone la cabeza de un color distinto
+        if (!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //and same with the snake, but with the head in a different color (./icons/st,small,845x845-pad,1000x1000,f8f8f8.jpg, for my bri'ish frends)
             break;
         }
         if(seAcabo) {

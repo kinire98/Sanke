@@ -2,7 +2,7 @@ const $atras = document.querySelector('.atras'),
     $table = document.querySelector('table'),
     $tr = document.querySelectorAll('tr'),
     $td = document.querySelectorAll('td');
-//Se encarga de que las animaciones de la pantalla principal se vuelvan a ejecutar. También se encarga del movimiento entre la pantalla de inicio y la pantalla de inicio
+//Se encarga de que las animaciones de la pantalla principal se vuelvan a ejecutar. También se encarga del movimiento entre la pantalla de inicio y la pantalla de opciones
 $opciones.addEventListener('click', () => {
     document.getElementById('pantallaInicio').style.display = 'none';
     document.getElementById('Ajustes').style.display = 'flex';

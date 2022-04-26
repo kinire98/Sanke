@@ -44,7 +44,7 @@ function btnPanelConfig () { //Igual que pulsar el intro en la pantalla de pausa
     document.getElementById('juego').style.display = 'none'
     $padre.removeChild($tabla);
     document.getElementById('info').innerHTML = `
-    Presiona cualquier flecha para comenzar
+    Press any arrow key to begin
     `;
     removeEventListener('keydown',manejadorPausa)
     seAcabo = 0;
@@ -58,7 +58,7 @@ function btnPanelAgain () {//Igual que pulsar el intro en la pantalla de pausa, 
     const $padre = $tabla.parentElement;
     $padre.removeChild($tabla);
     document.getElementById('info').innerHTML = `
-    Presiona cualquier flecha para comenzar
+    Press any arrow key to begin
     `;
     removeEventListener('keydown',manejadorPausa)
     generarTabla()

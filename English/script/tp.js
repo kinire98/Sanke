@@ -22,11 +22,7 @@ function bucleTP () {
             seAcabo = 0;
             let primerElemento = posicionTP[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzanaTP. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
-            if (posicionTP.length == (ancho * alto) - 1) { //Comprueba si el jugador ha ganado, como son impares, para evitar un bucle infinito al final se quita la condición de victoria es un punto media
-                pantallaVictoria() 
-                clearInterval(movement)
-                recordTp(posicionTP.length - 1); //Cuando se gana se comprueba si el resultado es mayor al record guardado
-            }
+            
             if (posicionTP.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
                     for (let i = posicionTP.length - 2; i >= 0; i--) {
@@ -50,6 +46,11 @@ function bucleTP () {
                 posicionTP[0].ancho = manzana2[0]; //Cambia la posición de la cabeza por la de la manzanaTP que no se ha comido
                 posicionTP[0].alto = manzana2[1];
                 posicionTP.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
+                if (posicionTP.length == (ancho * alto) - 1) { //Comprueba si el jugador ha ganado, como son impares, para evitar un bucle infinito al final se quita la condición de victoria es un punto media
+                    pantallaVictoria() 
+                    clearInterval(movement)
+                    recordTp(posicionTP.length - 1); //Cuando se gana se comprueba si el resultado es mayor al record guardado
+                }
                 manzanaTP = ponerMazana(posicionTP);//Vuelve a generar otras dos manzanas...
                 manzana2 = ponerMazanaTP(posicionTP,manzanaTP);
                 document.getElementById('puntuacion').value = `${posicionTP.length - 1} pts.` //...y cambia el marcador 

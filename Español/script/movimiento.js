@@ -38,11 +38,7 @@ function bucleMovimiento () {
             seAcabo = 0;
             let primerElemento = posicion[0]; //Variable para añadir un nuevo valor de la serpitente en caso de que esta aumente de tamaño al comer una manzana. 
             //Se utiliza  para evitar introducir un referencia en el arreglo y duplicar posiciones 
-            if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
-                pantallaVictoria();
-                clearInterval(movement);
-                recordNormal(posicion.length - 1); //funcion para comprobar si se ha batido el record anterior
-            }
+            
             if (posicion.length > 1) { //Cuando la longitud de la serpiente sea mayor que 1, cada paoscion pasa a la anterior, borrando la última
                 setTimeout(() => {
                     for (let i = posicion.length - 2; i >= 0; i--) {
@@ -64,6 +60,11 @@ function bucleMovimiento () {
             
             if ((posicion[0].ancho == manzana[0]) && (posicion[0].alto == manzana[1])) { //Comprueba que la posición de la cabbeza es igual a la de la manzana
                 posicion.unshift({ancho:primerElemento.ancho, alto:primerElemento.alto})//Duplica la cabeza de la serpiente
+                if (posicion.length == (ancho * alto)) { //Comprueba si el jugador ha ganado
+                    pantallaVictoria();
+                    clearInterval(movement);
+                    recordNormal(posicion.length - 1); //funcion para comprobar si se ha batido el record anterior
+                }
                 manzana = ponerMazana(posicion);//Vuelve a generar otra manzana...
                 document.getElementById('puntuacion').value = `${posicion.length - 1} pts.` //...y cambia el marcador 
             } else if(!document.getElementById(`${posicion[0].ancho}  ${posicion[0].alto}`)){ //Si no pasa por dónde la manzana, comprueba si se ha salido del contenedor.  Si sale entonces no coincide con ninguna id, por lo tanto da nulo
@@ -156,7 +157,6 @@ function renderSerpitente () {
     for (let j = 0; j <= ancho; j++) {
         for(let y = 0; y <= alto; y++) {//Recorre todo el cuadro de juego y lo pinta con colores alternos
             if(seAcabo) { //comprueba que la variable para terminar no se haya activado, en cuyo caso se rompe el bucle
-                console.log('renderseAcabo')
                 break;
             } else if ((y + j) %2 == 0){
                 document.getElementById(`${j}  ${y}`).style.background = '#C5D8A4';

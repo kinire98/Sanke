@@ -4,7 +4,7 @@
 function pantallaGameOver () { //Esta función se ejecuta cuando las condiciones del setInterval se cumplen para parar el intervalo por derrota
     document.getElementById('info').style.opacity = '0.85' //Muestra la pantalla de la información
     document.getElementById('info').innerHTML = `
-    <div id="infor">¡Has perdido!</div></br>
+    <div id="infor">You lost!</div></br>
     <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>
     `; //Cambia el contenido y muestra el mensaje de game Over
@@ -18,7 +18,7 @@ function pantallaGameOver () { //Esta función se ejecuta cuando las condiciones
 function pantallaVictoria () { //Esta función hace lo mismo que la de derrota pero cambia el mensaje a uno de victoria
     document.getElementById('info').style.opacity = '0.85'
     document.getElementById('info').innerHTML = `
-    <div id="infor">¡Ganaste!</div></br>
+    <div id="infor">You won!</div></br>
     <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>
     `;
@@ -40,7 +40,7 @@ function volverAJugar (e) {
         document.getElementById('juego').style.display = 'none'
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
-        Presiona cualquier flecha para comenzar
+        Press any arrow key to begin
         `;
         removeEventListener('keydown',volverAJugar)
         seAcabo = 0;
@@ -49,7 +49,7 @@ function volverAJugar (e) {
         const $padre = $tabla.parentElement;
         $padre.removeChild($tabla);
         document.getElementById('info').innerHTML = `
-        Presiona cualquier flecha para comenzar
+        Press any arrow key to begin
         `;
         removeEventListener('keydown',volverAJugar)
         generarTabla()

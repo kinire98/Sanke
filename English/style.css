@@ -7,6 +7,13 @@
 
 *{
     font-family: 'roboto', sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
 }
 body {
     margin: 0;
@@ -402,7 +409,7 @@ span:hover {
     100% {
         font-size: 3rem;
         bottom: 25%;
-        right: 45%;
+        right: 45.45%;
     }
 }
 #opciones{

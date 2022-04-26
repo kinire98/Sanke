@@ -4,7 +4,7 @@ Este proyecto es una absoluto mojón de apatación del juego clásico de Snake e
 
 ## Empezando
 
-ISi quieres jugar para hacerte un poco de daño a los ojos, solo tienes que descargar el archivo comprimido con el proyecto en él. Una de las versiones está en español y la otra está en ingles, descarga la que mejor entiendas. Descomprimes el archivo, y abres el HTML **que se llama index.html**
+ISi quieres jugar para hacerte un poco de daño a los ojos, solo tienes que descargar el archivo comprimido con el proyecto en él. Una de las versiones está en español y la otra está en ingles, descarga la que mejor entiendas. Descomprimes el archivo, y abres el HTML **que se [language.html](language.html] o [index.html](./Espa%C3%B1ol/index.html] si has descargado una de las versiones con lenguaje**
 
 ### Prerrequisitos
 

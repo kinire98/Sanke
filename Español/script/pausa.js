@@ -13,7 +13,9 @@ function pausar () { //Función de pantalla de pausa
     seAcabo = 1; 
     removeEventListener('keydown',manejadorTeclas)
     console.clear()
-    addEventListener('keydown',manejadorPausa)
+    setTimeout(() => {
+        addEventListener('keydown',manejadorPausa)
+    }, intervalo());
 }
 function manejadorPausa (e) {
     let tecla = e.key;

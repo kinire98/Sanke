@@ -29,6 +29,14 @@ function btnHome () { //Resetea los estilos de las animaciones de la pantalla de
     const $tabla = document.querySelector('.tabla_juego')
     const $padre = $tabla.parentElement;
     $padre.removeChild($tabla);
+    direccion = null;
+    document.getElementById('info').style.opacity = '0.85';
+    document.getElementById('info').innerHTML = `
+    Press any arrow key to begin
+    `;
+    pausa = 1;
+    setTimeout(() => {pausa = 0}, intervalo());
+
 }
 function btnPause () {
     pausa = 1;

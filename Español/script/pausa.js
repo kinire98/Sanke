@@ -9,6 +9,7 @@ function pausar () { //Función de pantalla de pausa
     <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>`;
     controlBotonesPausa();//Listener de los botones
+    controlBotonesPanel();
     document.getElementById('btn-control3').style.display = 'none'; //Se oculta el botón de pausa
     seAcabo = 1; 
     removeEventListener('keydown',manejadorTeclas)

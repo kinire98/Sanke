@@ -9,6 +9,7 @@ function pausar () { //Pause screen function
     <button id="volver_empezar" class="boton pan_info">↺</button>
     <button id="config" class="boton pan_info">⚙</button>`;
     controlBotonesPausa();//Listener of the buttons
+    controlBotonesPanel();
     document.getElementById('btn-control3').style.display = 'none'; //Hides the pause button
     seAcabo = 1; 
     removeEventListener('keydown',manejadorTeclas)

@@ -62,7 +62,7 @@ $white.addEventListener('click', () => {
     funcionManjeadoraBotones(17);
 })
 $boton.addEventListener('click',() => {
-    generarTabla()
+    generarTabla(0)
 })
 function funcionManjeadoraBotones (valor) {//En esta función dependiendo del botón presionado se ejecuta con un valor de parámetro distinto
     //Dependiendo del valor marca un botón y desmarca el resto de su fila, y también cambia el valor correspondiente 

@@ -42,5 +42,21 @@
         <a href="./English/index.html" id="uno">English 🇬🇧 🇺🇸</a><br><br><br><br><br><br><br><br><br><br><br>
         <a href="./Español/index.html" id="dos">Español 🇪🇸 🇲🇽</a>
     </div>
+    <script>
+        let hasTouchScreen = false;
+
+        let UA = navigator.userAgent;
+        if ("maxTouchPoints" in navigator) {
+            hasTouchScreen = navigator.maxTouchPoints > 0;
+        }
+        hasTouchScreen = (
+            /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+            /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA) ||
+            hasTouchScreen
+        );
+        if (hasTouchScreen) {
+            document.body.innerHTML = "<h1>This page isn't compatible with mobile devices</h1>"
+        }
+    </script>
 </body>
 </html>
